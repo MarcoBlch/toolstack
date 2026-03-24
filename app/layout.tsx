@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: 'Tools4Free — Free Online Tools',
   description: 'Free online tools: text generator, QR codes, passwords, word counter, JSON formatter, and more. No signup. No ads. No BS.',
   metadataBase: new URL('https://tools4free.site'),
+  verification: {
+    google: 'JnY5OeQlLMQEM09W-Zjo848bgz7vsKBiwRrQ5piOMFI',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
