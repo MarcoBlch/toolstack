@@ -5,24 +5,26 @@ const TOOLS = [
   { href: '/fancy-text', name: 'Fancy Text Generator', desc: 'Convert text to 20+ Unicode font styles for Instagram, TikTok & more', icon: '✦', color: '#FF6B35', searches: '4M+', tag: 'LIVE' },
   { href: '/qr-generator', name: 'QR Code Generator', desc: 'Create QR codes for URLs, WiFi, email, phone. Color themes. Free PNG download.', icon: '◫', color: '#1A6B4E', searches: '5.2M+', tag: 'LIVE' },
   { href: '/password-generator', name: 'Password Generator', desc: 'Cryptographically secure passwords. Strength meter. Never stored.', icon: '⬡', color: '#22D97A', searches: '3.1M+', tag: 'LIVE' },
-  { href: '/unit-converter', name: 'Unit Converter', desc: 'Convert length, weight, temperature, volume, area, speed, data & time. 8 categories.', icon: '⇄', color: '#3B82F6', searches: '3.2M+', tag: 'LIVE' },
+  { href: '/unit-converter', name: 'Unit Converter', desc: 'Convert length, weight, temperature, volume, area, speed, data & time.', icon: '⇄', color: '#3B82F6', searches: '3.2M+', tag: 'LIVE' },
   { href: '/word-counter', name: 'Word & Character Counter', desc: 'Count words, characters, sentences, paragraphs. Reading time & keyword density.', icon: '¶', color: '#0EA5E9', searches: '2.8M+', tag: 'LIVE' },
+  { href: '/timezone-converter', name: 'Timezone Converter', desc: 'Convert time between 24 zones. Live world clock. Meeting planner.', icon: '🕐', color: '#0891B2', searches: '2.1M+', tag: 'NEW' },
   { href: '/image-compressor', name: 'Image Compressor', desc: 'Reduce image size by up to 80%. JPEG, PNG, WebP. Nothing leaves your browser.', icon: '🗜', color: '#D85A30', searches: '2M+', tag: 'LIVE' },
   { href: '/json-formatter', name: 'JSON Formatter & Validator', desc: 'Format, validate, minify JSON. Syntax highlighting. Error detection.', icon: '{ }', color: '#8B5CF6', searches: '1.5M+', tag: 'LIVE' },
-  { href: '/lorem-generator', name: 'Lorem Ipsum Generator', desc: 'Generate placeholder text. Paragraphs, sentences, or exact word count. One-click copy.', icon: 'L', color: '#7C3AED', searches: '1.5M+', tag: 'LIVE' },
-  { href: '/case-converter', name: 'Text Case Converter', desc: 'Convert between UPPER, lower, Title, camelCase, snake_case, kebab-case & more.', icon: 'Aa', color: '#E8457A', searches: '1.2M+', tag: 'LIVE' },
-  { href: '/gradient-generator', name: 'CSS Gradient Generator', desc: 'Create beautiful CSS gradients visually. Pick colors, angle, copy CSS code.', icon: '◆', color: '#6366F1', searches: '800K+', tag: 'LIVE' },
+  { href: '/lorem-generator', name: 'Lorem Ipsum Generator', desc: 'Generate placeholder text. Paragraphs, sentences, or exact word count.', icon: 'L', color: '#7C3AED', searches: '1.5M+', tag: 'LIVE' },
+  { href: '/case-converter', name: 'Text Case Converter', desc: 'UPPER, lower, Title, camelCase, snake_case, kebab-case & 6 more.', icon: 'Aa', color: '#E8457A', searches: '1.2M+', tag: 'LIVE' },
+  { href: '/hash-generator', name: 'Hash Generator', desc: 'Generate MD5, SHA-1, SHA-256, SHA-512 hashes. Web Crypto API powered.', icon: '#', color: '#059669', searches: '800K+', tag: 'NEW' },
+  { href: '/gradient-generator', name: 'CSS Gradient Generator', desc: 'Create beautiful CSS gradients visually. Pick colors, angle, copy CSS.', icon: '◆', color: '#6366F1', searches: '800K+', tag: 'LIVE' },
+  { href: '/base64', name: 'Base64 Encoder/Decoder', desc: 'Encode text to Base64 or decode Base64 back. Image to data URI.', icon: '↔', color: '#CA8A04', searches: '700K+', tag: 'NEW' },
+  { href: '/diff-checker', name: 'Text Diff Checker', desc: 'Compare two texts side by side. Additions in green, deletions in red.', icon: '≠', color: '#DC2626', searches: '600K+', tag: 'NEW' },
+  { href: '/regex-tester', name: 'Regex Tester', desc: 'Write regex, test against text, see matches highlighted in real time.', icon: '.*', color: '#9333EA', searches: '600K+', tag: 'NEW' },
 ]
 
 const COMING = [
   { name: 'Emoji Database', searches: '900K+' },
-  { name: 'Timezone Converter', searches: '2.1M+' },
-  { name: 'Text Diff Checker', searches: '600K+' },
-  { name: 'Base64 Encoder/Decoder', searches: '700K+' },
-  { name: 'Hash Generator', searches: '800K+' },
-  { name: 'Regex Tester', searches: '600K+' },
   { name: 'Markdown Editor', searches: '500K+' },
   { name: 'Favicon Generator', searches: '400K+' },
+  { name: 'Screenshot Mockup', searches: '300K+' },
+  { name: 'Color Picker', searches: '500K+' },
 ]
 
 const fb = "'Outfit', -apple-system, sans-serif"

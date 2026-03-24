@@ -3,7 +3,31 @@
     "allow": [
       "Bash(xargs rm:*)",
       "Bash(gh repo:*)",
-      "WebFetch(domain:tools4free.site)"
+      "WebFetch(domain:tools4free.site)",
+      "Read(//home/marc/code/MarcoBlch/**)",
+      "Bash(ls -d \"/home/marc/code/MarcoBlch/milion dolar beibi\"/app/*/)",
+      "Bash(for tool:*)",
+      "Bash(do)",
+      "Bash(echo \"=== $tool ===\")",
+      "Read(//home/marc/code/MarcoBlch/milion dolar beibi/app/**)",
+      "Bash(done)",
+      "Bash(ls -la /home/marc/code/MarcoBlch/milion dolar beibi/*/)",
+      "Bash(ls -d \"/home/marc/code/MarcoBlch/milion dolar beibi/app\"/*/)",
+      "Bash(xargs -n1 basename)",
+      "Bash(ls -d /home/marc/code/MarcoBlch/milion dolar beibi/*/)",
+      "Bash(ls -d app/*/)",
+      "Bash(mv timezone-converter/ app/timezone-converter/)",
+      "Bash(mv base64/ app/base64/)",
+      "Bash(mv hash-generator/ app/hash-generator/)",
+      "Bash(mv diff-checker/ app/diff-checker/)",
+      "Bash(mv regex-tester/ app/regex-tester/)",
+      "Bash(cp page.tsx.updated app/page.tsx)",
+      "Bash(cp sitemap.ts.updated app/sitemap.ts)",
+      "Bash(cp ToolShell.tsx.updated components/ToolShell.tsx)",
+      "Bash(rm page.tsx.updated sitemap.ts.updated ToolShell.tsx.updated)",
+      "Bash(cp -f page.tsx.updated app/page.tsx)",
+      "Bash(cp -f sitemap.ts.updated app/sitemap.ts)",
+      "Bash(cp -f ToolShell.tsx.updated components/ToolShell.tsx)"
     ]
   }
 }

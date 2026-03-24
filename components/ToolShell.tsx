@@ -9,9 +9,14 @@ const TOOLS_NAV = [
   { href: '/json-formatter', name: 'JSON Formatter' },
   { href: '/case-converter', name: 'Case Converter' },
   { href: '/unit-converter', name: 'Unit Converter' },
+  { href: '/timezone-converter', name: 'Timezones' },
   { href: '/image-compressor', name: 'Image Compressor' },
   { href: '/lorem-generator', name: 'Lorem Ipsum' },
   { href: '/gradient-generator', name: 'CSS Gradients' },
+  { href: '/base64', name: 'Base64' },
+  { href: '/diff-checker', name: 'Diff Checker' },
+  { href: '/hash-generator', name: 'Hash Generator' },
+  { href: '/regex-tester', name: 'Regex Tester' },
 ]
 
 export default function ToolShell({

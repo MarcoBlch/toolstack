@@ -7,13 +7,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/fancy-text',
     '/qr-generator',
     '/password-generator',
-    '/word-counter',
-    '/json-formatter',
-    '/case-converter',
     '/unit-converter',
+    '/word-counter',
+    '/timezone-converter',
     '/image-compressor',
+    '/json-formatter',
     '/lorem-generator',
+    '/case-converter',
+    '/hash-generator',
     '/gradient-generator',
+    '/base64',
+    '/diff-checker',
+    '/regex-tester',
   ]
 
   return [
