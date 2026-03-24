@@ -23,6 +23,16 @@ const TOOLS = [
   { href: '/favicon-generator', name: 'Favicon Generator', desc: 'Generate favicons from a letter or emoji. All sizes. Download PNG pack.', icon: '◨', color: '#2563EB', searches: '400K+', tag: 'NEW' },
   { href: '/screenshot-mockup', name: 'Screenshot Mockup', desc: 'Frame screenshots in browser or device mockups. Gradient backgrounds.', icon: '🖼', color: '#7C3AED', searches: '300K+', tag: 'NEW' },
   { href: '/invoice-generator', name: 'Invoice Generator', desc: 'Create professional invoices. Line items, tax, discounts. Download PDF. Free.', icon: '📄', color: '#059669', searches: '2.4M+', tag: 'NEW' },
+  { href: '/mortgage-calculator', name: 'Mortgage Calculator', desc: 'Calculate monthly payments, total interest, amortization.', icon: '🏠', color: '#059669', searches: '5M+', tag: 'FINANCE' },
+  { href: '/bmi-calculator', name: 'BMI Calculator', desc: 'Calculate Body Mass Index. Metric and imperial.', icon: '⚖️', color: '#0891B2', searches: '6M+', tag: 'FINANCE' },
+  { href: '/currency-converter', name: 'Currency Converter', desc: 'Convert between 30+ world currencies instantly.', icon: '💱', color: '#059669', searches: '5M+', tag: 'FINANCE' },
+  { href: '/loan-calculator', name: 'Loan Calculator', desc: 'Monthly payments for any loan. Amortization schedule.', icon: '🏦', color: '#DC2626', searches: '4M+', tag: 'FINANCE' },
+  { href: '/percentage-calculator', name: 'Percentage Calculator', desc: 'What is X% of Y? Percentage change, difference.', icon: '%', color: '#D97706', searches: '3.5M+', tag: 'FINANCE' },
+  { href: '/salary-calculator', name: 'Salary Calculator', desc: 'Gross to net salary. Tax breakdown by country.', icon: '💰', color: '#7C3AED', searches: '3M+', tag: 'FINANCE' },
+  { href: '/tip-calculator', name: 'Tip Calculator', desc: 'Calculate tip and split the bill. Quick and easy.', icon: '🍽️', color: '#EA580C', searches: '2.5M+', tag: 'FINANCE' },
+  { href: '/investment-calculator', name: 'Investment Calculator', desc: 'Compound interest. See your money grow over time.', icon: '📈', color: '#2563EB', searches: '2M+', tag: 'FINANCE' },
+  { href: '/vat-calculator', name: 'VAT Calculator', desc: 'Add or remove VAT/sales tax. Pre-set country rates.', icon: '🧾', color: '#4338CA', searches: '1.5M+', tag: 'FINANCE' },
+  { href: '/retirement-calculator', name: 'Retirement Calculator', desc: 'Plan retirement savings. Monthly income projection.', icon: '🏖️', color: '#7C3AED', searches: '1.5M+', tag: 'FINANCE' },
 ]
 
 const COMING: { name: string; searches: string }[] = []
@@ -46,7 +56,7 @@ export default function Home() {
           }}>T</div>
           <span style={{ fontSize: 17, fontWeight: 700, letterSpacing: '-.3px' }}>Tools4Free</span>
         </div>
-        <span style={{ fontSize: 12, color: '#9A958A' }}>20 free tools · Zero cost · Zero signup</span>
+        <span style={{ fontSize: 12, color: '#9A958A' }}>30+ free tools · Zero cost · Zero signup</span>
       </nav>
 
       {/* Hero */}

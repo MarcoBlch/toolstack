@@ -11,6 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/base64', '/diff-checker', '/regex-tester', '/emoji-picker',
     '/color-picker', '/markdown-editor', '/favicon-generator',
     '/screenshot-mockup', '/invoice-generator',
+    // Finance calculators
+    '/mortgage-calculator', '/investment-calculator', '/salary-calculator',
+    '/loan-calculator', '/percentage-calculator', '/bmi-calculator',
+    '/tip-calculator', '/vat-calculator', '/currency-converter',
+    '/retirement-calculator',
   ]
 
   const nichePages = [
@@ -20,6 +25,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/strong-password', '/random-password', '/compress-png', '/compress-jpeg',
     '/json-validator', '/json-minifier', '/character-counter', '/uppercase-converter',
     '/invoice-template', '/freelance-invoice',
+    // Finance niche pages
+    '/compound-interest-calculator', '/amortization-calculator',
+    '/paycheck-calculator', '/down-payment-calculator', '/debt-payoff-calculator',
   ]
 
   const translations = [
@@ -28,10 +36,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/fr/formateur-json', '/fr/convertisseur-majuscules',
     '/fr/generateur-degrade-css', '/fr/generateur-lorem-ipsum',
     '/fr/facture-gratuite',
+    // Finance FR
+    '/fr/calculatrice-pret-immobilier', '/fr/calcul-tva',
+    '/fr/salaire-brut-net', '/fr/simulateur-investissement',
     '/es/letras-bonitas', '/es/generador-qr', '/es/generador-contrasena',
     '/es/convertidor-unidades', '/es/contador-palabras', '/es/compresor-imagen',
     '/es/formateador-json', '/es/conversor-mayusculas',
     '/es/generador-lorem', '/es/generador-degradado-css', '/es/factura-gratis',
+    // Finance ES
+    '/es/calculadora-hipoteca', '/es/calculadora-iva', '/es/calculadora-porcentaje',
     '/pt/texto-estilizado', '/pt/gerador-qr', '/pt/gerador-senha',
     '/pt/conversor-unidades', '/pt/contador-palavras', '/pt/compressor-imagem',
     '/pt/formatador-json', '/pt/conversor-maiusculas',
@@ -87,6 +100,57 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '64-character-password','4-digit-pin','6-digit-pin','8-digit-pin',
   ].map(s => `/password/${s}`)
 
+  // Finance programmatic SEO pages
+  const mortgageSlugs: string[] = []
+  for (const a of [100000,150000,200000,250000,300000,350000,400000,450000,500000,600000,700000,800000,1000000]) mortgageSlugs.push(`/mortgage/${a/1000}k-mortgage-payment`)
+  for (const r of [2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8]) mortgageSlugs.push(`/mortgage/mortgage-rate-${r}`)
+  for (const y of [10,15,20,30]) mortgageSlugs.push(`/mortgage/${y}-year-mortgage`)
+
+  const percentSlugs: string[] = []
+  for (const [p, v] of [
+    [10,100],[10,200],[10,500],[10,1000],
+    [15,50],[15,100],[15,200],[15,500],
+    [20,50],[20,100],[20,150],[20,200],[20,500],[20,1000],
+    [25,100],[25,200],[25,500],[25,1000],
+    [30,100],[30,200],[30,500],
+    [33,100],[33,300],[33,500],
+    [50,100],[50,200],[50,500],[50,1000],
+    [75,100],[75,200],
+    [15,25],[15,30],[15,40],[15,50],[15,60],[15,75],[15,100],
+    [18,25],[18,30],[18,40],[18,50],[18,60],[18,75],[18,100],
+    [20,25],[20,30],[20,40],[20,50],[20,60],[20,75],[20,100],
+  ]) percentSlugs.push(`/percent/what-is-${p}-percent-of-${v}`)
+
+  const bmiSlugs: string[] = []
+  for (const cm of [150,155,160,165,170,175,180,185,190,195,200]) {
+    for (const kg of [50,55,60,65,70,75,80,85,90,95,100]) {
+      bmiSlugs.push(`/bmi/bmi-${cm}cm-${kg}kg`)
+    }
+  }
+
+  const exchangeSlugs: string[] = []
+  for (const [from, to] of [
+    ['USD','EUR'],['EUR','USD'],['GBP','USD'],['USD','GBP'],
+    ['EUR','GBP'],['GBP','EUR'],['USD','JPY'],['EUR','JPY'],
+    ['USD','CAD'],['USD','AUD'],['USD','CHF'],['EUR','CHF'],
+    ['USD','INR'],['EUR','INR'],['GBP','INR'],
+    ['USD','BRL'],['EUR','BRL'],
+    ['USD','MXN'],['EUR','MXN'],
+    ['USD','CNY'],['EUR','CNY'],
+    ['USD','KRW'],['EUR','KRW'],
+  ]) {
+    for (const a of [1,10,50,100,500,1000,5000,10000]) {
+      exchangeSlugs.push(`/exchange/${a}-${from.toLowerCase()}-to-${to.toLowerCase()}`)
+    }
+  }
+
+  const salarySlugs: string[] = []
+  for (const s of [25000,30000,35000,40000,45000,50000,55000,60000,70000,80000,90000,100000]) {
+    for (const c of ['france','usa','uk']) {
+      salarySlugs.push(`/salary/${s/1000}k-salary-${c}`)
+    }
+  }
+
   const allPaths = [
     ...staticTools,
     ...nichePages,
@@ -95,6 +159,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...timezoneSlugs,
     ...colorSlugs,
     ...passwordSlugs,
+    ...mortgageSlugs,
+    ...percentSlugs,
+    ...bmiSlugs,
+    ...exchangeSlugs,
+    ...salarySlugs,
   ]
 
   return allPaths.map(path => ({

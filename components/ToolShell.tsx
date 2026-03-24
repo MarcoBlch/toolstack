@@ -23,6 +23,16 @@ const TOOLS_NAV = [
   { href: '/favicon-generator', name: 'Favicons' },
   { href: '/screenshot-mockup', name: 'Mockups' },
   { href: '/invoice-generator', name: 'Invoices' },
+  { href: '/mortgage-calculator', name: 'Mortgage' },
+  { href: '/investment-calculator', name: 'Investments' },
+  { href: '/salary-calculator', name: 'Salary' },
+  { href: '/loan-calculator', name: 'Loans' },
+  { href: '/percentage-calculator', name: 'Percentage' },
+  { href: '/bmi-calculator', name: 'BMI' },
+  { href: '/tip-calculator', name: 'Tips' },
+  { href: '/vat-calculator', name: 'VAT' },
+  { href: '/currency-converter', name: 'Currency' },
+  { href: '/retirement-calculator', name: 'Retirement' },
 ]
 
 export default function ToolShell({
