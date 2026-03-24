@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(xargs rm:*)",
-      "Bash(gh repo:*)"
+      "Bash(gh repo:*)",
+      "WebFetch(domain:tools4free.site)"
     ]
   }
 }

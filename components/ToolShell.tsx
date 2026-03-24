@@ -8,6 +8,10 @@ const TOOLS_NAV = [
   { href: '/word-counter', name: 'Word Counter' },
   { href: '/json-formatter', name: 'JSON Formatter' },
   { href: '/case-converter', name: 'Case Converter' },
+  { href: '/unit-converter', name: 'Unit Converter' },
+  { href: '/image-compressor', name: 'Image Compressor' },
+  { href: '/lorem-generator', name: 'Lorem Ipsum' },
+  { href: '/gradient-generator', name: 'CSS Gradients' },
 ]
 
 export default function ToolShell({

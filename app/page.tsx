@@ -5,20 +5,24 @@ const TOOLS = [
   { href: '/fancy-text', name: 'Fancy Text Generator', desc: 'Convert text to 20+ Unicode font styles for Instagram, TikTok & more', icon: '✦', color: '#FF6B35', searches: '4M+', tag: 'LIVE' },
   { href: '/qr-generator', name: 'QR Code Generator', desc: 'Create QR codes for URLs, WiFi, email, phone. Color themes. Free PNG download.', icon: '◫', color: '#1A6B4E', searches: '5.2M+', tag: 'LIVE' },
   { href: '/password-generator', name: 'Password Generator', desc: 'Cryptographically secure passwords. Strength meter. Never stored.', icon: '⬡', color: '#22D97A', searches: '3.1M+', tag: 'LIVE' },
-  { href: '/word-counter', name: 'Word & Character Counter', desc: 'Count words, characters, sentences, paragraphs. Reading & speaking time.', icon: '¶', color: '#3B82F6', searches: '2.8M+', tag: 'LIVE' },
-  { href: '/json-formatter', name: 'JSON Formatter & Validator', desc: 'Format, validate, minify JSON. Syntax highlighting. Tree view.', icon: '{ }', color: '#8B5CF6', searches: '1.5M+', tag: 'LIVE' },
+  { href: '/unit-converter', name: 'Unit Converter', desc: 'Convert length, weight, temperature, volume, area, speed, data & time. 8 categories.', icon: '⇄', color: '#3B82F6', searches: '3.2M+', tag: 'LIVE' },
+  { href: '/word-counter', name: 'Word & Character Counter', desc: 'Count words, characters, sentences, paragraphs. Reading time & keyword density.', icon: '¶', color: '#0EA5E9', searches: '2.8M+', tag: 'LIVE' },
+  { href: '/image-compressor', name: 'Image Compressor', desc: 'Reduce image size by up to 80%. JPEG, PNG, WebP. Nothing leaves your browser.', icon: '🗜', color: '#D85A30', searches: '2M+', tag: 'LIVE' },
+  { href: '/json-formatter', name: 'JSON Formatter & Validator', desc: 'Format, validate, minify JSON. Syntax highlighting. Error detection.', icon: '{ }', color: '#8B5CF6', searches: '1.5M+', tag: 'LIVE' },
+  { href: '/lorem-generator', name: 'Lorem Ipsum Generator', desc: 'Generate placeholder text. Paragraphs, sentences, or exact word count. One-click copy.', icon: 'L', color: '#7C3AED', searches: '1.5M+', tag: 'LIVE' },
   { href: '/case-converter', name: 'Text Case Converter', desc: 'Convert between UPPER, lower, Title, camelCase, snake_case, kebab-case & more.', icon: 'Aa', color: '#E8457A', searches: '1.2M+', tag: 'LIVE' },
+  { href: '/gradient-generator', name: 'CSS Gradient Generator', desc: 'Create beautiful CSS gradients visually. Pick colors, angle, copy CSS code.', icon: '◆', color: '#6366F1', searches: '800K+', tag: 'LIVE' },
 ]
 
 const COMING = [
-  { name: 'Unit Converter', searches: '3.2M+' },
-  { name: 'Image Compressor', searches: '2M+' },
-  { name: 'Lorem Ipsum Generator', searches: '1.5M+' },
-  { name: 'CSS Gradient Generator', searches: '800K+' },
   { name: 'Emoji Database', searches: '900K+' },
   { name: 'Timezone Converter', searches: '2.1M+' },
   { name: 'Text Diff Checker', searches: '600K+' },
   { name: 'Base64 Encoder/Decoder', searches: '700K+' },
+  { name: 'Hash Generator', searches: '800K+' },
+  { name: 'Regex Tester', searches: '600K+' },
+  { name: 'Markdown Editor', searches: '500K+' },
+  { name: 'Favicon Generator', searches: '400K+' },
 ]
 
 const fb = "'Outfit', -apple-system, sans-serif"

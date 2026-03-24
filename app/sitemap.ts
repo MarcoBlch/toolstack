@@ -10,6 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/word-counter',
     '/json-formatter',
     '/case-converter',
+    '/unit-converter',
+    '/image-compressor',
+    '/lorem-generator',
+    '/gradient-generator',
   ]
 
   return [
