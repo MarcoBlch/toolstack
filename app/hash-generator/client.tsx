@@ -77,8 +77,12 @@ async function hashText(text: string, algo: string): Promise<string> {
 
 type HashResult = { algo: string; hash: string }
 
-export default function HashClient() {
-  const [input, setInput] = useState('')
+export default function HashClient({
+  defaultInput,
+}: {
+  defaultInput?: string
+} = {}) {
+  const [input, setInput] = useState(defaultInput || '')
   const [results, setResults] = useState<HashResult[]>([])
   const [copied, setCopied] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)

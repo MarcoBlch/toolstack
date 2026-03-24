@@ -63,8 +63,12 @@ function analogous(hex: string): [string, string] {
   return [hslToHex(h - 30, s, l), hslToHex(h + 30, s, l)]
 }
 
-export default function ColorClient() {
-  const [color, setColor] = useState('#3B82F6')
+export default function ColorClient({
+  defaultColor,
+}: {
+  defaultColor?: string
+} = {}) {
+  const [color, setColor] = useState(defaultColor || '#3B82F6')
   const [copied, setCopied] = useState<string | null>(null)
 
   const [r, g, b] = useMemo(() => hexToRgb(color), [color])

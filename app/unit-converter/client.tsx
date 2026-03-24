@@ -78,11 +78,21 @@ const CATEGORIES: Category[] = [
   ]},
 ]
 
-export default function UnitConverterClient() {
-  const [catId, setCatId] = useState('length')
-  const [fromId, setFromId] = useState('cm')
-  const [toId, setToId] = useState('in')
-  const [value, setValue] = useState('100')
+export default function UnitConverterClient({
+  defaultCategory,
+  defaultFrom,
+  defaultTo,
+  defaultValue,
+}: {
+  defaultCategory?: string
+  defaultFrom?: string
+  defaultTo?: string
+  defaultValue?: string
+} = {}) {
+  const [catId, setCatId] = useState(defaultCategory || 'length')
+  const [fromId, setFromId] = useState(defaultFrom || 'cm')
+  const [toId, setToId] = useState(defaultTo || 'in')
+  const [value, setValue] = useState(defaultValue || '100')
 
   const cat = CATEGORIES.find(c => c.id === catId)!
   const fromUnit = cat.units.find(u => u.id === fromId) || cat.units[0]

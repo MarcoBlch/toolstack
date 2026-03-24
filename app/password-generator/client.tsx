@@ -6,8 +6,12 @@ const CHARS = { upper: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', lower: 'abcdefghijklmnopqrs
 const fb = "'Outfit', sans-serif"
 const fm = "'JetBrains Mono', monospace"
 
-export default function PassClient() {
-  const [len, setLen] = useState(16)
+export default function PassClient({
+  defaultLength,
+}: {
+  defaultLength?: number
+} = {}) {
+  const [len, setLen] = useState(defaultLength || 16)
   const [opts, setOpts] = useState({ upper: true, lower: true, numbers: true, symbols: true })
   const [passwords, setPasswords] = useState<string[]>([])
   const [copied, setCopied] = useState<number | null>(null)

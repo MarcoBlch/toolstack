@@ -47,9 +47,15 @@ function getOffset(tz: string): string {
   return match ? (match[1] || '+0') : ''
 }
 
-export default function TimezoneClient() {
-  const [fromZone, setFromZone] = useState('Europe/Paris')
-  const [toZone, setToZone] = useState('America/New_York')
+export default function TimezoneClient({
+  defaultFrom,
+  defaultTo,
+}: {
+  defaultFrom?: string
+  defaultTo?: string
+} = {}) {
+  const [fromZone, setFromZone] = useState(defaultFrom || 'Europe/Paris')
+  const [toZone, setToZone] = useState(defaultTo || 'America/New_York')
   const [inputTime, setInputTime] = useState('')
   const [now, setNow] = useState(new Date())
 
