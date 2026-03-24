@@ -22,6 +22,7 @@ const TOOLS = [
   { href: '/markdown-editor', name: 'Markdown Editor', desc: 'Write Markdown, see live HTML preview. Copy HTML. Split-pane editor.', icon: 'M↓', color: '#1C1B18', searches: '500K+', tag: 'NEW' },
   { href: '/favicon-generator', name: 'Favicon Generator', desc: 'Generate favicons from a letter or emoji. All sizes. Download PNG pack.', icon: '◨', color: '#2563EB', searches: '400K+', tag: 'NEW' },
   { href: '/screenshot-mockup', name: 'Screenshot Mockup', desc: 'Frame screenshots in browser or device mockups. Gradient backgrounds.', icon: '🖼', color: '#7C3AED', searches: '300K+', tag: 'NEW' },
+  { href: '/invoice-generator', name: 'Invoice Generator', desc: 'Create professional invoices. Line items, tax, discounts. Download PDF. Free.', icon: '📄', color: '#059669', searches: '2.4M+', tag: 'NEW' },
 ]
 
 const COMING: { name: string; searches: string }[] = []

@@ -22,6 +22,7 @@ const TOOLS_NAV = [
   { href: '/markdown-editor', name: 'Markdown' },
   { href: '/favicon-generator', name: 'Favicons' },
   { href: '/screenshot-mockup', name: 'Mockups' },
+  { href: '/invoice-generator', name: 'Invoices' },
 ]
 
 export default function ToolShell({

@@ -24,7 +24,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/markdown-editor',
     '/favicon-generator',
     '/screenshot-mockup',
+    '/invoice-generator',
     // Niche pages
+    '/invoice-template',
+    '/freelance-invoice',
     '/instagram-fonts',
     '/cursive-text',
     '/bold-text',
@@ -56,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/fr/convertisseur-majuscules',
     '/fr/generateur-lorem-ipsum',
     '/fr/generateur-degrade-css',
+    '/fr/facture-gratuite',
     // Spanish pages
     '/es/letras-bonitas',
     '/es/generador-qr',
@@ -67,6 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/es/conversor-mayusculas',
     '/es/generador-lorem',
     '/es/generador-degradado-css',
+    '/es/factura-gratis',
     // Portuguese pages
     '/pt/texto-estilizado',
     '/pt/gerador-qr',
