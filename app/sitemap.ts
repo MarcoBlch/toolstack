@@ -62,6 +62,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/pt/calculadora-porcentagem', '/pt/calculadora-imc',
     '/pt/calculadora-gorjeta', '/pt/calculadora-imposto',
     '/pt/conversor-moeda', '/pt/calculadora-aposentadoria',
+    // DE: 31 main tools
+    '/de/schriftarten-generator', '/de/qr-code-generator', '/de/passwort-generator',
+    '/de/einheiten-umrechner', '/de/woerter-zaehler', '/de/zeitzonen-umrechner',
+    '/de/bild-komprimieren', '/de/json-formatter', '/de/lorem-ipsum-generator',
+    '/de/gross-kleinschreibung', '/de/emoji-sammlung', '/de/hash-generator',
+    '/de/css-gradient-generator', '/de/base64-konverter', '/de/text-vergleichen',
+    '/de/regex-tester', '/de/farbwahler', '/de/markdown-editor',
+    '/de/favicon-generator', '/de/screenshot-mockup', '/de/rechnungsgenerator',
+    '/de/baufinanzierung-rechner', '/de/zinsrechner', '/de/brutto-netto-rechner',
+    '/de/kreditrechner', '/de/prozentrechner', '/de/bmi-rechner',
+    '/de/trinkgeld-rechner', '/de/mehrwertsteuer-rechner', '/de/waehrungsrechner',
+    '/de/rentenrechner',
+    // DE: Niche pages
+    '/de/gehaltsrechner-2026', '/de/tilgungsrechner', '/de/autokredit-rechner',
+    '/de/sparrechner', '/de/rabattrechner', '/de/wlan-qr-code',
+    '/de/rechnungsvorlage', '/de/png-komprimieren', '/de/jpeg-komprimieren',
+    '/de/json-validieren', '/de/zeichenzahler', '/de/grossbuchstaben-konverter',
+    '/de/instagram-schriften', '/de/sicheres-passwort', '/de/kg-in-pfund',
+    '/de/cm-in-zoll',
   ]
 
   // Programmatic convert/ pages
@@ -164,6 +183,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // DE: Programmatic conversion pages
+  const convertDeSlugs: string[] = []
+  for (const v of [1,2,3,5,10,20,30,40,50,60,70,75,80,90,100]) convertDeSlugs.push(`/de/umrechnen/${v}-kg-in-pfund`)
+  for (const v of [1,5,10,50,100,150,200,250]) convertDeSlugs.push(`/de/umrechnen/${v}-pfund-in-kg`)
+  for (const v of [1,2,3,5,10,15,20,25,30,40,50,60,70,80,90,100,120,150,170,175,180,185,190,200]) convertDeSlugs.push(`/de/umrechnen/${v}-cm-in-zoll`)
+  for (const v of [1,2,3,4,5,6,7,8,10,12,24,36,48]) convertDeSlugs.push(`/de/umrechnen/${v}-zoll-in-cm`)
+  for (const v of [1,2,3,5,10,20,50,100,200,500]) convertDeSlugs.push(`/de/umrechnen/${v}-meilen-in-km`)
+  for (const v of [1,2,3,5,10,20,50,100,200,500]) convertDeSlugs.push(`/de/umrechnen/${v}-km-in-meilen`)
+  for (const v of [0,10,15,20,25,30,35,37,38,40,50,60,80,100,150,180,200,220,250]) convertDeSlugs.push(`/de/umrechnen/${v}-celsius-in-fahrenheit`)
+  for (const v of [0,32,50,68,70,72,80,100,150,200,250,300,350,400,450]) convertDeSlugs.push(`/de/umrechnen/${v}-fahrenheit-in-celsius`)
+  for (const v of [1,2,5,10,20,50,100]) convertDeSlugs.push(`/de/umrechnen/${v}-liter-in-gallonen`)
+
+  // DE: Programmatic percentage pages
+  const percentDeSlugs: string[] = []
+  for (const [p, v] of [
+    [5,100],[10,50],[10,100],[10,200],[10,500],[15,100],[15,200],
+    [20,50],[20,100],[20,200],[20,500],[25,100],[25,200],[30,100],
+    [33,100],[50,100],[50,200],[50,500],[75,100],[19,100],[19,500],
+    [7,100],[7,500],
+  ]) percentDeSlugs.push(`/de/prozent/wieviel-ist-${p}-prozent-von-${v}`)
+
   const allPaths = [
     ...staticTools,
     ...nichePages,
@@ -177,6 +217,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...bmiSlugs,
     ...exchangeSlugs,
     ...salarySlugs,
+    ...convertDeSlugs,
+    ...percentDeSlugs,
   ]
 
   return allPaths.map(path => ({
