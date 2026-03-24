@@ -24,6 +24,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/markdown-editor',
     '/favicon-generator',
     '/screenshot-mockup',
+    // Niche pages
+    '/instagram-fonts',
+    '/cursive-text',
+    '/bold-text',
+    '/aesthetic-text',
+    '/strikethrough-text',
+    '/wifi-qr-code',
+    '/menu-qr-code',
+    '/whatsapp-qr-code',
+    '/kg-to-lbs',
+    '/cm-to-inches',
+    '/celsius-to-fahrenheit',
+    '/miles-to-km',
+    '/strong-password',
+    '/random-password',
+    '/compress-png',
+    '/compress-jpeg',
+    '/json-validator',
+    '/json-minifier',
+    '/character-counter',
+    '/uppercase-converter',
   ]
 
   return [
