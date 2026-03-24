@@ -10,6 +10,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/* Impact.com affiliate verification */}
+        <meta name="impact-site-verification" content="25f4a71a-436b-4180-99fa-244eec7f5b3d" />
+
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
