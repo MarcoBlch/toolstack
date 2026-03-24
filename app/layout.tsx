@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'ToolStack — Free Online Tools',
+  title: 'Tools4Free — Free Online Tools',
   description: 'Free online tools: text generator, QR codes, passwords, word counter, JSON formatter, and more. No signup. No ads. No BS.',
-  metadataBase: new URL('https://toolstack.dev'), // CHANGE THIS to your domain
+  metadataBase: new URL('https://tools4free.site'),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

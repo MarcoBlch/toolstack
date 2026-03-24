@@ -55,7 +55,7 @@ export default function JSONFormatterClient() {
 
   const handleSample = () => {
     const sample = JSON.stringify({
-      name: "ToolStack",
+      name: "Tools4Free",
       version: "1.0.0",
       tools: ["FancyText", "QRDrop", "PassForge", "WordTool", "JSONPretty"],
       config: { theme: "dark", language: "en", premium: false },

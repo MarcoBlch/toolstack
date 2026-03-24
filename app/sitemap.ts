@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE = 'https://toolstack.dev' // CHANGE to your domain
+const BASE = 'https://tools4free.site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const tools = [

@@ -38,7 +38,7 @@ export default function Home() {
             background: '#1C1B18', display: 'flex', alignItems: 'center',
             justifyContent: 'center', color: '#fff', fontSize: 13, fontWeight: 800,
           }}>T</div>
-          <span style={{ fontSize: 17, fontWeight: 700, letterSpacing: '-.3px' }}>ToolStack</span>
+          <span style={{ fontSize: 17, fontWeight: 700, letterSpacing: '-.3px' }}>Tools4Free</span>
         </div>
         <span style={{ fontSize: 12, color: '#9A958A' }}>20 free tools · Zero cost · Zero signup</span>
       </nav>
@@ -135,10 +135,10 @@ export default function Home() {
           Free online tools — no signup, no tracking
         </h2>
         <p style={{ fontSize: 14, color: '#5C5850', lineHeight: 1.8, marginBottom: 12 }}>
-          ToolStack is a collection of free browser-based utilities for developers, designers, writers, and everyone else. Every tool runs 100% locally in your browser — your data never touches a server. No accounts, no cookies, no tracking.
+          Tools4Free is a collection of free browser-based utilities for developers, designers, writers, and everyone else. Every tool runs 100% locally in your browser — your data never touches a server. No accounts, no cookies, no tracking.
         </p>
         <p style={{ fontSize: 14, color: '#5C5850', lineHeight: 1.8 }}>
-          From fancy text generators and QR codes to JSON formatters and password generators, ToolStack has the everyday tools you need, with a clean interface and zero friction. Bookmark it, use it, forget it exists until you need it again.
+          From fancy text generators and QR codes to JSON formatters and password generators, Tools4Free has the everyday tools you need, with a clean interface and zero friction. Bookmark it, use it, forget it exists until you need it again.
         </p>
       </section>
 
@@ -149,7 +149,7 @@ export default function Home() {
         display: 'flex', justifyContent: 'space-between',
         fontSize: 12, color: '#9A958A',
       }}>
-        <span>© 2026 ToolStack — Free forever</span>
+        <span>© 2026 Tools4Free — Free forever</span>
         <div style={{ display: 'flex', gap: 16 }}>
           <a href="#" style={{ color: '#9A958A', textDecoration: 'none' }}>Privacy</a>
           <a href="#" style={{ color: '#9A958A', textDecoration: 'none' }}>Terms</a>

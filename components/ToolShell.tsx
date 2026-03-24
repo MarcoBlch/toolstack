@@ -63,7 +63,7 @@ export default function ToolShell({
           display: 'flex', justifyContent: 'space-between',
           fontSize: 12, color: '#B0AAA0',
         }}>
-          <span>© 2026 ToolStack — Free forever</span>
+          <span>© 2026 Tools4Free — Free forever</span>
           <div style={{ display: 'flex', gap: 16 }}>
             <a href="#" style={{ color: '#B0AAA0', textDecoration: 'none' }}>Privacy</a>
             <a href="#" style={{ color: '#B0AAA0', textDecoration: 'none' }}>Terms</a>
