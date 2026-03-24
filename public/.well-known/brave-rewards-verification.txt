@@ -1,0 +1,4 @@
+This is a Brave Creators publisher verification file.
+
+Domain: tools4free.site
+Token: ce5e4851342ad0e207b81a5360aae619af702a4c7f7879a09a4edc2219819725
