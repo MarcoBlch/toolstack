@@ -1,0 +1,24 @@
+import { MetadataRoute } from 'next'
+
+const BASE = 'https://toolstack.dev' // CHANGE to your domain
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const tools = [
+    '/fancy-text',
+    '/qr-generator',
+    '/password-generator',
+    '/word-counter',
+    '/json-formatter',
+    '/case-converter',
+  ]
+
+  return [
+    { url: BASE, lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
+    ...tools.map(tool => ({
+      url: `${BASE}${tool}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    })),
+  ]
+}
