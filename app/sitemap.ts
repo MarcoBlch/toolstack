@@ -37,18 +37,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/fr/generateur-degrade-css', '/fr/generateur-lorem-ipsum',
     '/fr/facture-gratuite',
     // Finance FR
-    '/fr/calculatrice-pret-immobilier', '/fr/calcul-tva',
-    '/fr/salaire-brut-net', '/fr/simulateur-investissement',
+    '/fr/calculatrice-pret-immobilier', '/fr/simulateur-investissement',
+    '/fr/salaire-brut-net', '/fr/calculatrice-credit',
+    '/fr/calculatrice-pourcentage', '/fr/calcul-imc',
+    '/fr/calculatrice-pourboire', '/fr/calcul-tva',
+    '/fr/convertisseur-devise', '/fr/simulateur-retraite',
     '/es/letras-bonitas', '/es/generador-qr', '/es/generador-contrasena',
     '/es/convertidor-unidades', '/es/contador-palabras', '/es/compresor-imagen',
     '/es/formateador-json', '/es/conversor-mayusculas',
     '/es/generador-lorem', '/es/generador-degradado-css', '/es/factura-gratis',
     // Finance ES
-    '/es/calculadora-hipoteca', '/es/calculadora-iva', '/es/calculadora-porcentaje',
+    '/es/calculadora-hipoteca', '/es/calculadora-inversion',
+    '/es/calculadora-salario-neto', '/es/calculadora-prestamo',
+    '/es/calculadora-porcentaje', '/es/calculadora-imc',
+    '/es/calculadora-propina', '/es/calculadora-iva',
+    '/es/convertidor-moneda', '/es/calculadora-jubilacion',
     '/pt/texto-estilizado', '/pt/gerador-qr', '/pt/gerador-senha',
     '/pt/conversor-unidades', '/pt/contador-palavras', '/pt/compressor-imagem',
     '/pt/formatador-json', '/pt/conversor-maiusculas',
     '/pt/gerador-lorem', '/pt/gerador-gradiente-css',
+    // Finance PT
+    '/pt/calculadora-financiamento', '/pt/calculadora-investimento',
+    '/pt/calculadora-salario-liquido', '/pt/calculadora-emprestimo',
+    '/pt/calculadora-porcentagem', '/pt/calculadora-imc',
+    '/pt/calculadora-gorjeta', '/pt/calculadora-imposto',
+    '/pt/conversor-moeda', '/pt/calculadora-aposentadoria',
   ]
 
   // Programmatic convert/ pages
