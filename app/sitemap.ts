@@ -19,6 +19,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/base64',
     '/diff-checker',
     '/regex-tester',
+    '/emoji-picker',
+    '/color-picker',
+    '/markdown-editor',
+    '/favicon-generator',
+    '/screenshot-mockup',
   ]
 
   return [

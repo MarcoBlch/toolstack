@@ -17,15 +17,14 @@ const TOOLS = [
   { href: '/base64', name: 'Base64 Encoder/Decoder', desc: 'Encode text to Base64 or decode Base64 back. Image to data URI.', icon: '↔', color: '#CA8A04', searches: '700K+', tag: 'NEW' },
   { href: '/diff-checker', name: 'Text Diff Checker', desc: 'Compare two texts side by side. Additions in green, deletions in red.', icon: '≠', color: '#DC2626', searches: '600K+', tag: 'NEW' },
   { href: '/regex-tester', name: 'Regex Tester', desc: 'Write regex, test against text, see matches highlighted in real time.', icon: '.*', color: '#9333EA', searches: '600K+', tag: 'NEW' },
+  { href: '/emoji-picker', name: 'Emoji Picker', desc: 'Browse and copy all emojis. Search by name. 9 categories. One-click copy.', icon: '😀', color: '#F59E0B', searches: '900K+', tag: 'NEW' },
+  { href: '/color-picker', name: 'Color Picker', desc: 'Pick colors. Get HEX, RGB, HSL. Generate shades, tints, complementary.', icon: '🎨', color: '#E11D48', searches: '500K+', tag: 'NEW' },
+  { href: '/markdown-editor', name: 'Markdown Editor', desc: 'Write Markdown, see live HTML preview. Copy HTML. Split-pane editor.', icon: 'M↓', color: '#1C1B18', searches: '500K+', tag: 'NEW' },
+  { href: '/favicon-generator', name: 'Favicon Generator', desc: 'Generate favicons from a letter or emoji. All sizes. Download PNG pack.', icon: '◨', color: '#2563EB', searches: '400K+', tag: 'NEW' },
+  { href: '/screenshot-mockup', name: 'Screenshot Mockup', desc: 'Frame screenshots in browser or device mockups. Gradient backgrounds.', icon: '🖼', color: '#7C3AED', searches: '300K+', tag: 'NEW' },
 ]
 
-const COMING = [
-  { name: 'Emoji Database', searches: '900K+' },
-  { name: 'Markdown Editor', searches: '500K+' },
-  { name: 'Favicon Generator', searches: '400K+' },
-  { name: 'Screenshot Mockup', searches: '300K+' },
-  { name: 'Color Picker', searches: '500K+' },
-]
+const COMING: { name: string; searches: string }[] = []
 
 const fb = "'Outfit', -apple-system, sans-serif"
 const fm = "'JetBrains Mono', monospace"

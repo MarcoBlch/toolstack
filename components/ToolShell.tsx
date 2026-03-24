@@ -17,6 +17,11 @@ const TOOLS_NAV = [
   { href: '/diff-checker', name: 'Diff Checker' },
   { href: '/hash-generator', name: 'Hash Generator' },
   { href: '/regex-tester', name: 'Regex Tester' },
+  { href: '/emoji-picker', name: 'Emoji Picker' },
+  { href: '/color-picker', name: 'Color Picker' },
+  { href: '/markdown-editor', name: 'Markdown' },
+  { href: '/favicon-generator', name: 'Favicons' },
+  { href: '/screenshot-mockup', name: 'Mockups' },
 ]
 
 export default function ToolShell({
