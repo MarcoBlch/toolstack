@@ -16,6 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/loan-calculator', '/percentage-calculator', '/bmi-calculator',
     '/tip-calculator', '/vat-calculator', '/currency-converter',
     '/retirement-calculator',
+    // Health & Fitness calculators
+    '/calorie-calculator', '/macro-calculator', '/body-fat-calculator',
+    '/due-date-calculator', '/calorie-deficit', '/heart-rate-calculator',
+    '/ideal-weight', '/water-intake', '/one-rep-max', '/pace-calculator',
   ]
 
   const nichePages = [
@@ -28,6 +32,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Finance niche pages
     '/compound-interest-calculator', '/amortization-calculator',
     '/paycheck-calculator', '/down-payment-calculator', '/debt-payoff-calculator',
+    // Health niche pages
+    '/tdee-calculator', '/bmr-calculator', '/keto-macro-calculator',
+    '/pregnancy-week-calculator', '/5k-pace-calculator', '/marathon-pace-calculator',
   ]
 
   const translations = [
@@ -81,6 +88,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/de/json-validieren', '/de/zeichenzahler', '/de/grossbuchstaben-konverter',
     '/de/instagram-schriften', '/de/sicheres-passwort', '/de/kg-in-pfund',
     '/de/cm-in-zoll',
+    // Health FR
+    '/fr/calculateur-calories', '/fr/calculateur-macros', '/fr/calcul-masse-grasse',
+    '/fr/calcul-date-accouchement', '/fr/calcul-deficit-calorique', '/fr/frequence-cardiaque',
+    '/fr/poids-ideal', '/fr/calcul-hydratation', '/fr/calculateur-1rm', '/fr/calculateur-allure-course',
+    // Health ES
+    '/es/calculadora-calorias', '/es/calculadora-macros', '/es/calculadora-grasa-corporal',
+    '/es/calculadora-fecha-parto', '/es/calculadora-deficit-calorico', '/es/calculadora-frecuencia-cardiaca',
+    '/es/calculadora-peso-ideal', '/es/calculadora-agua-diaria', '/es/calculadora-1rm', '/es/calculadora-ritmo-carrera',
+    // Health PT
+    '/pt/calculadora-calorias', '/pt/calculadora-macros', '/pt/calculadora-gordura-corporal',
+    '/pt/calculadora-data-parto', '/pt/calculadora-deficit-calorico', '/pt/calculadora-frequencia-cardiaca',
+    '/pt/calculadora-peso-ideal', '/pt/calculadora-agua-diaria', '/pt/calculadora-1rm', '/pt/calculadora-ritmo-corrida',
+    // Health DE
+    '/de/kalorienrechner', '/de/makrorechner', '/de/koerperfettrechner',
+    '/de/geburtsterminrechner', '/de/kaloriendefizit-rechner', '/de/herzfrequenz-rechner',
+    '/de/idealgewicht-rechner', '/de/wasserbedarf-rechner', '/de/1rm-rechner', '/de/laufpace-rechner',
   ]
 
   // Programmatic convert/ pages
@@ -204,6 +227,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [7,100],[7,500],
   ]) percentDeSlugs.push(`/de/prozent/wieviel-ist-${p}-prozent-von-${v}`)
 
+  // Health programmatic SEO pages
+  const caloriesBurnedSlugs = [
+    'calories-burned-walking-30-min','calories-burned-walking-1-hour',
+    'calories-burned-running-30-min','calories-burned-running-1-hour',
+    'calories-burned-cycling-30-min','calories-burned-cycling-1-hour',
+    'calories-burned-swimming-30-min','calories-burned-swimming-1-hour',
+    'calories-burned-yoga-30-min','calories-burned-yoga-1-hour',
+    'calories-burned-weightlifting-30-min','calories-burned-weightlifting-1-hour',
+    'calories-burned-hiit-30-min','calories-burned-dancing-30-min',
+    'calories-burned-hiking-1-hour','calories-burned-jump-rope-30-min',
+    'calories-burned-rowing-30-min','calories-burned-pilates-1-hour',
+    'calories-burned-elliptical-30-min','calories-burned-stairs-30-min',
+  ].map(s => `/calories-burned/${s}`)
+
+  const idealWeightSlugs = [
+    ...[150,152,155,157,160,162,165,167,170,172,175,177,180,182,185,187,190,193,195,198,200].map(cm => `/ideal-weight-for/${cm}cm`),
+    ...[[5,0],[5,1],[5,2],[5,3],[5,4],[5,5],[5,6],[5,7],[5,8],[5,9],[5,10],[5,11],[6,0],[6,1],[6,2],[6,3],[6,4]].map(([ft,i]) => `/ideal-weight-for/${ft}ft${i}`),
+  ]
+
+  const runningSlugs = [
+    '5k-pace-20-min','5k-pace-25-min','5k-pace-30-min','5k-pace-35-min',
+    '10k-pace-40-min','10k-pace-50-min','10k-pace-60-min',
+    'half-marathon-pace-1h30','half-marathon-pace-1h45','half-marathon-pace-2h00','half-marathon-pace-2h15',
+    'marathon-pace-3h00','marathon-pace-3h30','marathon-pace-4h00','marathon-pace-4h30','marathon-pace-5h00',
+  ].map(s => `/running/${s}`)
+
+  const dueDateSlugs = [
+    ...['january','february','march','april','may','june','july','august','september','october','november','december'].map(m => `/due-date/due-date-${m}-2026`),
+    ...['january','february','march','april','may','june'].map(m => `/due-date/due-date-${m}-2027`),
+  ]
+
   const allPaths = [
     ...staticTools,
     ...nichePages,
@@ -219,6 +273,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...salarySlugs,
     ...convertDeSlugs,
     ...percentDeSlugs,
+    ...caloriesBurnedSlugs,
+    ...idealWeightSlugs,
+    ...runningSlugs,
+    ...dueDateSlugs,
   ]
 
   return allPaths.map(path => ({

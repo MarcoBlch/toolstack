@@ -33,6 +33,16 @@ const TOOLS_NAV = [
   { href: '/vat-calculator', name: 'VAT' },
   { href: '/currency-converter', name: 'Currency' },
   { href: '/retirement-calculator', name: 'Retirement' },
+  { href: '/calorie-calculator', name: 'Calories' },
+  { href: '/due-date-calculator', name: 'Due Date' },
+  { href: '/macro-calculator', name: 'Macros' },
+  { href: '/ideal-weight', name: 'Ideal Weight' },
+  { href: '/body-fat-calculator', name: 'Body Fat' },
+  { href: '/calorie-deficit', name: 'Calorie Deficit' },
+  { href: '/water-intake', name: 'Water Intake' },
+  { href: '/heart-rate-calculator', name: 'Heart Rate' },
+  { href: '/pace-calculator', name: 'Running Pace' },
+  { href: '/one-rep-max', name: '1RM Calculator' },
 ]
 
 export default function ToolShell({

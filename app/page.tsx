@@ -33,6 +33,16 @@ const TOOLS = [
   { href: '/investment-calculator', name: 'Investment Calculator', desc: 'Compound interest. See your money grow over time.', icon: '📈', color: '#2563EB', searches: '2M+', tag: 'FINANCE' },
   { href: '/vat-calculator', name: 'VAT Calculator', desc: 'Add or remove VAT/sales tax. Pre-set country rates.', icon: '🧾', color: '#4338CA', searches: '1.5M+', tag: 'FINANCE' },
   { href: '/retirement-calculator', name: 'Retirement Calculator', desc: 'Plan retirement savings. Monthly income projection.', icon: '🏖️', color: '#7C3AED', searches: '1.5M+', tag: 'FINANCE' },
+  { href: '/calorie-calculator', name: 'Calorie Calculator', desc: 'Daily calorie needs. BMR, TDEE. Lose, maintain, gain.', icon: '🔥', color: '#EF4444', searches: '4.5M+', tag: 'HEALTH' },
+  { href: '/due-date-calculator', name: 'Due Date Calculator', desc: 'Pregnancy due date, trimester, gestational age.', icon: '🤰', color: '#EC4899', searches: '3M+', tag: 'HEALTH' },
+  { href: '/macro-calculator', name: 'Macro Calculator', desc: 'Protein, carbs, fat. Balanced, keto, high protein.', icon: '🥗', color: '#16A34A', searches: '2M+', tag: 'HEALTH' },
+  { href: '/ideal-weight', name: 'Ideal Weight Calculator', desc: '4 formulas. Healthy BMI range for your height.', icon: '⚖️', color: '#8B5CF6', searches: '2M+', tag: 'HEALTH' },
+  { href: '/body-fat-calculator', name: 'Body Fat Calculator', desc: 'US Navy method. Fat mass, lean mass, category.', icon: '📊', color: '#D97706', searches: '1.5M+', tag: 'HEALTH' },
+  { href: '/calorie-deficit', name: 'Calorie Deficit Calculator', desc: 'Time to goal weight. Safe daily calorie targets.', icon: '📉', color: '#0EA5E9', searches: '1.2M+', tag: 'HEALTH' },
+  { href: '/water-intake', name: 'Water Intake Calculator', desc: 'How much water per day. By weight and activity.', icon: '💧', color: '#0891B2', searches: '1M+', tag: 'HEALTH' },
+  { href: '/heart-rate-calculator', name: 'Heart Rate Zones', desc: 'Fat burn, cardio, VO2 max zones. Karvonen method.', icon: '❤️', color: '#DC2626', searches: '800K+', tag: 'HEALTH' },
+  { href: '/pace-calculator', name: 'Running Pace Calculator', desc: '5K, 10K, half, marathon. Splits, pace, time.', icon: '🏃', color: '#EA580C', searches: '800K+', tag: 'HEALTH' },
+  { href: '/one-rep-max', name: '1RM Calculator', desc: 'Estimate one rep max. Epley, Brzycki. % chart.', icon: '🏋️', color: '#1D4ED8', searches: '600K+', tag: 'HEALTH' },
 ]
 
 const COMING: { name: string; searches: string }[] = []

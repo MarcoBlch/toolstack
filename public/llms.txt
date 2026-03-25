@@ -66,6 +66,24 @@
 - [Down Payment Calculator](https://tools4free.site/down-payment-calculator): Calculate down payment for home purchase.
 - [Debt Payoff Calculator](https://tools4free.site/debt-payoff-calculator): Plan debt repayment. Snowball and avalanche methods.
 
+## Health & Fitness Tools
+- [Calorie Calculator](https://tools4free.site/calorie-calculator): Calculate daily calorie needs. BMR and TDEE using Mifflin-St Jeor equation. Activity-based.
+- [Macro Calculator](https://tools4free.site/macro-calculator): Calculate daily protein, carbs, and fat intake. Balanced, low carb, high protein, keto presets.
+- [Body Fat Calculator](https://tools4free.site/body-fat-calculator): US Navy method body fat calculator. Body fat percentage, fat mass, lean mass.
+- [Due Date Calculator](https://tools4free.site/due-date-calculator): Pregnancy due date calculator. Last period, conception, IVF. Trimester milestones, gestational age.
+- [Calorie Deficit Calculator](https://tools4free.site/calorie-deficit): Calculate calorie deficit for weight loss. Time to goal weight. Safe daily calorie targets.
+- [Heart Rate Zone Calculator](https://tools4free.site/heart-rate-calculator): Heart rate training zones. Fat burn, cardio, VO2 max. Karvonen and simple methods.
+- [Ideal Weight Calculator](https://tools4free.site/ideal-weight): Ideal weight using Devine, Robinson, Miller, Hamwi formulas. BMI-based healthy range.
+- [Water Intake Calculator](https://tools4free.site/water-intake): Daily water intake calculator. Based on weight, activity level, and climate.
+- [1RM Calculator](https://tools4free.site/one-rep-max): One rep max calculator. Epley, Brzycki, Lombardi formulas. Training percentage chart.
+- [Running Pace Calculator](https://tools4free.site/pace-calculator): Running pace, time, or distance. Split times for 5K, 10K, half marathon, marathon.
+- [TDEE Calculator](https://tools4free.site/tdee-calculator): Total Daily Energy Expenditure calculator. Maintenance calories.
+- [BMR Calculator](https://tools4free.site/bmr-calculator): Basal Metabolic Rate calculator. Resting metabolic rate.
+- [Keto Macro Calculator](https://tools4free.site/keto-macro-calculator): Keto diet macro calculator. Protein, fat, carb ratios for ketogenic diet.
+- [Pregnancy Week Calculator](https://tools4free.site/pregnancy-week-calculator): How many weeks pregnant. Gestational age and trimester tracking.
+- [5K Pace Calculator](https://tools4free.site/5k-pace-calculator): 5K running pace calculator. Splits and target pace.
+- [Marathon Pace Calculator](https://tools4free.site/marathon-pace-calculator): Marathon pace planner. 42.2K race splits and target time.
+
 ## Converter Tools
 - [Unit Converter](https://tools4free.site/unit-converter): Convert length, weight, temperature, volume, area, speed, data & time.
 - [Timezone Converter](https://tools4free.site/timezone-converter): Convert time between 24 zones. Live world clock. Meeting planner.
@@ -85,6 +103,16 @@
 - [Calculatrice Pret Immobilier](https://tools4free.site/fr/calculatrice-pret-immobilier)
 - [Calcul IMC](https://tools4free.site/fr/calcul-imc)
 - [Convertisseur Devise](https://tools4free.site/fr/convertisseur-devise)
+- [Calculateur Calories](https://tools4free.site/fr/calculateur-calories): Besoins caloriques journaliers
+- [Calculateur Macros](https://tools4free.site/fr/calculateur-macros): Proteines, glucides, lipides
+- [Calcul Masse Grasse](https://tools4free.site/fr/calcul-masse-grasse): Methode US Navy
+- [Calcul Date Accouchement](https://tools4free.site/fr/calcul-date-accouchement): Date prevue d'accouchement
+- [Calcul Deficit Calorique](https://tools4free.site/fr/calcul-deficit-calorique): Perte de poids
+- [Frequence Cardiaque](https://tools4free.site/fr/frequence-cardiaque): Zones de frequence cardiaque
+- [Poids Ideal](https://tools4free.site/fr/poids-ideal): 4 formules de poids ideal
+- [Calcul Hydratation](https://tools4free.site/fr/calcul-hydratation): Besoin en eau journalier
+- [Calculateur 1RM](https://tools4free.site/fr/calculateur-1rm): Charge maximale
+- [Calculateur Allure Course](https://tools4free.site/fr/calculateur-allure-course): Allure course a pied
 
 ### Spanish (Espanol)
 - [Letras Bonitas](https://tools4free.site/es/letras-bonitas): Generador de texto elegante
@@ -93,6 +121,16 @@
 - [Convertidor Unidades](https://tools4free.site/es/convertidor-unidades)
 - [Calculadora Hipoteca](https://tools4free.site/es/calculadora-hipoteca)
 - [Calculadora IMC](https://tools4free.site/es/calculadora-imc)
+- [Calculadora Calorias](https://tools4free.site/es/calculadora-calorias): Necesidades caloricas diarias
+- [Calculadora Macros](https://tools4free.site/es/calculadora-macros): Proteinas, carbos, grasas
+- [Calculadora Grasa Corporal](https://tools4free.site/es/calculadora-grasa-corporal): Metodo US Navy
+- [Calculadora Fecha Parto](https://tools4free.site/es/calculadora-fecha-parto): Fecha probable de parto
+- [Calculadora Deficit Calorico](https://tools4free.site/es/calculadora-deficit-calorico): Perdida de peso
+- [Calculadora Frecuencia Cardiaca](https://tools4free.site/es/calculadora-frecuencia-cardiaca): Zonas cardiacas
+- [Calculadora Peso Ideal](https://tools4free.site/es/calculadora-peso-ideal): 4 formulas
+- [Calculadora Agua Diaria](https://tools4free.site/es/calculadora-agua-diaria): Hidratacion diaria
+- [Calculadora 1RM](https://tools4free.site/es/calculadora-1rm): Repeticion maxima
+- [Calculadora Ritmo Carrera](https://tools4free.site/es/calculadora-ritmo-carrera): Ritmo de carrera
 
 ### Portuguese (Portugues)
 - [Texto Estilizado](https://tools4free.site/pt/texto-estilizado): Gerador de texto estilizado
@@ -101,6 +139,16 @@
 - [Conversor Unidades](https://tools4free.site/pt/conversor-unidades)
 - [Calculadora Financiamento](https://tools4free.site/pt/calculadora-financiamento)
 - [Calculadora IMC](https://tools4free.site/pt/calculadora-imc)
+- [Calculadora Calorias](https://tools4free.site/pt/calculadora-calorias): Necessidades caloricas diarias
+- [Calculadora Macros](https://tools4free.site/pt/calculadora-macros): Proteinas, carboidratos, gorduras
+- [Calculadora Gordura Corporal](https://tools4free.site/pt/calculadora-gordura-corporal): Metodo US Navy
+- [Calculadora Data Parto](https://tools4free.site/pt/calculadora-data-parto): Data provavel do parto
+- [Calculadora Deficit Calorico](https://tools4free.site/pt/calculadora-deficit-calorico): Perda de peso
+- [Calculadora Frequencia Cardiaca](https://tools4free.site/pt/calculadora-frequencia-cardiaca): Zonas cardiacas
+- [Calculadora Peso Ideal](https://tools4free.site/pt/calculadora-peso-ideal): 4 formulas
+- [Calculadora Agua Diaria](https://tools4free.site/pt/calculadora-agua-diaria): Hidratacao diaria
+- [Calculadora 1RM](https://tools4free.site/pt/calculadora-1rm): Repeticao maxima
+- [Calculadora Ritmo Corrida](https://tools4free.site/pt/calculadora-ritmo-corrida): Ritmo de corrida
 
 ### German (Deutsch)
 - [Schriftarten Generator](https://tools4free.site/de/schriftarten-generator): Schriftarten-Generator
@@ -110,3 +158,13 @@
 - [Baufinanzierung Rechner](https://tools4free.site/de/baufinanzierung-rechner)
 - [BMI Rechner](https://tools4free.site/de/bmi-rechner)
 - [Brutto Netto Rechner](https://tools4free.site/de/brutto-netto-rechner)
+- [Kalorienrechner](https://tools4free.site/de/kalorienrechner): Taglicher Kalorienbedarf
+- [Makrorechner](https://tools4free.site/de/makrorechner): Eiweiss, Kohlenhydrate, Fett
+- [Korperfettrechner](https://tools4free.site/de/koerperfettrechner): US Navy Methode
+- [Geburtsterminrechner](https://tools4free.site/de/geburtsterminrechner): Entbindungstermin berechnen
+- [Kaloriendefizit Rechner](https://tools4free.site/de/kaloriendefizit-rechner): Abnehmen
+- [Herzfrequenz Rechner](https://tools4free.site/de/herzfrequenz-rechner): Herzfrequenzzonen
+- [Idealgewicht Rechner](https://tools4free.site/de/idealgewicht-rechner): 4 Formeln
+- [Wasserbedarf Rechner](https://tools4free.site/de/wasserbedarf-rechner): Tagliche Trinkmenge
+- [1RM Rechner](https://tools4free.site/de/1rm-rechner): Maximalgewicht berechnen
+- [Laufpace Rechner](https://tools4free.site/de/laufpace-rechner): Lauftempo berechnen
