@@ -27,7 +27,28 @@
       "Bash(rm page.tsx.updated sitemap.ts.updated ToolShell.tsx.updated)",
       "Bash(cp -f page.tsx.updated app/page.tsx)",
       "Bash(cp -f sitemap.ts.updated app/sitemap.ts)",
-      "Bash(cp -f ToolShell.tsx.updated components/ToolShell.tsx)"
+      "Bash(cp -f ToolShell.tsx.updated components/ToolShell.tsx)",
+      "Bash(cp -f page.tsx app/page.tsx)",
+      "Bash(cp -f sitemap.ts app/sitemap.ts)",
+      "Bash(cp -f ToolShell.tsx components/ToolShell.tsx)",
+      "Bash(rm page.tsx sitemap.ts ToolShell.tsx)",
+      "Bash(find . -maxdepth 1 -name \"*:Zone.Identifier\" -delete)",
+      "Bash(npm run:*)",
+      "Bash(rm -f page.tsx sitemap.ts ToolShell.tsx)",
+      "Bash(rmdir fr:*)",
+      "Bash(xargs cat:*)",
+      "Bash(ls /home/marc/code/MarcoBlch/milion dolar beibi/app/*/client.tsx)",
+      "Bash(grep -r \"jsonLd\\\\|structured\\\\|JSON-LD\\\\|@context\" '/home/marc/code/MarcoBlch/milion dolar beibi/app' --include=*.tsx --include=*.ts)",
+      "Bash(grep -r generateMetadata '/home/marc/code/MarcoBlch/milion dolar beibi/app' --include=*.tsx)",
+      "Bash(node scripts/add-jsonld-og.mjs)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//home/marc/code/MarcoBlch/milion dolar beibi/**)"
+    ],
+    "additionalDirectories": [
+      "/home/marc/code/MarcoBlch/milion dolar beibi/app/mortgage",
+      "/home/marc/code/MarcoBlch/milion dolar beibi/app/de/umrechnen",
+      "/home/marc/code/MarcoBlch/milion dolar beibi/app/de/prozent"
     ]
   }
 }

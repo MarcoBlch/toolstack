@@ -85,10 +85,16 @@ export default function ToolShell({
           </Link>
         </div>
         <div style={{
-          display: 'flex', justifyContent: 'space-between',
-          fontSize: 12, color: '#B0AAA0',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          fontSize: 12, color: '#B0AAA0', flexWrap: 'wrap', gap: 8,
         }}>
           <span>© 2026 Tools4Free — Free forever</span>
+          <span style={{ fontSize: 11 }}>
+            Deployed on{' '}
+            <a href="https://vercel.com/?utm_source=tools4free&utm_medium=referral" target="_blank" rel="noopener noreferrer" style={{ color: '#B0AAA0', textDecoration: 'underline' }}>Vercel</a>
+            {' · Domain from '}
+            <a href="https://www.namecheap.com/?utm_source=tools4free&utm_medium=referral" target="_blank" rel="noopener noreferrer" style={{ color: '#B0AAA0', textDecoration: 'underline' }}>Namecheap</a>
+          </span>
           <div style={{ display: 'flex', gap: 16 }}>
             <a href="#" style={{ color: '#B0AAA0', textDecoration: 'none' }}>Privacy</a>
             <a href="#" style={{ color: '#B0AAA0', textDecoration: 'none' }}>Terms</a>

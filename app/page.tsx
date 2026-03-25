@@ -162,10 +162,16 @@ export default function Home() {
       <footer style={{
         maxWidth: 960, margin: '0 auto', padding: '20px 28px',
         borderTop: '1px solid #E8E4DB',
-        display: 'flex', justifyContent: 'space-between',
-        fontSize: 12, color: '#9A958A',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        fontSize: 12, color: '#9A958A', flexWrap: 'wrap', gap: 8,
       }}>
         <span>© 2026 Tools4Free — Free forever</span>
+        <span style={{ fontSize: 11 }}>
+          Deployed on{' '}
+          <a href="https://vercel.com/?utm_source=tools4free&utm_medium=referral" target="_blank" rel="noopener noreferrer" style={{ color: '#9A958A', textDecoration: 'underline' }}>Vercel</a>
+          {' · Domain from '}
+          <a href="https://www.namecheap.com/?utm_source=tools4free&utm_medium=referral" target="_blank" rel="noopener noreferrer" style={{ color: '#9A958A', textDecoration: 'underline' }}>Namecheap</a>
+        </span>
         <div style={{ display: 'flex', gap: 16 }}>
           <a href="#" style={{ color: '#9A958A', textDecoration: 'none' }}>Privacy</a>
           <a href="#" style={{ color: '#9A958A', textDecoration: 'none' }}>Terms</a>

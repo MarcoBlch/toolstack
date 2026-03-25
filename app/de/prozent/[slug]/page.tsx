@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import PercentageClient from '../../../percentage-calculator/client'
+import { generateToolJsonLd } from '@/lib/jsonld'
 
 const PERCENTAGES_DE = [
   ...[
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `Wieviel ist ${p.x}% von ${p.y}? = ${p.result} — Prozentrechner`,
     description: `${p.x}% von ${p.y} = ${p.result}. Kostenloser Prozentrechner online. Prozente schnell berechnen.`,
     keywords: `wieviel ist ${p.x} prozent von ${p.y}, ${p.x}% von ${p.y}, Prozentrechner`,
+    openGraph: { images: [`/api/og?title=${encodeURIComponent(p.x + '% von ' + p.y + ' = ' + p.result)}&description=${encodeURIComponent('Kostenloser Prozentrechner online.')}`] },
   }
 }
 

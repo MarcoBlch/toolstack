@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import SalaryClient from '../../salary-calculator/client'
+import { generateToolJsonLd } from '@/lib/jsonld'
 
 const COUNTRIES = [
   { code: 'FR', slug: 'france', label: 'France', currency: '€' },
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${s.title} — Free Salary Calculator`,
     description: s.desc,
     keywords: `${s.slug.replace(/-/g, ' ')}, salary calculator, gross to net, tax breakdown`,
+    openGraph: { images: [`/api/og?title=${encodeURIComponent(s.title)}&description=${encodeURIComponent(s.desc)}`] },
   }
 }
 

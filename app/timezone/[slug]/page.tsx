@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import TimezoneClient from '../../timezone-converter/client'
+import { generateToolJsonLd } from '@/lib/jsonld'
 
 const TIMEZONES = [
   { slug: 'new-york-to-london', from: 'America/New_York', to: 'Europe/London', fromCity: 'New York', toCity: 'London' },
@@ -65,6 +66,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${tz.fromCity} to ${tz.toCity} Time — Current Time Difference`,
     description: `What time is it in ${tz.toCity} when it's noon in ${tz.fromCity}? Convert ${tz.fromCity} time to ${tz.toCity} time instantly. Live clock.`,
     keywords: `${tz.fromCity.toLowerCase()} to ${tz.toCity.toLowerCase()} time, ${tz.fromCity.toLowerCase()} ${tz.toCity.toLowerCase()} time difference, time zone converter`,
+    openGraph: { images: [`/api/og?title=${encodeURIComponent(tz.fromCity + ' to ' + tz.toCity + ' Time')}&description=${encodeURIComponent('Convert ' + tz.fromCity + ' time to ' + tz.toCity + ' time instantly.')}`] },
   }
 }
 

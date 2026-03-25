@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import ColorClient from '../../color-picker/client'
+import { generateToolJsonLd } from '@/lib/jsonld'
 
 const COLORS = [
   { slug: 'red', hex: '#FF0000', name: 'Red' },
@@ -60,6 +61,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       : `${color.name} Color Code — HEX, RGB, HSL & Shades`,
     description: `${color.name} color (${color.hex}): get HEX, RGB, HSL values. View shades, tints, and complementary colors. Copy any value instantly.`,
     keywords: `${color.name.toLowerCase()} color code, ${color.hex} rgb, ${color.name.toLowerCase()} hex, ${color.name.toLowerCase()} color`,
+    openGraph: { images: [`/api/og?title=${encodeURIComponent(color.name + ' Color')}&description=${encodeURIComponent(color.name + ' color (' + color.hex + '): HEX, RGB, HSL values.')}`] },
   }
 }
 

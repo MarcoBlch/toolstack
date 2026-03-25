@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import MortgageClient from '../../mortgage-calculator/client'
+import { generateToolJsonLd } from '@/lib/jsonld'
 
 const MORTGAGES = [
   // Popular loan amounts
@@ -47,6 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${m.title} — Free Mortgage Calculator`,
     description: m.desc,
     keywords: `${m.slug.replace(/-/g, ' ')}, mortgage calculator, monthly payment, amortization`,
+    openGraph: { images: [`/api/og?title=${encodeURIComponent(m.title)}&description=${encodeURIComponent(m.desc)}`] },
   }
 }
 

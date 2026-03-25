@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import UnitConverterClient from '../../../unit-converter/client'
+import { generateToolJsonLd } from '@/lib/jsonld'
 
 const CONVERSIONS_DE = [
   // Gewicht
@@ -57,6 +58,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${conv.title} — Kostenloser ${conv.fromName} zu ${conv.toName} Umrechner`,
     description: `${conv.value} ${conv.fromName} in ${conv.toName} umrechnen. Kostenloser Einheiten-Umrechner online.`,
     keywords: `${conv.slug.replace(/-/g, ' ')}, ${conv.fromName} in ${conv.toName}, Umrechner`,
+    openGraph: { images: [`/api/og?title=${encodeURIComponent(conv.title)}&description=${encodeURIComponent(conv.value + ' ' + conv.fromName + ' in ' + conv.toName + ' umrechnen.')}`] },
   }
 }
 

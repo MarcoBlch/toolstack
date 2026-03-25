@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import PassClient from '../../password-generator/client'
+import { generateToolJsonLd } from '@/lib/jsonld'
 
 const PASSWORDS = [
   { slug: '8-character-password', length: 8, title: '8 Character Password Generator' },
@@ -27,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${pw.title} — Free Secure Random Password`,
     description: `Generate a random ${pw.length}-character secure password. Cryptographically random. Never stored. 100% local.`,
     keywords: `${pw.slug.replace(/-/g, ' ')}, ${pw.length} character password, random password ${pw.length} characters`,
+    openGraph: { images: [`/api/og?title=${encodeURIComponent(pw.title)}&description=${encodeURIComponent('Generate a random ' + pw.length + '-character secure password. Free.')}`] },
   }
 }
 

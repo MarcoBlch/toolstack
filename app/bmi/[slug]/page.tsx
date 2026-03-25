@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import BMIClient from '../../bmi-calculator/client'
+import { generateToolJsonLd } from '@/lib/jsonld'
 
 function bmiCategory(bmi: number): string {
   if (bmi < 18.5) return 'Underweight'
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${b.title} — BMI ${b.bmi} (${b.category})`,
     description: b.desc,
     keywords: `bmi ${b.height}cm ${b.weight}kg, bmi calculator, body mass index ${b.height} ${b.weight}`,
+    openGraph: { images: [`/api/og?title=${encodeURIComponent(String(b.title))}&description=${encodeURIComponent(String(b.desc))}`] },
   }
 }
 

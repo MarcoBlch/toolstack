@@ -1,0 +1,112 @@
+# Tools4Free
+
+> Free online tools and calculators. 80+ browser-based tools.
+> No signup. No tracking. No server upload. 100% client-side.
+> Available in English, French, Spanish, Portuguese, German.
+
+## Text Tools
+- [Fancy Text Generator](https://tools4free.site/fancy-text): Convert text to 20+ Unicode font styles for Instagram, TikTok & more.
+- [Word & Character Counter](https://tools4free.site/word-counter): Count words, characters, sentences, paragraphs. Reading time & keyword density.
+- [Text Case Converter](https://tools4free.site/case-converter): UPPER, lower, Title, camelCase, snake_case, kebab-case & 6 more.
+- [Lorem Ipsum Generator](https://tools4free.site/lorem-generator): Generate placeholder text. Paragraphs, sentences, or exact word count.
+- [Text Diff Checker](https://tools4free.site/diff-checker): Compare two texts side by side. Additions in green, deletions in red.
+- [Markdown Editor](https://tools4free.site/markdown-editor): Write Markdown, see live HTML preview. Copy HTML. Split-pane editor.
+- [Emoji Picker](https://tools4free.site/emoji-picker): Browse and copy all emojis. Search by name. 9 categories. One-click copy.
+- [Bold Text Generator](https://tools4free.site/bold-text): Generate bold Unicode text for social media bios.
+- [Cursive Text Generator](https://tools4free.site/cursive-text): Generate cursive Unicode text for social media.
+- [Strikethrough Text](https://tools4free.site/strikethrough-text): Generate strikethrough Unicode text.
+- [Aesthetic Text Generator](https://tools4free.site/aesthetic-text): Generate aesthetic fullwidth Unicode text.
+- [Instagram Fonts](https://tools4free.site/instagram-fonts): Generate stylish fonts for Instagram bios and captions.
+- [Uppercase Converter](https://tools4free.site/uppercase-converter): Convert any text to UPPERCASE instantly.
+- [Character Counter](https://tools4free.site/character-counter): Count characters with and without spaces.
+
+## Developer Tools
+- [JSON Formatter & Validator](https://tools4free.site/json-formatter): Format, validate, minify JSON. Syntax highlighting. Error detection.
+- [JSON Validator](https://tools4free.site/json-validator): Validate JSON syntax and find errors.
+- [JSON Minifier](https://tools4free.site/json-minifier): Minify JSON to reduce file size.
+- [Base64 Encoder/Decoder](https://tools4free.site/base64): Encode text to Base64 or decode Base64 back. Image to data URI.
+- [Regex Tester](https://tools4free.site/regex-tester): Write regex, test against text, see matches highlighted in real time.
+- [Hash Generator](https://tools4free.site/hash-generator): Generate MD5, SHA-1, SHA-256, SHA-512 hashes. Web Crypto API powered.
+
+## Design Tools
+- [QR Code Generator](https://tools4free.site/qr-generator): Create QR codes for URLs, WiFi, email, phone. Color themes. Free PNG download.
+- [Color Picker](https://tools4free.site/color-picker): Pick colors. Get HEX, RGB, HSL. Generate shades, tints, complementary.
+- [CSS Gradient Generator](https://tools4free.site/gradient-generator): Create beautiful CSS gradients visually. Pick colors, angle, copy CSS.
+- [Favicon Generator](https://tools4free.site/favicon-generator): Generate favicons from a letter or emoji. All sizes. Download PNG pack.
+- [Screenshot Mockup](https://tools4free.site/screenshot-mockup): Frame screenshots in browser or device mockups. Gradient backgrounds.
+- [Image Compressor](https://tools4free.site/image-compressor): Reduce image size by up to 80%. JPEG, PNG, WebP. Nothing leaves your browser.
+- [Compress JPEG](https://tools4free.site/compress-jpeg): Compress JPEG images up to 80%. Client-side only.
+- [Compress PNG](https://tools4free.site/compress-png): Compress PNG images. Canvas API. Nothing uploaded.
+- [WiFi QR Code](https://tools4free.site/wifi-qr-code): Generate QR codes for WiFi network sharing.
+- [WhatsApp QR Code](https://tools4free.site/whatsapp-qr-code): Generate QR codes to start WhatsApp conversations.
+- [Menu QR Code](https://tools4free.site/menu-qr-code): Generate QR codes for restaurant menus.
+
+## Security Tools
+- [Password Generator](https://tools4free.site/password-generator): Cryptographically secure passwords. Strength meter. Never stored.
+- [Random Password Generator](https://tools4free.site/random-password): Generate random passwords of any length.
+- [Strong Password Generator](https://tools4free.site/strong-password): Generate ultra-strong passwords with all character types.
+
+## Finance & Calculator Tools
+- [Mortgage Calculator](https://tools4free.site/mortgage-calculator): Calculate monthly payments, total interest, amortization.
+- [BMI Calculator](https://tools4free.site/bmi-calculator): Calculate Body Mass Index. Metric and imperial.
+- [Currency Converter](https://tools4free.site/currency-converter): Convert between 30+ world currencies instantly.
+- [Loan Calculator](https://tools4free.site/loan-calculator): Monthly payments for any loan. Amortization schedule.
+- [Percentage Calculator](https://tools4free.site/percentage-calculator): What is X% of Y? Percentage change, difference.
+- [Salary Calculator](https://tools4free.site/salary-calculator): Gross to net salary. Tax breakdown by country.
+- [Tip Calculator](https://tools4free.site/tip-calculator): Calculate tip and split the bill.
+- [Investment Calculator](https://tools4free.site/investment-calculator): Compound interest. See your money grow over time.
+- [VAT Calculator](https://tools4free.site/vat-calculator): Add or remove VAT/sales tax. Pre-set country rates.
+- [Retirement Calculator](https://tools4free.site/retirement-calculator): Plan retirement savings. Monthly income projection.
+- [Invoice Generator](https://tools4free.site/invoice-generator): Create professional invoices. Line items, tax, discounts. Download PDF.
+- [Invoice Template](https://tools4free.site/invoice-template): Free printable invoice templates. Download PDF.
+- [Freelance Invoice](https://tools4free.site/freelance-invoice): Invoice generator for freelancers. Track hours, expenses.
+- [Compound Interest Calculator](https://tools4free.site/compound-interest-calculator): Calculate compound interest growth over time.
+- [Amortization Calculator](https://tools4free.site/amortization-calculator): Full amortization schedule for any loan.
+- [Paycheck Calculator](https://tools4free.site/paycheck-calculator): Calculate net pay after taxes and deductions.
+- [Down Payment Calculator](https://tools4free.site/down-payment-calculator): Calculate down payment for home purchase.
+- [Debt Payoff Calculator](https://tools4free.site/debt-payoff-calculator): Plan debt repayment. Snowball and avalanche methods.
+
+## Converter Tools
+- [Unit Converter](https://tools4free.site/unit-converter): Convert length, weight, temperature, volume, area, speed, data & time.
+- [Timezone Converter](https://tools4free.site/timezone-converter): Convert time between 24 zones. Live world clock. Meeting planner.
+- [Celsius to Fahrenheit](https://tools4free.site/celsius-to-fahrenheit): Convert temperatures between Celsius and Fahrenheit.
+- [CM to Inches](https://tools4free.site/cm-to-inches): Convert centimeters to inches and back.
+- [KG to LBS](https://tools4free.site/kg-to-lbs): Convert kilograms to pounds and back.
+- [Miles to KM](https://tools4free.site/miles-to-km): Convert miles to kilometers and back.
+
+## Multilingual Support
+
+### French (Francais)
+- [Texte Style](https://tools4free.site/fr/texte-style): Generateur de texte fantaisie
+- [Generateur QR Code](https://tools4free.site/fr/generateur-qr-code)
+- [Generateur Mot de Passe](https://tools4free.site/fr/generateur-mot-de-passe)
+- [Convertisseur Unites](https://tools4free.site/fr/convertisseur-unites)
+- [Compteur Mots](https://tools4free.site/fr/compteur-mots)
+- [Calculatrice Pret Immobilier](https://tools4free.site/fr/calculatrice-pret-immobilier)
+- [Calcul IMC](https://tools4free.site/fr/calcul-imc)
+- [Convertisseur Devise](https://tools4free.site/fr/convertisseur-devise)
+
+### Spanish (Espanol)
+- [Letras Bonitas](https://tools4free.site/es/letras-bonitas): Generador de texto elegante
+- [Generador QR](https://tools4free.site/es/generador-qr)
+- [Generador Contrasena](https://tools4free.site/es/generador-contrasena)
+- [Convertidor Unidades](https://tools4free.site/es/convertidor-unidades)
+- [Calculadora Hipoteca](https://tools4free.site/es/calculadora-hipoteca)
+- [Calculadora IMC](https://tools4free.site/es/calculadora-imc)
+
+### Portuguese (Portugues)
+- [Texto Estilizado](https://tools4free.site/pt/texto-estilizado): Gerador de texto estilizado
+- [Gerador QR](https://tools4free.site/pt/gerador-qr)
+- [Gerador Senha](https://tools4free.site/pt/gerador-senha)
+- [Conversor Unidades](https://tools4free.site/pt/conversor-unidades)
+- [Calculadora Financiamento](https://tools4free.site/pt/calculadora-financiamento)
+- [Calculadora IMC](https://tools4free.site/pt/calculadora-imc)
+
+### German (Deutsch)
+- [Schriftarten Generator](https://tools4free.site/de/schriftarten-generator): Schriftarten-Generator
+- [QR Code Generator](https://tools4free.site/de/qr-code-generator)
+- [Passwort Generator](https://tools4free.site/de/passwort-generator)
+- [Einheiten Umrechner](https://tools4free.site/de/einheiten-umrechner)
+- [Baufinanzierung Rechner](https://tools4free.site/de/baufinanzierung-rechner)
+- [BMI Rechner](https://tools4free.site/de/bmi-rechner)
+- [Brutto Netto Rechner](https://tools4free.site/de/brutto-netto-rechner)

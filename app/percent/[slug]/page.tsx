@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import PercentageClient from '../../percentage-calculator/client'
+import { generateToolJsonLd } from '@/lib/jsonld'
 
 const PERCENTAGES = [
   // "What is X% of Y" — popular combinations
@@ -40,6 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${p.title} Answer: ${p.result} — Free Calculator`,
     description: p.desc,
     keywords: `what is ${p.x} percent of ${p.y}, ${p.x}% of ${p.y}, percentage calculator`,
+    openGraph: { images: [`/api/og?title=${encodeURIComponent(String(p.title))}&description=${encodeURIComponent(String(p.desc))}`] },
   }
 }
 

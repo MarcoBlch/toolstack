@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import CurrencyClient from '../../currency-converter/client'
+import { generateToolJsonLd } from '@/lib/jsonld'
 
 const RATES: Record<string, number> = {
   EUR: 1, USD: 1.08, GBP: 0.86, JPY: 163, CHF: 0.97, CAD: 1.47,
@@ -67,6 +68,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${e.title} — ${e.result} ${e.to} | Free Converter`,
     description: e.desc,
     keywords: `${e.amount} ${e.from} to ${e.to}, ${e.from.toLowerCase()} to ${e.to.toLowerCase()} converter, currency converter`,
+    openGraph: { images: [`/api/og?title=${encodeURIComponent(e.title)}&description=${encodeURIComponent(e.desc)}`] },
   }
 }
 
