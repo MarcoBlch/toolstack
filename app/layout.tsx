@@ -14,6 +14,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="impact-site-verification" content="25f4a71a-436b-4180-99fa-244eec7f5b3d" />
         {/* Bing Webmaster verification */}
         <meta name="msvalidate.01" content="BE95D272AC442B5E195855FF37C3366B" />
+        {/* Yandex Webmaster verification */}
+        <meta name="yandex-verification" content="90ab532b19a09e92" />
 
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
