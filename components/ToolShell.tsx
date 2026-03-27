@@ -59,8 +59,33 @@ export default function ToolShell({
 }) {
   const fb = "'Outfit', -apple-system, sans-serif"
 
+  const t = TRANSLATIONS[currentPath] || {}
+  const langs = [
+    { code: 'EN', href: currentPath },
+    { code: 'FR', href: t.fr || '/fr' },
+    { code: 'ES', href: t.es || '/es' },
+    { code: 'PT', href: t.pt || '/pt' },
+    { code: 'DE', href: t.de || '/de' },
+  ]
+
   return (
     <div style={{ fontFamily: fb }}>
+      {/* Language switcher — top bar */}
+      <div style={{
+        display: 'flex', justifyContent: 'flex-end', alignItems: 'center',
+        maxWidth: 800, margin: '0 auto', padding: '10px 28px 0',
+        gap: 6, fontSize: 12,
+      }}>
+        {langs.map((l, i) => (
+          <span key={l.code}>
+            {i > 0 && <span style={{ color: '#D5D0C7' }}> · </span>}
+            <Link href={l.href} style={{
+              color: l.code === 'EN' ? '#1C1B18' : '#9A958A',
+              textDecoration: 'none', fontWeight: l.code === 'EN' ? 600 : 400,
+            }}>{l.code}</Link>
+          </span>
+        ))}
+      </div>
       {children}
 
       {/* Cross-promotion footer — THE MONEY MULTIPLIER */}
@@ -111,26 +136,6 @@ export default function ToolShell({
             <a href="#" style={{ color: '#B0AAA0', textDecoration: 'none' }}>Terms</a>
           </div>
         </div>
-        {(() => {
-          const t = TRANSLATIONS[currentPath] || {}
-          const langs = [
-            { code: 'EN', href: currentPath },
-            { code: 'FR', href: t.fr || '/fr' },
-            { code: 'ES', href: t.es || '/es' },
-            { code: 'PT', href: t.pt || '/pt' },
-            { code: 'DE', href: t.de || '/de' },
-          ]
-          return (
-            <div style={{ textAlign: 'center', fontSize: 12, color: '#B0AAA0', marginTop: 8 }}>
-              {langs.map((l, i) => (
-                <span key={l.code}>
-                  {i > 0 && ' · '}
-                  <Link href={l.href} style={{ color: '#B0AAA0', textDecoration: 'none' }}>{l.code}</Link>
-                </span>
-              ))}
-            </div>
-          )
-        })()}
       </footer>
     </div>
   )

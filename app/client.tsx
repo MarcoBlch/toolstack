@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { TRANSLATIONS } from '@/lib/translations'
 
 const TOOLS = [
   { href: '/fancy-text', name: 'Fancy Text Generator', desc: 'Convert text to 20+ Unicode font styles for Instagram, TikTok & more', icon: '✦', color: '#FF6B35', searches: '4M+', tag: 'LIVE' },
@@ -66,7 +67,23 @@ export default function HomeClient() {
           }}>T</div>
           <span style={{ fontSize: 17, fontWeight: 700, letterSpacing: '-.3px' }}>Tools4Free</span>
         </div>
-        <span style={{ fontSize: 12, color: '#9A958A' }}>30+ free tools · Zero cost · Zero signup</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12 }}>
+          {[
+            { code: 'EN', href: '/' },
+            { code: 'FR', href: '/fr' },
+            { code: 'ES', href: '/es' },
+            { code: 'PT', href: '/pt' },
+            { code: 'DE', href: '/de' },
+          ].map((l, i) => (
+            <span key={l.code}>
+              {i > 0 && <span style={{ color: '#D5D0C7' }}> · </span>}
+              <Link href={l.href} style={{
+                color: l.code === 'EN' ? '#1C1B18' : '#9A958A',
+                textDecoration: 'none', fontWeight: l.code === 'EN' ? 600 : 400,
+              }}>{l.code}</Link>
+            </span>
+          ))}
+        </div>
       </nav>
 
       {/* Hero */}
