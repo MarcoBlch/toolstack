@@ -15,7 +15,7 @@ export const TRANSLATIONS: Record<string, Partial<Record<'fr' | 'es' | 'pt' | 'd
   '/case-converter': { fr: '/fr/convertisseur-majuscules', es: '/es/conversor-mayusculas', pt: '/pt/conversor-maiusculas', de: '/de/gross-kleinschreibung' },
   '/gradient-generator': { fr: '/fr/generateur-degrade-css', es: '/es/generador-degradado-css', pt: '/pt/gerador-gradiente-css', de: '/de/css-gradient-generator' },
   '/lorem-generator': { fr: '/fr/generateur-lorem-ipsum', es: '/es/generador-lorem', pt: '/pt/gerador-lorem', de: '/de/lorem-ipsum-generator' },
-  '/invoice-generator': { fr: '/fr/facture-gratuite', es: '/es/factura-gratis', de: '/de/rechnungsgenerator' },
+  '/invoice-generator': { fr: '/fr/facture-gratuite', es: '/es/factura-gratis', pt: '/pt/gerador-fatura', de: '/de/rechnungsgenerator' },
   // Finance
   '/mortgage-calculator': { fr: '/fr/calculatrice-pret-immobilier', es: '/es/calculadora-hipoteca', pt: '/pt/calculadora-financiamento', de: '/de/baufinanzierung-rechner' },
   '/investment-calculator': { fr: '/fr/simulateur-investissement', es: '/es/calculadora-inversion', pt: '/pt/calculadora-investimento', de: '/de/zinsrechner' },

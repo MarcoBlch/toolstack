@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { TRANSLATIONS } from '@/lib/translations'
+import { TRANSLATIONS, REVERSE_TRANSLATIONS } from '@/lib/translations'
 
 const TOOLS_NAV = [
   { href: '/fancy-text', name: 'Fancy Text' },
@@ -46,6 +46,22 @@ const TOOLS_NAV = [
   { href: '/one-rep-max', name: '1RM Calculator' },
 ]
 
+const LANG_FLAGS = [
+  { key: 'en', flag: '🇬🇧', code: 'EN' },
+  { key: 'fr', flag: '🇫🇷', code: 'FR' },
+  { key: 'es', flag: '🇪🇸', code: 'ES' },
+  { key: 'pt', flag: '🇧🇷', code: 'PT' },
+  { key: 'de', flag: '🇩🇪', code: 'DE' },
+]
+
+function detectLang(path: string): string {
+  if (path.startsWith('/fr')) return 'fr'
+  if (path.startsWith('/es')) return 'es'
+  if (path.startsWith('/pt')) return 'pt'
+  if (path.startsWith('/de')) return 'de'
+  return 'en'
+}
+
 export default function ToolShell({
   name,
   icon,
@@ -58,33 +74,52 @@ export default function ToolShell({
   children: React.ReactNode
 }) {
   const fb = "'Outfit', -apple-system, sans-serif"
+  const activeLang = detectLang(currentPath)
 
-  const t = TRANSLATIONS[currentPath] || {}
-  const langs = [
-    { code: 'EN', href: currentPath },
-    { code: 'FR', href: t.fr || '/fr' },
-    { code: 'ES', href: t.es || '/es' },
-    { code: 'PT', href: t.pt || '/pt' },
-    { code: 'DE', href: t.de || '/de' },
-  ]
+  // For translated pages, resolve back to English path first
+  const englishPath = REVERSE_TRANSLATIONS[currentPath] || currentPath
+  const t = TRANSLATIONS[englishPath] || {}
+  const langLinks = LANG_FLAGS.map(l => ({
+    ...l,
+    href: l.key === 'en' ? englishPath :
+      (t as any)[l.key] || `/${l.key}`,
+  }))
 
   return (
     <div style={{ fontFamily: fb }}>
-      {/* Language switcher — top bar */}
+      {/* Top bar with back link + language switcher */}
       <div style={{
-        display: 'flex', justifyContent: 'flex-end', alignItems: 'center',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         maxWidth: 800, margin: '0 auto', padding: '10px 28px 0',
-        gap: 6, fontSize: 12,
       }}>
-        {langs.map((l, i) => (
-          <span key={l.code}>
-            {i > 0 && <span style={{ color: '#D5D0C7' }}> · </span>}
-            <Link href={l.href} style={{
-              color: l.code === 'EN' ? '#1C1B18' : '#9A958A',
-              textDecoration: 'none', fontWeight: l.code === 'EN' ? 600 : 400,
-            }}>{l.code}</Link>
-          </span>
-        ))}
+        <Link href="/" style={{ fontSize: 13, color: '#9A958A', textDecoration: 'none' }}>
+          ← All tools
+        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          {langLinks.map(l => {
+            const isActive = l.key === activeLang
+            if (isActive) {
+              return (
+                <span key={l.key} style={{
+                  padding: '4px 8px', borderRadius: 6, fontSize: 12,
+                  fontWeight: 600, color: '#6B6560', background: '#E8E4DB',
+                  display: 'inline-flex', alignItems: 'center', gap: 3,
+                }}>
+                  {l.flag} {l.code}
+                </span>
+              )
+            }
+            return (
+              <Link key={l.key} href={l.href} style={{
+                padding: '4px 8px', borderRadius: 6, fontSize: 12,
+                fontWeight: 400, color: '#9A958A', textDecoration: 'none',
+                display: 'inline-flex', alignItems: 'center', gap: 3,
+              }}>
+                {l.flag} {l.code}
+              </Link>
+            )
+          })}
+        </div>
       </div>
       {children}
 
