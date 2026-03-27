@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Client from '../../case-converter/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
   title: 'Convertisseur Majuscules Minuscules Gratuit',
+  alternates: getAlternates('/case-converter'),
   description: 'Convertissez entre MAJUSCULES, minuscules, Titre, camelCase, snake_case et plus. Gratuit, sans inscription.',
   keywords: 'convertisseur majuscules, majuscules minuscules, convertir casse, changeur casse',
   openGraph: { images: ['/api/og?title=Convertisseur%20Majuscules%20Minuscules%20Gratuit&description=Convertissez%20entre%20MAJUSCULES%2C%20minuscules%2C%20Titre%2C%20camelCase%2C%20snake_case%20et%20plus.%20Gratuit%2C%20sans%20inscr'] },

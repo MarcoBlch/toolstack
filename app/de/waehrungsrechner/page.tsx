@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../currency-converter/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/currency-converter'),
   title: 'Währungsrechner — Kostenloser Wechselkurs Umrechner Online',
   description: 'Rechne zwischen 30+ Weltwährungen um. EUR, USD, GBP, CHF, JPY. Tagesaktuelle Näherungswerte. Kostenlos.',
   keywords: 'Währungsrechner, Wechselkurs, Euro Dollar, Währung umrechnen, Devisenrechner, EUR USD Kurs, Geld umrechnen',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../vat-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/vat-calculator'),
   title: 'Calculadora de Imposto — Calcular ICMS e IVA Online Grátis',
   description: 'Calcule impostos facilmente. Preço com e sem imposto. ICMS, IVA, ISS. Alíquotas por estado. Grátis.',
   keywords: 'calculadora imposto, calcular icms, calculadora iva, preço sem imposto, alíquota icms, calcular imposto',

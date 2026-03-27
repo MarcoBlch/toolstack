@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../due-date-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/due-date-calculator'),
   title: 'Calculadora de Data Provável do Parto Grátis',
   description: 'Calculadora de data provável do parto grátis. Calcule sua data estimada de parto com base na última menstruação, data de concepção ou FIV. Trimestres e idade gestacional.',
   keywords: 'data do parto, calculadora data parto, data provável parto, semanas de gravidez, idade gestacional, calculadora gravidez',

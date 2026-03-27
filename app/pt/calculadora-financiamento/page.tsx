@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../mortgage-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/mortgage-calculator'),
   title: 'Calculadora de Financiamento Imobiliário — Simulador Grátis',
   description: 'Calcule suas parcelas de financiamento imobiliário, juros totais e tabela de amortização. Simulador gratuito, sem cadastro.',
   keywords: 'calculadora financiamento, simulador financiamento imobiliário, calcular parcela, simulador de crédito, tabela amortização',

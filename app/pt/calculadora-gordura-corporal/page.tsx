@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../body-fat-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/body-fat-calculator'),
   title: 'Calculadora de Gordura Corporal — Método US Navy Grátis',
   description: 'Calculadora de gordura corporal grátis. Método US Navy. Calcule seu percentual de gordura corporal, massa gorda e massa magra.',
   keywords: 'calculadora gordura corporal, percentual gordura, método US Navy, massa gorda, massa magra, composição corporal',

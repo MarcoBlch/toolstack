@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../fancy-text/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/fancy-text'),
   title: 'Schriftarten Generator — Coole Schriften für Instagram & TikTok',
   description: 'Verwandle deinen Text in 20+ Unicode-Schriftarten: fett, kursiv, Schreibschrift, ästhetisch. Kopieren und überall einfügen. Kostenlos.',
   keywords: 'Schriftarten Generator, Instagram Schriftarten, coole Schriften, Schrift ändern, Text Generator, Unicode Schrift, ausgefallene Schriften',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../invoice-generator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/invoice-generator'),
   title: 'Rechnungsgenerator Kostenlos — Rechnung Online Erstellen PDF',
   description: 'Erstelle professionelle Rechnungen sofort. Positionen, Steuern, Rabatte. PDF Download. Ohne Anmeldung, ohne Wasserzeichen.',
   keywords: 'Rechnungsgenerator, Rechnung erstellen kostenlos, Rechnung online, Rechnung Vorlage, Rechnung PDF, kostenlose Rechnung erstellen, Rechnungsvorlage',

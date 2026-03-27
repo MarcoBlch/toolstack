@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../gradient-generator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/gradient-generator'),
   title: 'Gerador de Gradiente CSS Grátis',
   description: 'Crie lindos gradientes CSS de forma visual. Escolha cores, ajuste ângulos, copie o código CSS. Grátis.',
   keywords: 'gerador gradiente css, degradê css, gradient css, criar gradiente',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../water-intake/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/water-intake'),
   title: 'Wasserbedarf Rechner — Tägliche Trinkmenge Kostenlos',
   description: 'Kostenloser Wasserbedarf Rechner. Wie viel Wasser solltest du täglich trinken? Basierend auf Gewicht, Aktivitätslevel und Klima.',
   keywords: 'Wasserbedarf, Wasserbedarf Rechner, wie viel Wasser trinken, Trinkmenge pro Tag, Flüssigkeitsbedarf',

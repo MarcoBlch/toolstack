@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../calorie-deficit/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/calorie-deficit'),
   title: 'Kaloriendefizit Rechner — Abnehmen Kostenlos',
   description: 'Kostenloser Kaloriendefizit Rechner. Wie lange bis zum Wunschgewicht? Sichere tägliche Kalorienzufuhr und wöchentliche Gewichtsabnahme.',
   keywords: 'Kaloriendefizit, Kaloriendefizit Rechner, Abnehmen, Kalorien zum Abnehmen, wie lange abnehmen',

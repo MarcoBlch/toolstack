@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../tip-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/tip-calculator'),
   title: 'Calculadora de Gorjeta — Calcular Gorjeta e Dividir Conta',
   description: 'Calcule a gorjeta e divida a conta facilmente. Percentuais rápidos, divisão entre pessoas. Grátis.',
   keywords: 'calculadora gorjeta, calcular gorjeta, dividir conta, gorjeta restaurante, quanto dar de gorjeta',

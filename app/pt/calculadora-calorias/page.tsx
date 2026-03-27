@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../calorie-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/calorie-calculator'),
   title: 'Calculadora de Calorias — Necessidades Diárias Grátis',
   description: 'Calculadora de calorias grátis. Calcule suas necessidades calóricas diárias com base em idade, peso, altura e nível de atividade. TMB e TDEE com fórmula Mifflin-St Jeor.',
   keywords: 'calculadora calorias, necessidades calóricas, metabolismo basal, TDEE, calorias diárias, calcular calorias grátis',

@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Client from '../../unit-converter/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
   title: "Convertisseur d'Unités Gratuit en Ligne",
+  alternates: getAlternates('/unit-converter'),
   description: 'Convertissez longueur, poids, température, volume et plus. 8 catégories de conversion. Gratuit, sans inscription.',
   keywords: 'convertisseur unités, conversion unités, kg en lbs, cm en pouces, celsius fahrenheit',
   openGraph: { images: ['/api/og?title=Convertisseur%20d&description=Convertissez%20longueur%2C%20poids%2C%20temp%C3%A9rature%2C%20volume%20et%20plus.%208%20cat%C3%A9gories%20de%20conversion.%20Gratuit%2C%20sans'] },

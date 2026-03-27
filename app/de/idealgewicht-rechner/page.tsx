@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../ideal-weight/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/ideal-weight'),
   title: 'Idealgewicht Rechner — 4 Formeln Kostenlos',
   description: 'Kostenloser Idealgewicht Rechner. Finde dein Idealgewicht mit den Formeln von Devine, Robinson, Miller, Hamwi. Gesunder BMI-Bereich für deine Größe.',
   keywords: 'Idealgewicht, Idealgewicht Rechner, gesundes Gewicht, Devine Formel, Normalgewicht, Idealgewicht berechnen',

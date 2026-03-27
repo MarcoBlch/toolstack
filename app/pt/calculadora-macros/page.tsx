@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../macro-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/macro-calculator'),
   title: 'Calculadora de Macros — Proteínas, Carboidratos, Gorduras Grátis',
   description: 'Calculadora de macros grátis. Calcule sua ingestão diária de proteínas, carboidratos e gorduras. Presets equilibrado, low carb, hiperproteico, keto.',
   keywords: 'calculadora macros, macronutrientes, proteínas por dia, carboidratos, gorduras, dieta keto, dieta hiperproteica',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../qr-generator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/qr-generator'),
   title: 'Gerador de QR Code Grátis Online',
   description: 'Crie QR codes para URLs, WiFi, email e telefone. Temas de cores. Download PNG grátis. Sem cadastro.',
   keywords: 'gerador qr code, criar qr code, qr code grátis, gerador código qr online',

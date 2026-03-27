@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../heart-rate-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/heart-rate-calculator'),
   title: 'Herzfrequenzzonen Rechner Kostenlos',
   description: 'Kostenloser Herzfrequenzzonen Rechner. Fettverbrennungszone, Cardio und VO2max Zonen. Karvonen und einfache Methode.',
   keywords: 'Herzfrequenz, Herzfrequenzzonen, Fettverbrennungszone, Cardio Zone, VO2max, Karvonen Formel, maximale Herzfrequenz',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../one-rep-max/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/one-rep-max'),
   title: 'Calculadora 1RM — Repetição Máxima Grátis',
   description: 'Calculadora de 1RM grátis. Estime sua repetição máxima com as fórmulas Epley, Brzycki e outras. Tabela de porcentagens para treino.',
   keywords: '1RM, calculadora 1RM, repetição máxima, carga máxima, fórmula Epley, fórmula Brzycki, musculação',

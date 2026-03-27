@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../pace-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/pace-calculator'),
   title: 'Laufpace Rechner — Lauftempo Berechnen Kostenlos',
   description: 'Kostenloser Laufpace Rechner. Berechne dein Tempo, Zeit oder Distanz für jeden Lauf. Zwischenzeiten für 5K, 10K, Halbmarathon, Marathon.',
   keywords: 'Laufpace, Pace Rechner, Lauftempo, Zwischenzeiten, 5K, 10K, Halbmarathon, Marathon, Laufen',

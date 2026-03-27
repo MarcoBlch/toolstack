@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { TRANSLATIONS } from '@/lib/translations'
 
 const TOOLS_NAV = [
   { href: '/fancy-text', name: 'Fancy Text' },
@@ -110,6 +111,26 @@ export default function ToolShell({
             <a href="#" style={{ color: '#B0AAA0', textDecoration: 'none' }}>Terms</a>
           </div>
         </div>
+        {(() => {
+          const t = TRANSLATIONS[currentPath] || {}
+          const langs = [
+            { code: 'EN', href: currentPath },
+            { code: 'FR', href: t.fr || '/fr' },
+            { code: 'ES', href: t.es || '/es' },
+            { code: 'PT', href: t.pt || '/pt' },
+            { code: 'DE', href: t.de || '/de' },
+          ]
+          return (
+            <div style={{ textAlign: 'center', fontSize: 12, color: '#B0AAA0', marginTop: 8 }}>
+              {langs.map((l, i) => (
+                <span key={l.code}>
+                  {i > 0 && ' · '}
+                  <Link href={l.href} style={{ color: '#B0AAA0', textDecoration: 'none' }}>{l.code}</Link>
+                </span>
+              ))}
+            </div>
+          )
+        })()}
       </footer>
     </div>
   )

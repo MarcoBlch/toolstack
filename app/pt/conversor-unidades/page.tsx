@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../unit-converter/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/unit-converter'),
   title: 'Conversor de Unidades Grátis Online',
   description: 'Converta comprimento, peso, temperatura, volume e mais. 8 categorias de conversão. Grátis, sem cadastro.',
   keywords: 'conversor unidades, conversão unidades, kg para libras, cm para polegadas, celsius fahrenheit',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../retirement-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/retirement-calculator'),
   title: 'Rentenrechner — Altersvorsorge Planen Kostenlos',
   description: 'Plane deine Altersvorsorge. Wie viel monatlich sparen, Einkommensprojektion, Kapitaldauer. Kostenloser Rechner.',
   keywords: 'Rentenrechner, Altersvorsorge Rechner, Rente berechnen, Rentenvorsorge planen, Sparrechner Rente, Rentenlücke berechnen',

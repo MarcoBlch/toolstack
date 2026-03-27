@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../salary-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/salary-calculator'),
   title: 'Brutto Netto Rechner — Gehaltsrechner 2026 Kostenlos',
   description: 'Berechne dein Nettogehalt aus dem Bruttogehalt. Steuern, Sozialabgaben, Effektivsteuersatz. Gehaltsrechner Deutschland.',
   keywords: 'Brutto Netto Rechner, Gehaltsrechner, Brutto Netto, Nettolohn berechnen, Gehaltsrechner 2026, Lohnrechner, Nettogehalt berechnen',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../retirement-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/retirement-calculator'),
   title: 'Calculadora de Aposentadoria — Planeje sua Aposentadoria Grátis',
   description: 'Planeje sua aposentadoria. Quanto poupar por mês, projeção de renda, duração do capital. Grátis.',
   keywords: 'calculadora aposentadoria, planejar aposentadoria, poupança aposentadoria, quanto poupar para aposentar, simulador aposentadoria',

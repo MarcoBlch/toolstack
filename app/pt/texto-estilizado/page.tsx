@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../fancy-text/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/fancy-text'),
   title: 'Gerador de Texto Estilizado — Fontes Instagram Grátis',
   description: 'Transforme seu texto em 20+ estilos Unicode — negrito, itálico, cursivo, bolhas e mais. Copie e cole em qualquer lugar. Grátis, sem cadastro.',
   keywords: 'texto estilizado, gerador texto, fontes instagram, letras diferentes, conversor fontes',

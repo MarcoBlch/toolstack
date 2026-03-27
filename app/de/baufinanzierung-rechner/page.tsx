@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../mortgage-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/mortgage-calculator'),
   title: 'Baufinanzierung Rechner — Kreditrate Berechnen Kostenlos',
   description: 'Berechne deine monatliche Kreditrate, Gesamtzinsen und Tilgungsplan für deine Baufinanzierung. Kostenloser Rechner.',
   keywords: 'Baufinanzierung Rechner, Kreditrechner Immobilie, Hypothekenrechner, Baufinanzierung berechnen, Tilgungsrechner, monatliche Rate berechnen',

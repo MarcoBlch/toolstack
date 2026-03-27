@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../heart-rate-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/heart-rate-calculator'),
   title: 'Calculadora de Frequência Cardíaca Grátis',
   description: 'Calculadora de zonas de frequência cardíaca grátis. Zonas de queima de gordura, cardio e VO2 máx. Métodos Karvonen e simples.',
   keywords: 'frequência cardíaca, zonas cardíacas, zona queima gordura, zona cardio, VO2 máx, método Karvonen, FC máxima',

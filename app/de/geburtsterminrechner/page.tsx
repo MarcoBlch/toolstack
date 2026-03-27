@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../due-date-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/due-date-calculator'),
   title: 'Geburtsterminrechner — Entbindungstermin Berechnen Kostenlos',
   description: 'Kostenloser Geburtsterminrechner. Berechne deinen voraussichtlichen Entbindungstermin nach letzter Periode, Empfängnisdatum oder IVF. Trimester und Schwangerschaftswoche.',
   keywords: 'Geburtsterminrechner, Entbindungstermin, Geburtstermin berechnen, Schwangerschaftswoche, Schwangerschaftsrechner',

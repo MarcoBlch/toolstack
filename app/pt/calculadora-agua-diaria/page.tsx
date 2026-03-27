@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../water-intake/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/water-intake'),
   title: 'Calculadora de Água Diária Grátis',
   description: 'Calculadora de água diária grátis. Quanta água você deve beber por dia? Baseado no peso, nível de atividade e clima.',
   keywords: 'quanta água beber, calculadora água diária, hidratação, água por dia, necessidade de água, ingestão de água',

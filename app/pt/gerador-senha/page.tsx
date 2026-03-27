@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../password-generator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/password-generator'),
   title: 'Gerador de Senhas Seguras Grátis',
   description: 'Gere senhas seguras e aleatórias instantaneamente. Criptografia forte. Nunca armazenadas. Grátis, sem cadastro.',
   keywords: 'gerador senha, senha segura, senha aleatória, criar senha',

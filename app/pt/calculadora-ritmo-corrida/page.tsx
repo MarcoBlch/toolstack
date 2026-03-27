@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../pace-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/pace-calculator'),
   title: 'Calculadora de Ritmo de Corrida Grátis',
   description: 'Calculadora de ritmo de corrida grátis. Calcule seu ritmo, tempo ou distância para qualquer corrida. Tempos de passagem para 5K, 10K, meia maratona, maratona.',
   keywords: 'ritmo corrida, calculadora ritmo, pace running, tempos de passagem, 5K, 10K, meia maratona, maratona, corrida',

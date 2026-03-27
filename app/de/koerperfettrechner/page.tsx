@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../body-fat-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/body-fat-calculator'),
   title: 'Körperfettrechner — US Navy Methode Kostenlos',
   description: 'Kostenloser Körperfettrechner. US Navy Methode. Berechne deinen Körperfettanteil, Fettmasse und Magermasse.',
   keywords: 'Körperfettrechner, Körperfettanteil, US Navy Methode, Fettmasse, Magermasse, Körperzusammensetzung',

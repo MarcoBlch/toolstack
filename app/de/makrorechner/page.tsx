@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../macro-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/macro-calculator'),
   title: 'Makrorechner — Eiweiß, Kohlenhydrate, Fett Kostenlos',
   description: 'Kostenloser Makrorechner. Berechne deine tägliche Aufnahme von Eiweiß, Kohlenhydraten und Fett. Voreinstellungen für ausgewogen, Low Carb, High Protein, Keto.',
   keywords: 'Makrorechner, Makronährstoffe, Eiweiß pro Tag, Kohlenhydrate, Fett, Keto Diät, High Protein Diät',

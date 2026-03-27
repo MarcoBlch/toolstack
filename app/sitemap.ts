@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   const translations = [
+    '/fr', '/es', '/pt', '/de',
     '/fr/texte-style', '/fr/generateur-qr-code', '/fr/generateur-mot-de-passe',
     '/fr/convertisseur-unites', '/fr/compteur-mots', '/fr/compresser-image',
     '/fr/formateur-json', '/fr/convertisseur-majuscules',

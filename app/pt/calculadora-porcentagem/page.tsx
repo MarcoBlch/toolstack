@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../percentage-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/percentage-calculator'),
   title: 'Calculadora de Porcentagem — Quanto é X% de Y? Grátis',
   description: 'Calcule porcentagens facilmente. Quanto é X% de Y? Variação percentual, desconto. Calculadora grátis.',
   keywords: 'calculadora porcentagem, calcular porcentagem, quanto é 20 de 500, porcentagem de desconto, variação percentual',

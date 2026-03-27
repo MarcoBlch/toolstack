@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Client from '../../retirement-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
   title: 'Simulateur de Retraite — Calculez votre Épargne Retraite Gratuit',
+  alternates: getAlternates('/retirement-calculator'),
   description: 'Planifiez votre retraite. Combien épargner par mois, projection de revenus, durée du capital. Gratuit.',
   keywords: 'simulateur retraite, calcul retraite, épargne retraite, planifier retraite, combien épargner pour la retraite',
   openGraph: { images: ['/api/og?title=Simulateur%20de%20Retraite&description=Planifiez%20votre%20retraite.%20Combien%20%C3%A9pargner%20par%20mois%2C%20projection%20de%20revenus%2C%20dur%C3%A9e%20du%20capital.%20Gratui'] },

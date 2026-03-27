@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../currency-converter/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/currency-converter'),
   title: 'Conversor de Moeda — Taxa de Câmbio Grátis Online',
   description: 'Converta entre 30+ moedas do mundo. EUR, USD, BRL, GBP, JPY. Taxas aproximadas. Grátis.',
   keywords: 'conversor moeda, taxa de câmbio, dólar para real, euro para real, conversão moeda, câmbio hoje',

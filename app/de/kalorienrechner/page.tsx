@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../calorie-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/calorie-calculator'),
   title: 'Kalorienrechner — Täglicher Kalorienbedarf Kostenlos',
   description: 'Kostenloser Kalorienrechner. Berechne deinen täglichen Kalorienbedarf nach Alter, Gewicht, Größe und Aktivitätslevel. Grundumsatz und Gesamtumsatz mit Mifflin-St-Jeor.',
   keywords: 'Kalorienrechner, Kalorienbedarf, Grundumsatz, Gesamtumsatz, Kalorien pro Tag, Kalorienrechner kostenlos',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../tip-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/tip-calculator'),
   title: 'Trinkgeld Rechner — Trinkgeld Berechnen und Rechnung Teilen',
   description: 'Berechne das Trinkgeld und teile die Rechnung einfach. Schnelle Prozentsätze, Aufteilung zwischen Personen. Kostenlos.',
   keywords: 'Trinkgeld Rechner, Trinkgeld berechnen, Rechnung teilen, Restaurant Trinkgeld, wie viel Trinkgeld, Trinkgeld Prozent',

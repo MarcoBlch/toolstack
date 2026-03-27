@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../salary-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/salary-calculator'),
   title: 'Calculadora Salário Líquido — Bruto para Líquido Grátis',
   description: 'Converta seu salário bruto em líquido. Impostos, INSS, taxa efetiva. Simulador grátis, sem cadastro.',
   keywords: 'calculadora salário líquido, salário bruto líquido, calcular salário líquido, simulador salário, desconto INSS',

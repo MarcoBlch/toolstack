@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../ideal-weight/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/ideal-weight'),
   title: 'Calculadora de Peso Ideal — 4 Fórmulas Grátis',
   description: 'Calculadora de peso ideal grátis. Encontre seu peso ideal com as fórmulas Devine, Robinson, Miller, Hamwi. Faixa de peso saudável para sua altura.',
   keywords: 'peso ideal, calculadora peso ideal, peso saudável, fórmula Devine, peso para minha altura, IMC normal',

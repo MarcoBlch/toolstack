@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import InvestmentClient from '../../investment-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
   title: "Simulateur d'Investissement — Calcul Intérêts Composés Gratuit",
+  alternates: getAlternates('/investment-calculator'),
   description: "Simulez la croissance de vos investissements avec les intérêts composés. Contribution mensuelle, rendement annuel. Gratuit.",
   keywords: 'simulateur investissement, calcul intérêts composés, simulateur placement, épargne composée, rendement investissement',
   openGraph: { images: ['/api/og?title=Simulateur%20d&description=Simulez%20la%20croissance%20de%20vos%20investissements%20avec%20les%20int%C3%A9r%C3%AAts%20compos%C3%A9s.%20Contribution%20mensuelle%2C%20ren'] },

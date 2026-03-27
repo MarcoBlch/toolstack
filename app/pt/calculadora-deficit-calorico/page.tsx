@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../calorie-deficit/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/calorie-deficit'),
   title: 'Calculadora de Déficit Calórico Grátis',
   description: 'Calculadora de déficit calórico grátis. Quanto tempo para atingir seu peso objetivo. Ingestão calórica diária segura e taxa de perda de peso semanal.',
   keywords: 'déficit calórico, calculadora déficit, perda de peso, calorias para emagrecer, quanto tempo para perder peso',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../loan-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/loan-calculator'),
   title: 'Kreditrechner — Monatliche Rate Berechnen Kostenlos',
   description: 'Berechne monatliche Raten, Gesamtzinsen und Tilgungsplan für jeden Kredit. Autokredit, Privatkredit, Studienkredit.',
   keywords: 'Kreditrechner, Kreditrate berechnen, Ratenrechner, Darlehensrechner, Autokredit Rechner, Tilgungsplan, monatliche Rate',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../case-converter/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/case-converter'),
   title: 'Conversor Maiúsculas Minúsculas Grátis',
   description: 'Converta entre MAIÚSCULAS, minúsculas, Título, camelCase, snake_case e mais. Grátis, sem cadastro.',
   keywords: 'conversor maiúsculas, maiúsculas minúsculas, converter caixa, alternar caixa texto',

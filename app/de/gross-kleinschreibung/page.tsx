@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Client from '../../case-converter/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
+  alternates: getAlternates('/case-converter'),
   title: 'Groß- und Kleinschreibung Umwandeln — Text Konverter',
   description: 'Wandle Text um: GROSSBUCHSTABEN, kleinbuchstaben, Titel, camelCase, snake_case und mehr. Kostenlos, ein Klick Kopieren.',
   keywords: 'Groß Kleinschreibung umwandeln, Text Konverter, Großbuchstaben, Kleinbuchstaben, Text umwandeln, Schreibweise ändern',

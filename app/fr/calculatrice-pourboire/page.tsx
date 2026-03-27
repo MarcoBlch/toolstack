@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Client from '../../tip-calculator/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
+import { getAlternates } from '@/lib/translations'
 
 export const metadata: Metadata = {
   title: 'Calculatrice de Pourboire — Calcul et Partage de l\'Addition',
+  alternates: getAlternates('/tip-calculator'),
   description: 'Calculez le pourboire et partagez l\'addition facilement. Pourcentages rapides, division entre convives. Gratuit.',
   keywords: 'calculatrice pourboire, calcul pourboire, partager addition, diviser addition, tip calculator français',
   openGraph: { images: ['/api/og?title=Calculatrice%20de%20Pourboire&description=Calculez%20le%20pourboire%20et%20partagez%20l%5C'] },
