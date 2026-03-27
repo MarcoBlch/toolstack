@@ -325,11 +325,22 @@ export default function InvoiceClient() {
           </div>
         </section>
 
-        {/* SEO Content */}
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        {/* SEO */}
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free invoice generator — no signup, no watermark</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            InvoiceForge creates professional invoices instantly in your browser. Add your business details, client info, line items with quantities and prices, tax rates, and discounts. See a live preview as you type. Download as PDF with one click. Supports 10 currencies including USD, EUR, GBP, BRL, and JPY. Customize the accent color to match your brand. All data stays in your browser — nothing is sent to any server. No account needed, no watermark, completely free.
+            InvoiceForge creates professional invoices instantly in your browser. Add your business details, client information, line items with quantities and prices, tax rates, and discounts. A live preview updates as you type so you can see exactly what your client will receive. Download the finished invoice as a PDF with one click. The tool supports 10 currencies including USD, EUR, GBP, BRL, and JPY, and you can customize the accent color to match your brand.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Line items, tax, and discount calculations</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Add as many line items as you need, each with a description, quantity, and unit price. The subtotal updates automatically. Apply a tax percentage and the tool calculates the tax amount and grand total for you. You can also add a discount that is subtracted before tax, making it easy to offer early-payment incentives or volume pricing. These calculations happen in real time, so there is no need to reach for a separate calculator.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Privacy and PDF export</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            All data stays in your browser. Nothing is uploaded to a server, which means your business details and client information remain confidential. The PDF export produces a clean, professional document that you can email directly or print for your records. There is no account required, no watermark stamped on the output, and no limit on the number of invoices you can generate. It is a completely free tool for freelancers, small businesses, and anyone who needs to bill clients.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Need to calculate percentages for discounts or markups? Use the <a href="/percentage-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Percentage Calculator</a> for quick math. If you need to figure out VAT amounts for different regions, the <a href="/vat-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>VAT Calculator</a> can help you get the numbers right.
           </p>
         </section>
       </div>

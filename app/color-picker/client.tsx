@@ -193,10 +193,22 @@ export default function ColorClient({
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        {/* SEO */}
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free color picker & converter</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            ColorPick lets you pick any color and instantly get HEX, RGB, HSL, CSS, and Tailwind values. Click any value to copy. Generate shades (darker), tints (lighter), and complementary colors. Perfect for web designers and developers. Everything runs locally in your browser.
+            ColorPick is a free online color picker that lets you choose any color and instantly view its value in HEX, RGB, HSL, CSS, and Tailwind formats. Click any value to copy it to your clipboard. The tool also generates shades, tints, and complementary colors so you can build a complete palette without switching between apps. Everything runs in your browser, meaning your selections are never sent to a server.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Understanding color formats</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            HEX codes are the most common format for web colors, using six characters to represent red, green, and blue channels. RGB breaks the same information into three decimal values, which is useful for JavaScript and CSS functions. HSL describes color by hue, saturation, and lightness, making it easier to create consistent palettes because you can adjust brightness without changing the base hue. ColorPick displays all three formats simultaneously so you always have the one you need.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Shades, tints, and complementary colors</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Shades are created by mixing a color with black, producing darker variations that work well for text, borders, and hover states. Tints mix the color with white, giving you lighter options ideal for backgrounds and subtle accents. Complementary colors sit on the opposite side of the color wheel and create strong visual contrast when paired together. ColorPick generates all of these automatically from your selected color.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Once you have chosen your palette, use the <a href="/gradient-generator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Gradient Generator</a> to blend your colors into smooth CSS gradients. You can also apply your brand color to a custom <a href="/favicon-generator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Favicon</a> to keep your website identity consistent across browser tabs.
           </p>
         </section>
       </div>

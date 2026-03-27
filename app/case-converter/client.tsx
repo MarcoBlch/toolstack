@@ -95,10 +95,24 @@ export default function CaseConverterClient() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free text case converter</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            CaseFlip converts text between 12 different cases: UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, dot.case, tOGGLE cASE, and aLtErNaTiNg case. Perfect for developers converting variable names, writers fixing capitalization, and content creators styling their text. All processing happens locally in your browser.
+            CaseFlip converts text between 12 different cases: UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, dot.case, tOGGLE cASE, and aLtErNaTiNg case. It is a fast, reliable way for developers to convert variable names, for writers to fix capitalization mistakes, and for content creators to style their text. All processing happens locally in your browser.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Case styles explained for developers</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Different programming languages and frameworks follow different naming conventions. JavaScript typically uses camelCase for variables and PascalCase for classes. Python favors snake_case, while CSS class names and URL slugs use kebab-case. CONSTANT_CASE is the standard for environment variables and configuration constants. Converting between these formats manually is tedious and error-prone, which is exactly why a dedicated converter saves time.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Practical uses beyond coding</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Case conversion is not just for programmers. Writers use Title Case to format headings consistently. Marketers convert text to uppercase for attention-grabbing headlines in email campaigns. If you accidentally leave caps lock on, the lowercase option fixes everything in one click. Sentence case is helpful when you want to normalize pasted text that came in with inconsistent capitalization from different sources.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Want decorative text styles beyond standard casing? Try the <a href="/fancy-text" style={{ color: '#FF6B35', textDecoration: 'underline' }}>fancy text generator</a> for Unicode fonts. You can also use the <a href="/word-counter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>word counter</a> to check the length of your converted text before publishing.
           </p>
         </section>
       </div>

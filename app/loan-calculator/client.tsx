@@ -309,10 +309,21 @@ export default function LoanClient({
         </section>
 
         {/* SEO Content */}
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free loan calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free loan calculator. Calculate monthly payments for personal loans, car loans, student loans. See full amortization schedule with principal and interest breakdown. Enter your loan amount, interest rate, and term to instantly see your monthly payment and total cost. Toggle between years and months for the loan term, and set a custom start date to see your exact payoff date. The amortization table shows how each payment is split between principal and interest, so you can understand exactly where your money goes. All calculations happen in your browser — no data is sent anywhere. No signup required.
+            This loan calculator works for any type of borrowing, whether it is a personal loan, car loan, student loan, or business line of credit. Enter your loan amount, annual interest rate, and repayment term to see your fixed monthly payment, total interest cost, and exact payoff date. Toggle between years and months to match any loan offer you are comparing.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Understanding your amortization schedule</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The full amortization table breaks down every single payment into its principal and interest portions. Early in the loan, interest dominates each payment, but the balance shifts over time. Reviewing this schedule helps you decide if making extra payments toward principal could shorten your loan and reduce total interest significantly.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>How interest rates affect your total cost</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            A lower interest rate does not just reduce your monthly payment; it also lowers the total amount you repay over the life of the loan. Try changing the rate by even half a percentage point to see the impact. Setting a custom start date lets you plan around your actual disbursement timeline and see your real payoff month.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
+            Looking specifically at home financing? Our <a href="/mortgage-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>mortgage calculator</a> includes down payment and loan-to-value features. For quick rate comparisons, the <a href="/percentage-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>percentage calculator</a> is a handy companion tool.
           </p>
         </section>
       </div>

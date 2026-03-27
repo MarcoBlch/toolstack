@@ -351,6 +351,9 @@ export default function CalorieDeficitClient({
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
             TDEE stands for Total Daily Energy Expenditure — the total number of calories your body burns in a day including basal metabolism, physical activity, and the thermic effect of food. Knowing your TDEE helps you set an accurate calorie target for weight loss.
           </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Not sure what your TDEE is? Use our <a href="/calorie-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie calculator</a> to find your daily calorie needs based on the Mifflin-St Jeor equation. Once you have your deficit target, the <a href="/macro-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>macro calculator</a> can help you split those calories into the right balance of protein, carbs, and fat.
+          </p>
         </section>
       </div>
     </ToolShell>

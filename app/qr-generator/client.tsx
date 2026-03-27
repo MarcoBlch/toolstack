@@ -124,10 +124,22 @@ export default function QRClient() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        {/* SEO */}
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free QR code generator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            QRDrop generates QR codes instantly for URLs, plain text, WiFi networks, email addresses, phone numbers, and SMS. Customize colors, download as high-res PNG. No signup, no watermark, no limits. Everything runs in your browser — your data never leaves your device.
+            QRDrop generates QR codes instantly for URLs, plain text, WiFi credentials, email addresses, phone numbers, and SMS messages. Choose from multiple color themes to match your brand, then download the result as a high-resolution PNG. There is no signup required, no watermark added, and no limit on how many codes you can create. Everything runs in your browser, so your data never leaves your device.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>QR code types and use cases</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            URL codes are the most popular type, letting people visit a website by scanning with their phone camera. WiFi codes allow guests to join your network without typing a password, which is perfect for cafes, offices, and events. Email and phone codes pre-fill the recipient address or number so the scanner can reach you with a single tap. Each type follows a specific encoding standard that smartphones recognize automatically.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Customizing colors and downloading</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            A QR code does not have to be plain black and white. QRDrop offers several color theme presets so your code can complement your marketing materials or website palette. Ensure there is enough contrast between the foreground and background so scanners can read it reliably. The downloaded PNG is high resolution and looks crisp whether printed on a business card, a poster, or displayed on a screen.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Want to shrink the file size of your downloaded QR code image? Run it through the <a href="/image-compressor" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Image Compressor</a> to optimize it for the web. You can also create a matching <a href="/favicon-generator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Favicon</a> for the landing page your QR code points to.
           </p>
         </section>
       </div>

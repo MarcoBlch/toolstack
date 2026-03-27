@@ -115,10 +115,24 @@ export default function EmojiClient() {
           )}
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free emoji picker — copy & paste</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            EmojiDB lets you browse and copy all emojis instantly. Search by keyword, browse by category (smileys, hands, hearts, people, animals, food, travel, objects, symbols). One click to copy any emoji to your clipboard. Works everywhere — Instagram, Twitter, WhatsApp, Discord, Slack, and any platform.
+            EmojiDB lets you browse and copy all Unicode emojis instantly. Search by keyword or browse by category including smileys, hands, hearts, people, animals, food, travel, objects, and symbols. One click copies any emoji to your clipboard so you can paste it immediately. It works everywhere — Instagram, X/Twitter, WhatsApp, Discord, Slack, email, and any platform that supports Unicode characters.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>How Unicode emojis work across devices</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Emojis are part of the Unicode standard, which means they are recognized by every modern operating system and browser. When you copy an emoji from this picker, you are copying a Unicode character, not an image. Each platform renders it using its own emoji font, so the same smiley might look slightly different on Apple, Google, or Samsung devices, but the meaning stays the same and it always displays correctly.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Finding the right emoji quickly</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The search bar filters emojis by descriptive keywords, so typing "fire" or "celebration" narrows the grid to relevant options immediately. Category tabs let you jump between groups without scrolling through the entire set. This is faster than using your phone keyboard or operating system emoji panel, especially when you are writing on a desktop and need to add emojis to social media posts, emails, or documents.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Pair your emojis with stylish text using the <a href="/fancy-text" style={{ color: '#FF6B35', textDecoration: 'underline' }}>fancy text generator</a> for Unicode font styles. If you need to adjust the capitalization of your text before adding emojis, the <a href="/case-converter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>case converter</a> handles that in one click.
           </p>
         </section>
       </div>

@@ -171,10 +171,22 @@ export default function TimezoneClient({
           </div>
         </section>
 
+        {/* SEO */}
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free timezone converter</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            TimeBridge converts time between 24 major timezones worldwide. Live clock display, instant conversion, meeting time planner. Supports EST, GMT, CET, IST, JST, AEST, and more. All calculations happen locally using your browser's Intl API.
+            TimeBridge converts time between 24 major timezones worldwide with a live clock display and instant results. Whether you are scheduling a call with a colleague in Tokyo or planning a webinar for attendees across Europe and the Americas, this tool shows you the exact converted time in seconds. It supports EST, GMT, CET, IST, JST, AEST, and many more. All calculations use your browser's built-in Intl API for accuracy.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>World clock and instant conversion</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The live clock at the top of the tool always shows your current local time, giving you an immediate reference point. Select a source timezone and a target timezone, enter any time, and see the converted result update instantly. This is especially useful for remote teams that span multiple continents and need to coordinate standups, deadlines, or product launches without confusion about who is ahead or behind.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Planning meetings across time zones</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Finding a meeting time that works for people in different time zones is one of the most common scheduling challenges in distributed work. TimeBridge helps you quickly check whether a proposed time falls during reasonable working hours for all participants. Instead of mentally adding or subtracting hours and worrying about daylight saving changes, you can rely on the converter to handle the math and give you a clear answer in one step.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Working with international measurements too? The <a href="/unit-converter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Unit Converter</a> handles length, weight, temperature, and more. If you also need to compare prices across borders, try the <a href="/currency-converter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Currency Converter</a> for live exchange rates.
           </p>
         </section>
       </div>

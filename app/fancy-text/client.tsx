@@ -132,10 +132,24 @@ export default function FancyTextClient() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free fancy text generator for Instagram, TikTok & more</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            FancyType converts your regular text into stylish Unicode fonts that work everywhere — Instagram bios, TikTok usernames, X/Twitter posts, Discord, WhatsApp, and any platform that supports text. Choose from 20+ styles including bold, italic, script, cursive, double-struck, fraktur, small caps, bubble letters, and decorative frames. Simply type, pick a style, click copy, and paste.
+            FancyType converts your regular text into stylish Unicode fonts that work everywhere — Instagram bios, TikTok usernames, X/Twitter posts, Discord, WhatsApp, and any platform that supports text. Choose from 20+ styles including bold, italic, script, cursive, double-struck, fraktur, small caps, bubble letters, and decorative frames. Simply type, pick a style, click copy, and paste it wherever you want to stand out.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>How Unicode font styles work</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Unlike regular fonts that depend on the platform you are using, Unicode text styles are built into the character set itself. Each "fancy" letter is actually a separate Unicode code point, which means it displays correctly on virtually every device and operating system without requiring any special font installation. This is why your styled text looks the same whether someone views it on an iPhone, Android phone, Windows PC, or Mac.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Best uses for fancy text on social media</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Styled text is a simple way to make your social media profiles and posts more eye-catching. Many creators use bold or italic Unicode text in their Instagram bios to highlight key information. On TikTok, unique usernames with script or double-struck letters help you stand out. The same applies to Discord server names, YouTube channel descriptions, and X/Twitter posts where you want to draw attention to specific words.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Need to check your text length after styling? Use our <a href="/word-counter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>word counter</a> to verify character counts. You can also try the <a href="/case-converter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>case converter</a> for standard capitalization changes, or browse the <a href="/emoji-picker" style={{ color: '#FF6B35', textDecoration: 'underline' }}>emoji picker</a> to pair emojis with your fancy text.
           </p>
         </section>
       </div>

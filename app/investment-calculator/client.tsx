@@ -250,7 +250,18 @@ export default function InvestmentClient({
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free compound interest and investment calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free compound interest and investment calculator. See how your money grows over time with regular contributions. Plan your retirement, savings goals, and investment strategy.
+            This investment calculator shows how your money grows through the power of compound interest. Enter your initial investment, monthly contribution, expected annual return, and time horizon to see your projected final balance. The year-by-year growth chart visually separates your contributions from investment gains, making it easy to see how compounding accelerates your wealth over time.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Why compounding frequency matters</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Choose between monthly, quarterly, or annual compounding to match your actual investment product. Monthly compounding produces slightly higher returns because interest starts earning its own interest sooner. Over a 20-year period, this difference can add up to a meaningful amount, especially with larger portfolios or higher return rates.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Building a long-term investment strategy</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The most powerful variable in this calculator is time. Even modest monthly contributions grow substantially over decades thanks to compounding. Try extending the time slider to see how an extra five or ten years dramatically increases your final balance. Starting early, even with smaller amounts, often beats starting late with larger contributions.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
+            Planning specifically for retirement? Our <a href="/retirement-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>retirement calculator</a> factors in inflation and the 4% withdrawal rule. To understand how your current income fits into your savings plan, try the <a href="/salary-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>salary calculator</a>.
           </p>
         </section>
       </div>

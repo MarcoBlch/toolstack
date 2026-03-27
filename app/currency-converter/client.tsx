@@ -207,7 +207,18 @@ export default function CurrencyClient({
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free currency converter</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free currency converter. Convert between 30+ world currencies. EUR, USD, GBP, JPY, CHF, and more. Approximate rates updated monthly.
+            Our currency converter lets you quickly convert between more than 30 world currencies including EUR, USD, GBP, JPY, CHF, CAD, AUD, and many others. Enter an amount, select the source and target currencies, and see the converted value along with both the direct and inverse exchange rates. The swap button makes it easy to reverse the conversion direction with a single click.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Supported currencies and exchange rates</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The converter covers major currencies from every continent, from the US Dollar and Euro to the South African Rand, Thai Baht, and West African CFA Franc. Exchange rates are approximate and updated periodically. For large transactions or time-sensitive conversions, always confirm the live rate with your bank or financial institution before proceeding.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>When to use a currency converter</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Whether you are planning travel, shopping from an international website, sending money abroad, or comparing prices across markets, a quick currency conversion saves time and prevents costly mistakes. This tool runs entirely in your browser with no signup required, making it ideal for fast estimates whenever you need them.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
+            Dealing with international invoices? Our <a href="/vat-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>VAT calculator</a> handles sales tax across countries. For general number crunching, the <a href="/percentage-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>percentage calculator</a> is always useful.
           </p>
         </section>
       </div>

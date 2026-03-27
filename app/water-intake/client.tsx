@@ -360,6 +360,9 @@ export default function WaterIntakeClient({
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
             Carry a reusable water bottle, drink a glass of water before each meal, and eat water-rich foods like fruits and vegetables. If you exercise, drink extra water before, during, and after your workout. Signs of dehydration include dark urine, fatigue, headache, and dry mouth.
           </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Proper hydration works hand in hand with good nutrition. Use our <a href="/calorie-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie calculator</a> to determine your daily energy needs based on your activity level. If you are a runner or cyclist, the <a href="/pace-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>pace calculator</a> can help you plan training sessions where staying hydrated becomes even more important.
+          </p>
         </section>
       </div>
     </ToolShell>

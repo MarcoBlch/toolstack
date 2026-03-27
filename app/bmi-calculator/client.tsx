@@ -318,7 +318,18 @@ export default function BMIClient({
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free BMI calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free BMI calculator. Calculate your Body Mass Index instantly. Supports metric and imperial. See your BMI category and healthy weight range.
+            Our BMI calculator determines your Body Mass Index by dividing your weight in kilograms by your height in meters squared. Switch between metric and imperial units depending on what you are comfortable with. The result is displayed on a color-coded gauge that shows exactly where you fall across four standard categories: underweight, normal weight, overweight, and obese.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Understanding BMI categories</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            A BMI below 18.5 is considered underweight, 18.5 to 24.9 falls within the normal range, 25 to 29.9 is classified as overweight, and 30 or above indicates obesity. The calculator also shows your healthy weight range for your specific height, giving you a concrete target if you are working toward a healthier weight. These categories are defined by the World Health Organization.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>BMI limitations and next steps</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            While BMI is a useful screening tool, it does not distinguish between muscle and fat or account for factors like bone density, age, and gender. Athletes with high muscle mass may have an elevated BMI despite being healthy. For a more complete picture of your body composition, consider additional measurements and always consult a healthcare professional for personalized guidance.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
+            Looking for more health metrics? Try our <a href="/ideal-weight" style={{ color: '#FF6B35', textDecoration: 'underline' }}>ideal weight calculator</a>, <a href="/body-fat-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>body fat calculator</a>, or <a href="/calorie-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie calculator</a> for a broader view of your fitness.
           </p>
         </section>
       </div>

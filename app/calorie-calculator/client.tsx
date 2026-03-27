@@ -372,9 +372,20 @@ export default function CalorieClient({
 
         {/* SEO */}
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
-          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free calorie calculator</h2>
+          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free Calorie Calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free calorie calculator to estimate your daily calorie needs. Uses the Mifflin-St Jeor equation to calculate your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) based on your age, gender, weight, height, and activity level. Get personalized calorie targets for weight loss, maintenance, or weight gain. No signup required.
+            This free calorie calculator estimates your daily calorie needs using the Mifflin-St Jeor equation, widely regarded as the most accurate formula for predicting energy expenditure. Enter your age, gender, weight, height, and activity level to get your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE). The tool provides personalized calorie targets for weight loss, maintenance, and weight gain goals without requiring any signup.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 8 }}>Understanding BMR and TDEE</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Your BMR is the number of calories your body burns at complete rest just to maintain basic functions like breathing, circulation, and cell production. TDEE builds on BMR by factoring in your daily physical activity using a multiplier that ranges from 1.2 for sedentary lifestyles up to 1.9 for extremely active individuals. The difference between BMR and TDEE reflects how much energy your movement and exercise require each day.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 8 }}>How Activity Levels Affect Your Calories</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Choosing the correct activity level is essential for an accurate estimate. Sedentary means minimal movement beyond daily tasks. Lightly active covers 1 to 3 exercise sessions per week. Moderately active suits 3 to 5 sessions, while very active applies to daily intense training. Selecting the wrong level can skew your results by several hundred calories, so be honest about your typical weekly routine.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Once you know your TDEE, use our <a href="/macro-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>macro calculator</a> to split your calories into protein, carbs, and fat. If your goal is weight loss, the <a href="/calorie-deficit" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie deficit calculator</a> can help you plan a safe timeline to reach your target. You can also check your <a href="/bmi-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>BMI</a> to see where your current weight falls on the health spectrum.
           </p>
         </section>
       </div>

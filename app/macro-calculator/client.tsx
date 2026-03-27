@@ -264,9 +264,20 @@ export default function MacroClient({
 
         {/* SEO */}
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
-          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free macro calculator</h2>
+          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free Macro Calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Use this free macro calculator to find your ideal daily intake of protein, carbohydrates, and fat. Whether you follow a balanced diet, low carb, high protein, keto, or a fully custom macro split, this tool instantly calculates the grams you need. Macronutrients are the foundation of any nutrition plan — protein supports muscle recovery and growth (4 calories per gram), carbohydrates fuel your workouts and daily energy (4 calories per gram), and dietary fat supports hormone production and nutrient absorption (9 calories per gram). Adjust your calorie target and goal to see your personalized macro breakdown. No signup required.
+            Use this free macro calculator to find your ideal daily intake of protein, carbohydrates, and fat. Whether you follow a balanced diet, low carb, high protein, keto, or a fully custom macro split, this tool instantly calculates the grams you need. Macronutrients are the foundation of any nutrition plan -- protein supports muscle recovery and growth at 4 calories per gram, carbohydrates fuel your workouts and daily energy at 4 calories per gram, and dietary fat supports hormone production and nutrient absorption at 9 calories per gram.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 8 }}>Choosing the Right Macro Split</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The balanced preset (30/40/30) works well for general health and moderate exercise. A high protein split (40/35/25) supports muscle building and recovery, especially during strength training. The keto preset (25/5/70) drastically reduces carbs to promote fat adaptation. If none of these fit your needs, the custom mode lets you drag sliders to set your exact percentages while keeping the total locked at 100%.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 8 }}>Why Macros Matter for Your Goals</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Tracking macros rather than just total calories gives you more control over body composition. Two people eating 2,000 calories can see very different results depending on their protein-to-fat ratio. Higher protein intake preserves lean muscle during a calorie deficit, while adequate carbohydrates maintain training performance. Adjusting your macro split based on your goals is one of the most effective nutrition strategies available.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Need to find your daily calorie target first? Use our <a href="/calorie-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie calculator</a> to determine your TDEE, then come back here to split those calories into macros. If you are planning to lose weight, the <a href="/calorie-deficit" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie deficit calculator</a> can help you set a safe daily target and timeline.
           </p>
         </section>
       </div>

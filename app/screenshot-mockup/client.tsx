@@ -255,10 +255,22 @@ export default function MockupClient() {
           )}
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        {/* SEO */}
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free screenshot mockup generator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            ScreenSnap frames your screenshots in beautiful browser and device mockups. Choose from browser, macOS window, minimal, or no frame. Pick a gradient background, adjust padding and shadow. Download as high-res PNG. Perfect for portfolios, presentations, social media, and documentation. All processing happens locally.
+            ScreenSnap frames your screenshots in polished browser and device mockups with just a few clicks. Upload any image, choose a frame style — browser window, macOS window, minimal bar, or no frame — and pick a gradient background. Adjust padding and shadow intensity to get exactly the look you want, then download the result as a high-resolution PNG. All processing happens locally in your browser, so your images stay private.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Frame styles and gradient backgrounds</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The browser frame adds a realistic address bar that makes your screenshot look like a live webpage, which is ideal for product demos and landing page previews. The macOS window style adds the familiar traffic-light buttons for a clean desktop feel. Gradient backgrounds are available in several color combinations, turning a flat screenshot into an eye-catching visual that stands out on social media feeds and presentation slides.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Use cases for screenshot mockups</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Designers use mockups in portfolio case studies to present their work professionally. Developers include them in documentation and README files to show users what an application looks like. Marketers use framed screenshots in blog posts, newsletters, and social media campaigns to drive engagement. A well-framed screenshot communicates quality and builds trust far more effectively than a raw screen capture pasted into a document.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Before uploading your mockup, reduce the file size with the <a href="/image-compressor" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Image Compressor</a> to keep page loads fast. Want to create the gradient background separately? Use the <a href="/gradient-generator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Gradient Generator</a> to design custom CSS gradients for your site.
           </p>
         </section>
       </div>

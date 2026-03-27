@@ -203,7 +203,18 @@ export default function PercentageClient({
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free percentage calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free percentage calculator. Calculate percentages instantly. What is X% of Y, percentage change, percentage difference. Tip calculator included.
+            This percentage calculator handles the three most common percentage questions in one tool. Use the first mode to find what a specific percentage of any number is, the second mode to determine what proportion one number is of another, and the third mode to calculate the percentage change between two values. Quick preset buttons let you tap common percentages without typing.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Everyday percentage math</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Percentages come up constantly in daily life: calculating discounts while shopping, figuring out how much to tip, understanding interest rates on loans, or tracking the growth of your savings. Rather than pulling out a formula each time, this calculator gives you instant answers. Just pick your mode, enter two numbers, and the result appears immediately.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Percentage change vs. percentage difference</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Percentage change measures how much a value has increased or decreased relative to its original amount. A positive result means growth, while a negative result indicates a decline. This is especially useful for tracking price changes, investment returns, or comparing performance metrics over different time periods in a clear and standardized way.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
+            Need to apply percentages to real financial scenarios? Try the <a href="/mortgage-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>mortgage calculator</a> for home loan math, the <a href="/tip-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>tip calculator</a> for restaurant bills, or the <a href="/vat-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>VAT calculator</a> for sales tax.
           </p>
         </section>
       </div>

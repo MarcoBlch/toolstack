@@ -287,6 +287,17 @@ export default function HeartRateClient({
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
             Calculate your heart rate training zones with our free calculator. Supports both the simple 220-minus-age method and the more accurate Karvonen formula, which factors in your resting heart rate. Instantly see your five training zones — Recovery, Fat Burn, Aerobic, Anaerobic, and VO2 Max — with personalized BPM ranges, colored zone bars, and a detailed breakdown of each zone's purpose. Perfect for runners, cyclists, and anyone looking to optimize their cardio training.
           </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 8 }}>Simple Method vs. Karvonen Formula</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The simple method estimates max heart rate as 220 minus your age and calculates zones as a straight percentage of that number. The Karvonen formula is more personalized because it uses your heart rate reserve — the difference between your max and resting heart rate. This means two people of the same age but different fitness levels will get different zone ranges, making Karvonen the preferred method for experienced athletes.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 8 }}>Training in the Right Zone</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Each zone serves a specific purpose. Zone 1 (50-60%) is for warm-ups and active recovery. Zone 2 (60-70%) is the fat-burning zone, ideal for long easy runs. Zone 3 (70-80%) builds aerobic capacity and cardiovascular endurance. Zone 4 (80-90%) develops speed and lactate threshold. Zone 5 (90-100%) is maximum effort for short intervals. Most training plans recommend spending the majority of your time in Zones 2 and 3.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Pair your heart rate zones with our <a href="/pace-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>pace calculator</a> to match your running pace to each zone. You can also use the <a href="/calorie-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie calculator</a> to see how your activity level affects your daily energy needs.
+          </p>
         </section>
       </div>
     </ToolShell>

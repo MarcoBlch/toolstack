@@ -165,10 +165,24 @@ export default function JSONFormatterClient() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free JSON formatter, validator & minifier</h2>
           <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
-            JSONPretty formats, validates, and minifies JSON instantly in your browser. Features syntax highlighting with color-coded keys, strings, numbers, booleans, and null values. Choose between 2-space or 4-space indentation. All processing happens locally — your JSON never leaves your device. Perfect for debugging APIs, formatting config files, and cleaning up messy JSON data.
+            JSONPretty formats, validates, and minifies JSON instantly in your browser. It features syntax highlighting with color-coded keys, strings, numbers, booleans, and null values. Choose between 2-space or 4-space indentation depending on your preference. All processing happens locally so your data never leaves your device. It is ideal for debugging API responses, formatting configuration files, and cleaning up messy JSON data from any source.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>JSON validation and error detection</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            When your JSON is invalid, the formatter shows a clear error message pointing to the problem. Common issues include trailing commas, missing quotes around keys, single quotes instead of double quotes, and unescaped special characters. Catching these errors early saves time when debugging webhooks, API integrations, or configuration files. The validator checks your JSON against the specification so you can fix syntax issues before they cause runtime failures.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Beautifying vs. minifying JSON</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            Beautified JSON with proper indentation is easier to read and review, which makes it the preferred format during development and debugging. Minified JSON removes all whitespace and line breaks, reducing file size for production use where bandwidth matters. JSONPretty lets you switch between both modes instantly, so you can format for readability when inspecting data and minify when you need the most compact representation.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8, marginTop: 16 }}>
+            Need to encode JSON data for transport? The <a href="/base64" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Base64 encoder</a> converts it to a safe string format. For testing patterns within your JSON values, the <a href="/regex-tester" style={{ color: '#FF6B35', textDecoration: 'underline' }}>regex tester</a> lets you validate strings against any pattern.
           </p>
         </section>
       </div>

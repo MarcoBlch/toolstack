@@ -143,10 +143,24 @@ export default function MarkdownClient() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free online markdown editor</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            MarkdownPad is a free split-pane Markdown editor with live preview. Write Markdown on the left, see formatted HTML on the right. Supports headings, bold, italic, strikethrough, links, images, code blocks, blockquotes, lists, and horizontal rules. Copy the generated HTML with one click. No signup needed.
+            MarkdownPad is a free split-pane Markdown editor with live preview. Write Markdown on the left side and see the formatted HTML render on the right in real time. It supports headings, bold, italic, strikethrough, links, images, code blocks with syntax fences, blockquotes, ordered and unordered lists, and horizontal rules. Copy the generated HTML with one click and paste it anywhere. No account or signup needed.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Markdown syntax made simple</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Markdown uses plain-text formatting that is easy to read and write. Headings start with hash symbols, bold text is wrapped in double asterisks, and links follow a bracket-parenthesis pattern. Because it converts cleanly into HTML, Markdown has become the default writing format for GitHub READMEs, documentation sites, blogs, and technical writing. Once you learn the basics, you can draft structured content much faster than using a rich text editor.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Live preview and HTML export</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The split-pane layout lets you see exactly how your Markdown will look as you type, so there is no need to switch between editing and previewing modes. When you are satisfied with the result, the "Copy HTML" button gives you clean, ready-to-use markup that you can drop into any website, email template, or content management system. This workflow is especially useful for writing blog posts and documentation drafts.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Need to compare two versions of your Markdown document? The <a href="/diff-checker" style={{ color: '#FF6B35', textDecoration: 'underline' }}>diff checker</a> highlights every change between them. If you need filler content while designing your layout, the <a href="/lorem-generator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>lorem ipsum generator</a> creates placeholder text in seconds.
           </p>
         </section>
       </div>

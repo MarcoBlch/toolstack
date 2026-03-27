@@ -176,10 +176,22 @@ export default function FaviconClient() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        {/* SEO */}
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free favicon generator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            FaviconForge creates favicons from any letter or emoji. Pick your background color, text color, and shape (square, rounded, or circle). Download all standard sizes (16, 32, 48, 180, 512) as PNG files. Perfect for websites, PWAs, and app icons. Everything is generated locally in your browser.
+            FaviconForge creates favicons from any letter or emoji in seconds. Choose your background color, text color, and shape — square, rounded, or circle — to match your brand identity. The tool generates all standard sizes including 16, 32, 48, 180, and 512 pixels as PNG files. These cover everything from browser tabs to iOS home screen icons and PWA splash screens. All rendering happens locally in your browser.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Favicon sizes and where they are used</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The 16px and 32px favicons appear in browser tabs and bookmarks. The 48px size is used by some desktop browsers for shortcut icons. The 180px version is the Apple Touch Icon displayed when someone saves your site to their iPhone home screen. The 512px icon is required for Progressive Web Apps and Android install prompts. By downloading all sizes at once, you ensure your site looks sharp on every device and platform without extra effort.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Letter and emoji favicons for quick branding</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Not every project needs a custom logo. A single letter or emoji favicon is a fast, effective way to give your website a recognizable identity in crowded browser tab bars. Many well-known brands use a simple initial as their favicon. FaviconForge lets you preview the result at full size before downloading, so you can experiment with different letters, colors, and shapes until you find the combination that feels right.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Use the <a href="/color-picker" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Color Picker</a> to find the perfect brand color for your favicon background. After creating your favicon, optimize any other site images with the <a href="/image-compressor" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Image Compressor</a> to keep your pages loading fast.
           </p>
         </section>
       </div>

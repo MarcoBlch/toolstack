@@ -295,7 +295,18 @@ export default function TipClient({
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free tip calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free tip calculator. Calculate tip and split the bill. See tip amounts at different percentages. Perfect for restaurants, bars, delivery, and services.
+            Our tip calculator takes the guesswork out of tipping at restaurants, bars, cafes, and for delivery or personal services. Enter your bill amount, select a tip percentage using the slider or quick presets, and see the tip amount and total instantly. If you are dining with friends, set the number of people to split the bill evenly so everyone knows exactly what they owe.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Tipping customs and quick comparison</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Tipping norms vary widely. In the United States, 18 to 20 percent is standard for table service, while 10 to 15 percent is common in many European countries. The comparison table shows your bill at five common tip percentages side by side, making it easy to pick the right amount without mental math. You can click any row to select that rate.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Splitting bills and rounding up</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The bill-splitting feature divides the total evenly among your group so nobody overpays or underpays. Enable the round-up option to bump the total to the next whole dollar, which simplifies cash payments and often results in a slightly more generous tip for your server. Both features work together seamlessly for any group size.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
+            Want to understand the math behind percentages? Visit our <a href="/percentage-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>percentage calculator</a>. Traveling abroad and need to convert currencies? The <a href="/currency-converter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>currency converter</a> has you covered.
           </p>
         </section>
       </div>

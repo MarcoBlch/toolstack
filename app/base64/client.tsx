@@ -158,10 +158,24 @@ export default function Base64Client() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free Base64 encoder & decoder</h2>
           <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
-            Base64Lab encodes text to Base64 and decodes Base64 back to readable text. Convert images to Base64 data URIs for embedding in HTML and CSS. Supports UTF-8 characters. All processing happens locally — your data never leaves your browser.
+            Base64Lab encodes text to Base64 and decodes Base64 strings back to readable text. You can also convert images to Base64 data URIs for embedding directly in HTML and CSS files. It fully supports UTF-8 characters, so international text and special symbols encode correctly. All processing happens locally in your browser so your data never leaves your device and results appear in real time as you type.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>What Base64 encoding is and how it works</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            Base64 is a binary-to-text encoding scheme that represents binary data using 64 ASCII characters: uppercase and lowercase letters, digits, plus, and slash. It is widely used to safely transmit binary data through text-based channels like email, JSON payloads, and URLs. The encoding increases data size by roughly 33 percent, but the trade-off is universal compatibility with systems that only handle plain text safely.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>When to use Base64 data URIs</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            Data URIs let you embed small images directly into HTML or CSS without separate HTTP requests. This is particularly useful for icons, small logos, and UI elements where eliminating a network round-trip improves page load speed. For larger images, a regular file reference is more efficient since Base64 encoding increases the size. A good rule of thumb is to use data URIs for assets under a few kilobytes.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8, marginTop: 16 }}>
+            Working with structured data before encoding? Use the <a href="/json-formatter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>JSON formatter</a> to clean up your JSON first. To generate checksums for verifying data integrity, the <a href="/hash-generator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>hash generator</a> produces MD5 and SHA hashes instantly.
           </p>
         </section>
       </div>

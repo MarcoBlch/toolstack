@@ -402,6 +402,9 @@ export default function DueDateClient({
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
             Gestational age counts from the first day of the last menstrual period, even though conception typically occurs about two weeks later. A full-term pregnancy is 37 to 42 weeks. The trimester progress bar shows your progress through each of the three trimesters and the milestones timeline helps track important dates throughout pregnancy.
           </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Staying healthy during pregnancy starts with good nutrition and hydration. Use our <a href="/calorie-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie calculator</a> to estimate your daily energy needs, which typically increase during the second and third trimesters. Our <a href="/water-intake" style={{ color: '#FF6B35', textDecoration: 'underline' }}>water intake calculator</a> also accounts for pregnancy, adding the extra fluids recommended for expectant and breastfeeding mothers.
+          </p>
         </section>
       </div>
     </ToolShell>

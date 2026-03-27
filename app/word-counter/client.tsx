@@ -108,10 +108,24 @@ export default function WordCounterClient() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free word counter & character counter</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            WordTool counts words, characters (with and without spaces), sentences, paragraphs, and calculates reading time (238 words/min) and speaking time (150 words/min). It also shows your top keywords and their frequency. Perfect for essays, blog posts, social media captions, SEO content, and meeting Twitter's character limits.
+            WordTool counts words, characters (with and without spaces), sentences, paragraphs, and calculates reading time based on an average of 238 words per minute. It also estimates speaking time at 150 words per minute and displays your top keywords along with their frequency. This makes it ideal for essays, blog posts, social media captions, academic papers, and any writing where length and density matter.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Why reading time and keyword density matter</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Knowing how long your content takes to read helps you calibrate for your audience. A quick social media caption should take seconds, while an in-depth article might take five to ten minutes. The keyword density panel shows which terms appear most often so you can spot unintentional repetition or confirm that your focus topic comes through clearly, without resorting to keyword stuffing.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Meeting character limits across platforms</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Different platforms enforce different limits. X/Twitter allows 280 characters, Instagram captions max out at 2,200, and meta descriptions perform best under 160 characters. WordTool shows both character counts with and without spaces so you can stay within bounds. Paste your text, check the numbers, and trim only what you need to — no guesswork required.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            After counting your words, use the <a href="/case-converter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>case converter</a> to fix capitalization issues. If you need placeholder text for a new design, try the <a href="/lorem-generator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>lorem ipsum generator</a>. And to compare two versions of your text side by side, the <a href="/diff-checker" style={{ color: '#FF6B35', textDecoration: 'underline' }}>diff checker</a> highlights every change.
           </p>
         </section>
       </div>

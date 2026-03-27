@@ -215,10 +215,22 @@ export default function ImageCompressorClient() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        {/* SEO */}
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free image compressor — 100% private</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            CompressIt reduces image file sizes directly in your browser using the Canvas API. No images are ever uploaded to any server. Supports JPEG, PNG, and WebP. Adjust the quality slider to balance file size and image quality. Perfect for optimizing images for web, email, and social media.
+            CompressIt reduces image file sizes directly in your browser using the HTML Canvas API. No files are ever uploaded to a server, so your photos and screenshots remain completely private. The tool supports JPEG, PNG, and WebP formats. Simply drag and drop your images, adjust the quality slider to find the right balance between file size and visual clarity, and download the optimized versions instantly.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>How browser-based compression works</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Traditional compression tools require you to upload images to a remote server, which raises privacy concerns and adds latency. CompressIt uses the Canvas API built into modern browsers to re-encode your image at a lower quality setting. This means the entire process happens on your device in milliseconds. The quality slider gives you fine-grained control, so you can push file sizes down aggressively for thumbnails or keep quality high for hero images.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>When to compress your images</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Large images slow down websites, increase email bounce rates, and eat into mobile data plans. Compressing photos before uploading them to your site can cut load times significantly and improve search engine rankings. It is also useful before attaching images to emails or sharing them on social media, where platforms re-compress uploads and sometimes reduce quality further. Starting with an optimized file gives you better control over the final result.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            After compressing your images, present them in a professional frame with the <a href="/screenshot-mockup" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Screenshot Mockup</a> tool. Need a QR code that links to your optimized gallery? Generate one with the <a href="/qr-generator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>QR Code Generator</a>.
           </p>
         </section>
       </div>

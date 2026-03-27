@@ -398,6 +398,9 @@ export default function IdealWeightClient({
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
             All four formulas use height in inches above 5 feet (60 inches) as the primary variable. The Devine formula (1974) is the most widely used in clinical settings. Robinson (1983) and Miller (1983) provide alternative estimates, while the Hamwi formula (1964) was one of the earliest methods. Results vary by a few kilograms, so viewing the range across all formulas gives a more realistic target. The BMI-based range uses the standard healthy BMI of 18.5 to 24.9 multiplied by your height in meters squared.
           </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            For a more complete picture, check your score with our <a href="/bmi-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>BMI calculator</a> or measure your actual body composition using the <a href="/body-fat-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>body fat calculator</a>. While ideal weight formulas provide a useful reference point, body fat percentage gives a better indication of overall health than weight alone.
+          </p>
         </section>
       </div>
     </ToolShell>

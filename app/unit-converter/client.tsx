@@ -213,10 +213,22 @@ export default function UnitConverterClient({
           </div>
         </section>
 
+        {/* SEO */}
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free unit converter</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            UnitFlip converts between all common units for length, weight, temperature, volume, area, speed, data storage, and time. Real-time conversion as you type. Supports metric, imperial, and US customary units. All calculations happen locally in your browser.
+            UnitFlip converts between all common units across eight categories: length, weight, temperature, volume, area, speed, data storage, and time. Results update in real time as you type, giving you instant answers without pressing a button. The tool supports metric, imperial, and US customary systems, making it useful whether you are following a European recipe or reading American building plans. All calculations happen locally in your browser.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Eight unit categories in one place</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Instead of searching for separate converters for every unit type, UnitFlip gives you everything on a single page. Switch between categories with one click — convert kilometers to miles, kilograms to pounds, Celsius to Fahrenheit, liters to gallons, and much more. The data storage category handles bytes through terabytes, which is handy when comparing cloud storage plans or estimating file transfer times. Every conversion uses precise formulas with no rounding shortcuts.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Metric and imperial made simple</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The metric system is used by most of the world, while the imperial system remains standard in the United States and a few other countries. This can create confusion when reading international recipes, travel guides, or technical specifications. UnitFlip eliminates that friction by showing the converted value instantly. It is especially helpful for students, travelers, engineers, and anyone who works with measurements from different regions on a regular basis.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Need to convert currencies instead of units? Use the <a href="/currency-converter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Currency Converter</a> for live exchange rates. For quick math on discounts and tax rates, check out the <a href="/percentage-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Percentage Calculator</a>.
           </p>
         </section>
       </div>

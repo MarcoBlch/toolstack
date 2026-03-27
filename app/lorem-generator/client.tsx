@@ -171,10 +171,24 @@ export default function LoremClient() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free lorem ipsum generator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            LoremFast generates placeholder text for your designs, mockups, and layouts. Choose between paragraphs, sentences, or exact word counts. Optionally start with the classic "Lorem ipsum dolor sit amet..." text. One-click copy. Perfect for web designers, developers, and content creators who need dummy text fast.
+            LoremFast generates placeholder text for your designs, mockups, and layouts. Choose between paragraphs, sentences, or exact word counts and optionally start with the classic "Lorem ipsum dolor sit amet..." opening. Copy the result with a single click and paste it directly into your project. It is built for web designers, developers, and content creators who need realistic-looking dummy text without any hassle.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>The history behind lorem ipsum</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Lorem ipsum text originates from a work by the Roman philosopher Cicero written in 45 BC. Typesetters in the 1500s scrambled a passage from "de Finibus Bonorum et Malorum" to create filler text that mimics the visual rhythm of natural language without being distracting. Because the words resemble Latin but are intentionally meaningless, they let reviewers focus on design elements rather than reading the content.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Using placeholder text in design mockups</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Placeholder text is essential during the early stages of web and print design. It fills content areas so you can evaluate typography, spacing, and overall layout before final copy is ready. Requesting a specific number of words or paragraphs ensures your mockups reflect realistic content lengths, which helps stakeholders give more accurate feedback on the design without being distracted by draft copy.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Once your real content is written, use the <a href="/word-counter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>word counter</a> to verify it matches the target length. For formatting your content in Markdown, the <a href="/markdown-editor" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Markdown editor</a> provides a live preview so you can see the final result instantly.
           </p>
         </section>
       </div>

@@ -112,10 +112,24 @@ export default function DiffClient() {
           </section>
         )}
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free text diff checker</h2>
           <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
-            DiffCheck compares two texts line-by-line and highlights every difference. Additions in green, deletions in red, unchanged lines in gray. Uses the Longest Common Subsequence algorithm for accurate results. Perfect for comparing code versions, document revisions, and configuration files. All processing happens locally.
+            DiffCheck compares two blocks of text line by line and highlights every difference between them. Additions appear in green, deletions in red, and unchanged lines in gray. It uses the Longest Common Subsequence algorithm to produce accurate, minimal diffs. This is useful for comparing code versions, document revisions, configuration files, and any situation where you need to see exactly what changed between two pieces of text.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>How text comparison works</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            The diff algorithm splits both texts into lines and finds the longest sequence of lines they share in common. Everything not in that shared sequence is marked as either added or removed. This approach produces clean, readable output that focuses your attention on the actual changes rather than forcing you to scan through entire documents manually. The result is similar to what you see in Git diffs and pull request reviews.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Common use cases for diff checking</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            Developers use diff tools during code reviews to verify changes before merging. Writers compare document drafts to track edits from collaborators. System administrators check configuration files after updates to ensure only intended changes were applied. Because DiffCheck runs entirely in your browser, your data stays private and the comparison is instant regardless of how large the texts are.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8, marginTop: 16 }}>
+            Working with structured data? The <a href="/json-formatter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>JSON formatter</a> can beautify your JSON before comparing it. For testing patterns in your text, try the <a href="/regex-tester" style={{ color: '#FF6B35', textDecoration: 'underline' }}>regex tester</a> with live match highlighting.
           </p>
         </section>
       </div>

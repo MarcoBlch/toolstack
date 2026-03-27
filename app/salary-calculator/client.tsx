@@ -364,7 +364,18 @@ export default function SalaryClient({
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free salary calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free salary calculator. Convert gross to net salary. See your tax breakdown for France, USA, UK, Germany, Spain. Calculate monthly, weekly, and hourly equivalents.
+            Our salary calculator converts your gross pay into net take-home pay after income tax and social contributions. Select your country to apply the correct tax brackets and deduction rates for France, the USA, the UK, Germany, or Spain. You can also use a simple flat rate for quick estimates. The equivalents table instantly shows your gross and net pay across annual, monthly, weekly, and hourly periods.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>How tax deductions are calculated</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Each country uses progressive tax brackets, meaning different portions of your income are taxed at different rates. Social charges such as pension, health insurance, and unemployment contributions are calculated separately. The breakdown bar clearly shows what percentage of your gross salary goes to net pay, income tax, and social charges so there are no surprises on payday.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Comparing salaries across periods</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Whether you are negotiating a job offer quoted as an annual figure or evaluating freelance work billed hourly, seeing the same salary across all time periods is essential. Enter your pay in any period and the calculator automatically computes the other three. This makes it straightforward to compare offers with different pay structures side by side.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
+            Need to calculate VAT on invoices? Try the <a href="/vat-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>VAT calculator</a>. For quick math on raises or deductions, the <a href="/percentage-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>percentage calculator</a> can help.
           </p>
         </section>
       </div>

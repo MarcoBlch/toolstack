@@ -162,10 +162,24 @@ export default function HashClient({
           )}
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free hash generator</h2>
           <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
-            HashCalc generates MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text input. Uses the Web Crypto API for hardware-accelerated hashing (except MD5 which uses a JavaScript implementation). All computation happens locally in your browser — your data is never transmitted.
+            HashCalc generates MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text input simultaneously. It uses the Web Crypto API for hardware-accelerated hashing on SHA algorithms, while MD5 runs through a fast JavaScript implementation. All computation happens locally in your browser so your data is never transmitted to any server. Type or paste your text and every hash appears instantly, ready to copy with a single click.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Understanding hash algorithms</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            A hash function takes any input and produces a fixed-length string of characters. MD5 outputs 128-bit hashes and is fast but no longer considered secure for cryptographic purposes. SHA-1 produces 160-bit hashes and has similar limitations. SHA-256 and SHA-512 belong to the SHA-2 family and are widely used in security applications, digital signatures, and blockchain technology. The longer the hash output, the lower the probability of collisions.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>When to use hash functions</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            Hashing is commonly used to verify data integrity. By comparing the hash of a downloaded file against the published hash, you can confirm the file was not corrupted or tampered with during transfer. Developers also use hashes to store password fingerprints, generate cache keys, and create unique identifiers. Because the same input always produces the same hash, it serves as a reliable checksum for any piece of data.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8, marginTop: 16 }}>
+            Looking to generate secure passwords instead? Try the <a href="/password-generator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>password generator</a> for random, strong credentials. You can also use the <a href="/base64" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Base64 encoder</a> to encode data for safe transport in URLs and APIs.
           </p>
         </section>
       </div>

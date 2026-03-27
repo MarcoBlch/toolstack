@@ -481,6 +481,9 @@ export default function PaceClient({
             For example, a 5:00/km pace is faster than a 6:00/km pace. Use split times to track your progress during training and races.
             This calculator supports both metric and imperial units with automatic conversion.
           </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            To train more effectively, pair your pace data with our <a href="/heart-rate-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>heart rate zone calculator</a> to ensure you are running at the right intensity for each workout. You can also use the <a href="/calorie-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie calculator</a> to match your nutrition to your training volume and activity level.
+          </p>
         </section>
       </div>
     </ToolShell>

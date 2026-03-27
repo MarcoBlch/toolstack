@@ -43,12 +43,26 @@
       "Bash(node scripts/add-jsonld-og.mjs)",
       "Bash(for f:*)",
       "Bash(do echo:*)",
-      "Read(//home/marc/code/MarcoBlch/milion dolar beibi/**)"
+      "Read(//home/marc/code/MarcoBlch/milion dolar beibi/**)",
+      "Bash(grep -E \"^[a-z]{2}$\")",
+      "Bash(find /home/marc/code/MarcoBlch/milion dolar beibi -name i18n* -o -name *i18n* -o -name next-intl*)",
+      "Bash(grep -r \"AffiliateFooter\\\\|affiliate\" /home/marc/code/MarcoBlch/milion dolar beibi/app --include=*.tsx --include=*.ts)",
+      "Bash(find /home/marc/code/MarcoBlch/milion dolar beibi -name metadata.ts -o -name seo.*)",
+      "Bash(find /home/marc/code/MarcoBlch/milion dolar beibi -name *health* -o -name *fitness*)",
+      "Bash(ls -1d /home/marc/code/MarcoBlch/milion dolar beibi/app/*/)",
+      "Bash(grep -v \"^/home/marc/code/MarcoBlch/milion dolar beibi/app$\")",
+      "Bash(wc -l /home/marc/code/MarcoBlch/milion dolar beibi/app/*/client.tsx)",
+      "Bash(/tmp/analyze_seo.txt:*)",
+      "Read(//tmp/**)",
+      "Bash(sort -t: -k2 -n)",
+      "Bash(ls app/*/page.tsx)"
     ],
     "additionalDirectories": [
       "/home/marc/code/MarcoBlch/milion dolar beibi/app/mortgage",
       "/home/marc/code/MarcoBlch/milion dolar beibi/app/de/umrechnen",
-      "/home/marc/code/MarcoBlch/milion dolar beibi/app/de/prozent"
+      "/home/marc/code/MarcoBlch/milion dolar beibi/app/de/prozent",
+      "/home/marc/.claude/plans",
+      "/home/marc/code/MarcoBlch/milion dolar beibi/app"
     ]
   }
 }

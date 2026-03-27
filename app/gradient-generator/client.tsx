@@ -181,10 +181,22 @@ export default function GradientClient() {
           </div>
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        {/* SEO */}
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free CSS gradient generator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            GradientLab creates beautiful CSS gradients visually. Pick two colors, adjust the angle, and copy the CSS code. Supports both linear and radial gradients. Browse 12 handpicked presets or randomize for inspiration. Works with any CSS framework including Tailwind CSS. All code generated locally in your browser.
+            GradientLab helps you create beautiful CSS gradients without writing code by hand. Choose two colors, set the direction, and instantly preview the result. The tool supports both linear and radial gradient types, letting you switch between them with a single click. Once you are happy with the look, copy the production-ready CSS and paste it straight into your stylesheet or Tailwind config. Everything runs locally in your browser, so your work stays private.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Linear and radial gradients explained</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            A linear gradient transitions between colors along a straight line at a specific angle, making it ideal for backgrounds, hero sections, and banners. A radial gradient radiates outward from a center point, which works well for spotlight effects and circular UI elements. GradientLab lets you control the angle for linear gradients and preview the radial option in real time, so you can compare both styles before committing to one.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Presets, randomization, and copying CSS</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Not sure where to start? Browse 12 handpicked gradient presets curated for modern web design, or hit the Randomize button to discover unexpected color combinations. Each preset is fully editable, so you can use it as a starting point and fine-tune the colors and angle. When you are ready, the one-click copy button places the complete CSS rule on your clipboard, including the fallback background-color for older browsers.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Need to pick exact colors first? Try the <a href="/color-picker" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Color Picker</a> to find the perfect HEX or RGB values. Once your design is final, wrap your screenshots with the <a href="/screenshot-mockup" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Screenshot Mockup</a> tool to present your gradient in a polished browser frame for portfolios and social media.
           </p>
         </section>
       </div>

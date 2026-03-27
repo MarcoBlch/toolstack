@@ -147,10 +147,24 @@ export default function RegexClient() {
           )}
         </section>
 
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free regex tester</h2>
           <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
-            RegexPal tests regular expressions in real-time with instant match highlighting. Supports all JavaScript regex flags (g, i, m, s, u). Includes common patterns for email, URL, phone, IP, hex color, dates, and HTML tags. All testing happens locally in your browser.
+            RegexPal tests regular expressions in real time with instant match highlighting. It supports all JavaScript regex flags including global, case-insensitive, multiline, dotAll, and Unicode modes. The tool includes built-in common patterns for email addresses, URLs, phone numbers, IP addresses, hex colors, dates, and HTML tags. All testing runs locally in your browser so your data stays completely private.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Understanding regular expressions</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            Regular expressions are patterns used to match character combinations in strings. They are a fundamental tool in programming for tasks like input validation, search and replace operations, and data extraction. A regex pattern can be as simple as matching a literal word or as sophisticated as parsing nested structures. Learning regex takes practice, and having a live tester that shows matches as you type makes the process much faster and more intuitive.
+          </p>
+
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Live highlighting and pattern library</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            As you type your regex pattern, every match in the test string is highlighted immediately. This instant feedback loop helps you refine patterns quickly without running a separate script or reloading a page. The built-in pattern library provides tested starting points for common validation tasks, so you do not have to write email or URL patterns from scratch. Click any preset to load it and see how it matches against your test text.
+          </p>
+
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8, marginTop: 16 }}>
+            After building your regex, use the <a href="/diff-checker" style={{ color: '#FF6B35', textDecoration: 'underline' }}>diff checker</a> to compare text before and after applying your pattern. For formatting JSON data that your regex might extract, the <a href="/json-formatter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>JSON formatter</a> beautifies it with syntax highlighting.
           </p>
         </section>
       </div>

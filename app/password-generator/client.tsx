@@ -111,10 +111,22 @@ export default function PassClient({
           )}
         </section>
 
+        {/* SEO */}
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #1C1C24' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free secure password generator</h2>
           <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
-            PassForge generates cryptographically secure passwords using your browser's Web Crypto API. No passwords are sent to a server or stored anywhere. Choose length (6-64), toggle character types, and see real-time strength analysis.
+            PassForge generates cryptographically secure passwords using your browser's built-in Web Crypto API. No passwords are ever sent to a server or stored anywhere. Choose a length between 6 and 64 characters, toggle individual character types on or off, and watch the real-time strength meter update as you adjust settings. Copy any generated password with a single click and move on with confidence.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Why cryptographic randomness matters</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            Many password generators rely on basic random number functions that can produce predictable patterns. PassForge uses the Web Crypto API, the same cryptographic engine that secures HTTPS connections, to produce truly unpredictable output. This means every character in your password is chosen from a uniform distribution, eliminating biases that attackers could exploit. The result is a password that resists brute-force attacks far better than one you would create by hand.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Password strength and best practices</h3>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8 }}>
+            A strong password is long and includes a mix of uppercase letters, lowercase letters, numbers, and symbols. Aim for at least 16 characters when protecting important accounts. Avoid reusing passwords across services, because a breach on one site can compromise all your other accounts. Use a password manager to store your generated passwords securely. PassForge makes it easy to create a unique, strong password every time you sign up for something new.
+          </p>
+          <p style={{ fontSize: 13, color: '#5A586E', lineHeight: 1.8, marginTop: 16 }}>
+            Need to verify data integrity? Try the <a href="/hash-generator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Hash Generator</a> to create SHA-256 and MD5 hashes. You can also encode sensitive strings with the <a href="/base64" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Base64 Encoder</a> for safe transport in URLs and APIs.
           </p>
         </section>
       </div>

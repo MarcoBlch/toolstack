@@ -228,7 +228,18 @@ export default function MortgageClient({
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free mortgage calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free mortgage calculator. Calculate your monthly payment, total interest, and amortization schedule. Compare rates and loan terms. Works for any country and currency.
+            Our mortgage calculator helps you understand the true cost of buying a home before you sign anything. Enter your property price, down payment, interest rate, and loan term to instantly see your monthly payment, total interest paid over the life of the loan, and the full amount you will repay. The loan-to-value ratio gives you a quick sense of your equity position from day one.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Amortization schedule explained</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The year-by-year amortization chart shows exactly how each payment splits between principal and interest. In early years most of your payment covers interest, but over time a larger share goes toward reducing the balance. Understanding this shift helps you evaluate whether extra payments or refinancing could save you money over the long run.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Comparing rates and loan terms</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Even a small difference in interest rate can add up to thousands over a 25-year mortgage. Try adjusting the rate and term to see how a shorter loan period increases monthly payments but dramatically cuts total interest. This side-by-side comparison is one of the best ways to decide between a 15-year and 30-year mortgage offer.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
+            Need to calculate a different type of loan? Try our <a href="/loan-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>loan calculator</a> for personal or auto loans. If you want to see how your savings could grow instead, use the <a href="/investment-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>investment calculator</a>. For quick math on rate differences, the <a href="/percentage-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>percentage calculator</a> can help.
           </p>
         </section>
       </div>

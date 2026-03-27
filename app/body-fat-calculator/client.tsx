@@ -427,6 +427,9 @@ export default function BodyFatClient({
             For women: Essential Fat (10–13%), Athlete (14–20%), Fitness (21–24%), Average (25–31%), and Obese (32%+).
             Maintaining a healthy body fat percentage supports cardiovascular health, energy levels, and overall fitness.
           </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            For a broader view of your health metrics, check your score with our <a href="/bmi-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>BMI calculator</a> or find your target weight using the <a href="/ideal-weight" style={{ color: '#FF6B35', textDecoration: 'underline' }}>ideal weight calculator</a>. While BMI uses only height and weight, body fat percentage gives a more complete picture of your actual body composition.
+          </p>
         </section>
       </div>
     </ToolShell>

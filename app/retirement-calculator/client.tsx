@@ -365,10 +365,21 @@ export default function RetirementClient({
         </section>
 
         {/* SEO Content */}
-        <section style={{ maxWidth: 640, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
+        <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free retirement calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free retirement calculator. Plan your retirement savings. See how much you need to save monthly to retire comfortably. Accounts for inflation and investment returns. Enter your current age, target retirement age, existing savings, and monthly contribution to see your projected retirement savings. Uses the 4% rule to estimate sustainable monthly income from your portfolio. Get a clear picture of any savings gap and exactly how much more you need to save each month to meet your goals. The growth chart shows your savings trajectory over time. All calculations are adjusted for inflation to give you real purchasing-power numbers. Everything runs in your browser — no data is sent anywhere. No signup required.
+            Our retirement calculator projects how much you will have saved by the time you stop working. Enter your current age, target retirement age, existing savings, monthly contribution, expected investment return, and inflation rate. The tool uses the 4% withdrawal rule to estimate a sustainable monthly income from your portfolio, and it clearly flags whether you are on track or falling short of your goal.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>The 4% rule and savings gap analysis</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            The 4% rule is a widely used guideline suggesting you can withdraw four percent of your portfolio each year without running out of money over a typical 30-year retirement. If your projected income falls below your desired amount, the calculator tells you exactly how much more you need to save each month to close the gap. This makes it simple to adjust your plan.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Inflation-adjusted projections</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            All numbers are adjusted for inflation so you see results in today's purchasing power rather than inflated future dollars. The growth chart displays your savings trajectory at five-year intervals, giving you a visual sense of how compound growth accelerates over time. This helps you appreciate the real value of starting early and contributing consistently.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
+            Want to explore compound growth in more detail? Our <a href="/investment-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>investment calculator</a> lets you adjust compounding frequency. To see how your current income translates to take-home pay, try the <a href="/salary-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>salary calculator</a>.
           </p>
         </section>
       </div>

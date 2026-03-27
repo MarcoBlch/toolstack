@@ -275,6 +275,9 @@ export default function OneRepMaxClient({
             build maximal strength. Working sets at 80–85% for 6–8 reps develop hypertrophy and strength. Lighter loads at 60–70%
             for 12–18 reps build muscular endurance. The training percentage table updates automatically based on your estimated max.
           </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
+            Strength training goes hand in hand with tracking your body composition and nutrition. Use our <a href="/body-fat-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>body fat calculator</a> to monitor changes in fat mass and lean mass as you progress. Pair your training with the <a href="/calorie-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie calculator</a> to make sure you are eating enough to support muscle growth and recovery.
+          </p>
         </section>
       </div>
     </ToolShell>

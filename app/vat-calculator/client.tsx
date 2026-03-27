@@ -244,7 +244,18 @@ export default function VATClient({
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free VAT calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free VAT calculator. Add or remove VAT/sales tax from any price. Pre-set rates for France, UK, Germany, Spain, Italy. Calculate TVA, Mehrwertsteuer, IVA.
+            This VAT calculator lets you add or remove value-added tax from any price in seconds. Switch between the two modes depending on whether you are starting with a net price or a gross price that already includes tax. The tool shows the net amount, VAT amount, and gross total side by side, along with a clear visual formula so you can verify the math at a glance.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Country-specific VAT rates</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            Pre-set buttons cover the most common VAT rates across Europe, including all four French rates, the UK standard rate, Germany at 19 percent, Spain at 21 percent, and Italy at 22 percent. If your country or rate is not listed, simply type a custom percentage. This flexibility makes the tool useful for freelancers, small businesses, and anyone who handles invoices regularly.
+          </p>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Understanding VAT and sales tax</h3>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
+            VAT, known as TVA in France, Mehrwertsteuer in Germany, and IVA in Spain and Italy, is a consumption tax applied at each stage of production. For consumers, it appears as a percentage added to the final price. Knowing how to separate net and gross amounts is important for expense tracking, tax filing, and ensuring your invoices are correctly formatted.
+          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
+            Need to convert gross salary to net pay? Try the <a href="/salary-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>salary calculator</a>. Working with international prices? The <a href="/currency-converter" style={{ color: '#FF6B35', textDecoration: 'underline' }}>currency converter</a> handles 30+ currencies.
           </p>
         </section>
       </div>
