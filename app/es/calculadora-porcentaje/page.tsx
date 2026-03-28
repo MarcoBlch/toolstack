@@ -22,7 +22,7 @@ export default function CalculadoraPorcentajePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <PercentageClient />
+      <PercentageClient locale="es" />
     </>
   )
 }

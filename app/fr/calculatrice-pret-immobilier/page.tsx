@@ -22,7 +22,7 @@ export default function CalculatricePretPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <MortgageClient />
+      <MortgageClient locale="fr" />
     </>
   )
 }

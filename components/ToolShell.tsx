@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { TRANSLATIONS, REVERSE_TRANSLATIONS } from '@/lib/translations'
+import { t, type Locale } from '@/lib/i18n'
 
 const TOOLS_NAV = [
   { href: '/fancy-text', name: 'Fancy Text' },
@@ -77,23 +78,25 @@ export default function ToolShell({
   name,
   icon,
   currentPath,
+  locale,
   children,
 }: {
   name: string
   icon: string
   currentPath: string
+  locale?: Locale
   children: React.ReactNode
 }) {
   const fb = "'Outfit', -apple-system, sans-serif"
-  const activeLang = detectLang(currentPath)
+  const lang = (locale || detectLang(currentPath)) as Locale
 
   // For translated pages, resolve back to English path first
   const englishPath = REVERSE_TRANSLATIONS[currentPath] || currentPath
-  const t = TRANSLATIONS[englishPath] || {}
+  const tr = TRANSLATIONS[englishPath] || {}
   const langLinks = LANG_FLAGS.map(l => ({
     ...l,
     href: l.key === 'en' ? englishPath :
-      (t as any)[l.key] || `/${l.key}`,
+      (tr as any)[l.key] || `/${l.key}`,
   }))
 
   return (
@@ -104,11 +107,11 @@ export default function ToolShell({
         maxWidth: 800, margin: '0 auto', padding: '10px 28px 0',
       }}>
         <Link href="/" style={{ fontSize: 13, color: '#9A958A', textDecoration: 'none' }}>
-          ← All tools
+          {t('backAllTools', lang)}
         </Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
           {langLinks.map(l => {
-            const isActive = l.key === activeLang
+            const isActive = l.key === lang
             if (isActive) {
               return (
                 <span key={l.key} style={{
@@ -134,7 +137,7 @@ export default function ToolShell({
       </div>
       {children}
 
-      {/* Cross-promotion footer — THE MONEY MULTIPLIER */}
+      {/* Cross-promotion footer */}
       <footer style={{
         maxWidth: 800, margin: '0 auto', padding: '24px 28px 32px',
         borderTop: '1px solid #E8E4DB',
@@ -144,17 +147,17 @@ export default function ToolShell({
           textTransform: 'uppercase', letterSpacing: '.8px',
           marginBottom: 12,
         }}>
-          More free tools
+          {t('moreTools', lang)}
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
-          {TOOLS_NAV.filter(t => t.href !== currentPath).map(t => (
-            <Link key={t.href} href={t.href} style={{
+          {TOOLS_NAV.filter(n => n.href !== currentPath).map(n => (
+            <Link key={n.href} href={n.href} style={{
               fontSize: 13, fontWeight: 500, color: '#5C5850',
               padding: '6px 14px', borderRadius: 8,
               border: '1px solid #E8E4DB', textDecoration: 'none',
               background: '#fff', transition: 'all .15s',
             }}>
-              {t.name}
+              {n.name}
             </Link>
           ))}
           <Link href="/" style={{
@@ -163,23 +166,23 @@ export default function ToolShell({
             border: '1px dashed #E8E4DB', textDecoration: 'none',
             transition: 'all .15s',
           }}>
-            All tools →
+            {t('allToolsArrow', lang)}
           </Link>
         </div>
         <div style={{
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           fontSize: 12, color: '#B0AAA0', flexWrap: 'wrap', gap: 8,
         }}>
-          <span>© 2026 Tools4Free — Free forever</span>
+          <span>{t('copyright', lang)}</span>
           <span style={{ fontSize: 11 }}>
-            Deployed on{' '}
+            {t('deployedOn', lang)}{' '}
             <a href="https://vercel.com/?utm_source=tools4free&utm_medium=referral" target="_blank" rel="noopener noreferrer" style={{ color: '#B0AAA0', textDecoration: 'underline' }}>Vercel</a>
-            {' · Domain from '}
+            {' · '}{t('domainFrom', lang)}{' '}
             <a href="https://www.namecheap.com/?utm_source=tools4free&utm_medium=referral" target="_blank" rel="noopener noreferrer" style={{ color: '#B0AAA0', textDecoration: 'underline' }}>Namecheap</a>
           </span>
           <div style={{ display: 'flex', gap: 16 }}>
-            <a href="#" style={{ color: '#B0AAA0', textDecoration: 'none' }}>Privacy</a>
-            <a href="#" style={{ color: '#B0AAA0', textDecoration: 'none' }}>Terms</a>
+            <a href="#" style={{ color: '#B0AAA0', textDecoration: 'none' }}>{t('privacy', lang)}</a>
+            <a href="#" style={{ color: '#B0AAA0', textDecoration: 'none' }}>{t('terms', lang)}</a>
           </div>
         </div>
       </footer>

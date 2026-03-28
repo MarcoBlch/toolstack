@@ -65,6 +65,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ConvertDEPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const conv = CONVERSIONS_DE.find(c => c.slug === slug)
-  if (!conv) return <UnitConverterClient />
-  return <UnitConverterClient defaultCategory={conv.cat} defaultFrom={conv.from} defaultTo={conv.to} defaultValue={conv.value} />
+  if (!conv) return <UnitConverterClient locale="de" />
+  return <UnitConverterClient locale="de" defaultCategory={conv.cat} defaultFrom={conv.from} defaultTo={conv.to} defaultValue={conv.value} />
 }

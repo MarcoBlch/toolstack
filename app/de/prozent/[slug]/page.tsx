@@ -36,6 +36,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ProzentPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const p = PERCENTAGES_DE.find(x => x.slug === slug)
-  if (!p) return <PercentageClient />
-  return <PercentageClient defaultMode="whatIs" defaultX={p.x} defaultY={p.y} />
+  if (!p) return <PercentageClient locale="de" />
+  return <PercentageClient locale="de" defaultMode="whatIs" defaultX={p.x} defaultY={p.y} />
 }

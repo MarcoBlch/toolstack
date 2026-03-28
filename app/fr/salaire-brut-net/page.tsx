@@ -22,7 +22,7 @@ export default function SalaireBrutNetPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <SalaryClient defaultCountry="FR" />
+      <SalaryClient locale="fr" defaultCountry="FR" />
     </>
   )
 }
