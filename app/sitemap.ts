@@ -20,6 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/calorie-calculator', '/macro-calculator', '/body-fat-calculator',
     '/due-date-calculator', '/calorie-deficit', '/heart-rate-calculator',
     '/ideal-weight', '/water-intake', '/one-rep-max', '/pace-calculator',
+    // Business & E-Commerce
+    '/discount-calculator', '/profit-margin-calculator', '/markup-calculator',
+    '/roi-calculator', '/break-even-calculator', '/shipping-calculator',
+    '/business-name-generator', '/hourly-rate-calculator',
+    '/sales-tax-calculator', '/invoice-number-generator',
   ]
 
   const nichePages = [
@@ -35,6 +40,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Health niche pages
     '/tdee-calculator', '/bmr-calculator', '/keto-macro-calculator',
     '/pregnancy-week-calculator', '/5k-pace-calculator', '/marathon-pace-calculator',
+    // Business niche pages
+    '/black-friday-calculator', '/margin-vs-markup', '/freelance-rate-calculator',
+    '/ecommerce-profit-calculator', '/startup-break-even',
   ]
 
   const translations = [
@@ -105,6 +113,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/de/kalorienrechner', '/de/makrorechner', '/de/koerperfettrechner',
     '/de/geburtsterminrechner', '/de/kaloriendefizit-rechner', '/de/herzfrequenz-rechner',
     '/de/idealgewicht-rechner', '/de/wasserbedarf-rechner', '/de/1rm-rechner', '/de/laufpace-rechner',
+    // Business FR
+    '/fr/calculatrice-remise', '/fr/calculatrice-marge', '/fr/calculatrice-majoration',
+    '/fr/calculateur-roi', '/fr/seuil-rentabilite', '/fr/calculateur-frais-livraison',
+    '/fr/generateur-nom-entreprise', '/fr/calcul-taux-horaire', '/fr/calculatrice-taxe-vente',
+    '/fr/generateur-numero-facture',
+    // Business ES
+    '/es/calculadora-descuento', '/es/calculadora-margen-beneficio', '/es/calculadora-margen-ganancia',
+    '/es/calculadora-roi', '/es/calculadora-punto-equilibrio', '/es/calculadora-envio',
+    '/es/generador-nombre-empresa', '/es/calculadora-tarifa-hora', '/es/calculadora-impuesto-venta',
+    '/es/generador-numero-factura',
+    // Business PT
+    '/pt/calculadora-desconto', '/pt/calculadora-margem-lucro', '/pt/calculadora-markup',
+    '/pt/calculadora-roi', '/pt/calculadora-ponto-equilibrio', '/pt/calculadora-frete',
+    '/pt/gerador-nome-empresa', '/pt/calculadora-valor-hora', '/pt/calculadora-imposto-venda',
+    '/pt/gerador-numero-nota',
+    // Business DE
+    '/de/rabattrechner', '/de/gewinnmargenrechner', '/de/aufschlagrechner',
+    '/de/roi-rechner', '/de/break-even-rechner', '/de/versandkostenrechner',
+    '/de/firmenname-generator', '/de/stundensatz-rechner', '/de/umsatzsteuer-rechner',
+    '/de/rechnungsnummer-generator',
   ]
 
   // Programmatic convert/ pages
@@ -259,6 +287,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...['january','february','march','april','may','june'].map(m => `/due-date/due-date-${m}-2027`),
   ]
 
+  // Business programmatic SEO pages
+  const discountSlugs: string[] = []
+  for (const [pct, price] of [
+    [10,50],[10,100],[10,200],[15,50],[15,100],[15,200],
+    [20,25],[20,30],[20,40],[20,50],[20,60],[20,75],[20,80],[20,100],[20,150],[20,200],[20,300],[20,500],
+    [25,40],[25,50],[25,100],[25,200],[25,500],
+    [30,50],[30,100],[30,150],[30,200],[30,500],
+    [33,100],[33,150],[33,300],
+    [40,50],[40,100],[40,200],[40,500],
+    [50,20],[50,30],[50,40],[50,50],[50,60],[50,80],[50,100],[50,200],[50,500],[50,1000],
+    [60,100],[60,200],[60,500],
+    [70,50],[70,100],[70,200],[70,500],
+    [75,100],[75,200],
+    [80,100],[80,200],[80,500],
+  ]) discountSlugs.push(`/discount/${pct}-percent-off-${price}`)
+
+  const markupSlugs: string[] = []
+  for (const [cost, markup] of [
+    [10,20],[10,50],[10,100],[20,50],[20,100],[20,200],
+    [50,100],[50,200],[50,500],[100,50],[100,100],[100,200],[100,500],
+    [150,100],[150,200],[200,50],[200,100],[200,200],[300,100],[300,500],[500,100],
+  ]) markupSlugs.push(`/markup/${markup}-percent-markup-on-${cost}`)
+
+  const roiSlugs: string[] = []
+  for (const inv of [1000,5000,10000,25000,50000,100000]) {
+    for (const mult of [1.1,1.2,1.5,2,3,5]) {
+      roiSlugs.push(`/roi/roi-${(inv/1000).toFixed(0)}k-to-${(inv*mult/1000).toFixed(0)}k`)
+    }
+  }
+
+  const rateSlugs = [30000,40000,50000,60000,70000,80000,90000,100000,120000,150000].map(
+    income => `/rate/hourly-rate-${(income/1000).toFixed(0)}k-salary`
+  )
+
   const allPaths = [
     ...staticTools,
     ...nichePages,
@@ -278,6 +340,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...idealWeightSlugs,
     ...runningSlugs,
     ...dueDateSlugs,
+    ...discountSlugs,
+    ...markupSlugs,
+    ...roiSlugs,
+    ...rateSlugs,
   ]
 
   return allPaths.map(path => ({

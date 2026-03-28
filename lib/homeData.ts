@@ -72,6 +72,17 @@ const BASE = [
   { key: '/heart-rate-calculator', icon: '❤️', color: '#DC2626', searches: '800K+', tag: 'HEALTH' },
   { key: '/pace-calculator', icon: '🏃', color: '#EA580C', searches: '800K+', tag: 'HEALTH' },
   { key: '/one-rep-max', icon: '🏋️', color: '#1D4ED8', searches: '600K+', tag: 'HEALTH' },
+  // Business & E-Commerce
+  { key: '/discount-calculator', icon: '🏷️', color: '#EF4444', searches: '3M+', tag: 'BIZ' },
+  { key: '/profit-margin-calculator', icon: '📊', color: '#059669', searches: '2.5M+', tag: 'BIZ' },
+  { key: '/roi-calculator', icon: '💹', color: '#7C3AED', searches: '2M+', tag: 'BIZ' },
+  { key: '/business-name-generator', icon: '💡', color: '#8B5CF6', searches: '1.8M+', tag: 'BIZ' },
+  { key: '/markup-calculator', icon: '🔢', color: '#2563EB', searches: '1.5M+', tag: 'BIZ' },
+  { key: '/shipping-calculator', icon: '📦', color: '#EA580C', searches: '1.5M+', tag: 'BIZ' },
+  { key: '/break-even-calculator', icon: '⚖️', color: '#D97706', searches: '1.2M+', tag: 'BIZ' },
+  { key: '/sales-tax-calculator', icon: '🧾', color: '#4338CA', searches: '1.2M+', tag: 'BIZ' },
+  { key: '/hourly-rate-calculator', icon: '⏰', color: '#0891B2', searches: '600K+', tag: 'BIZ' },
+  { key: '/invoice-number-generator', icon: '#️⃣', color: '#059669', searches: '300K+', tag: 'BIZ' },
 ] as const
 
 // Translated names + descriptions per tool per language
@@ -365,6 +376,77 @@ const TEXTS: Record<string, Record<Lang, ToolText>> = {
     es: { href: '/es/calculadora-1rm', name: 'Calculadora 1RM', desc: 'Estima tu rep máxima. Epley, Brzycki' },
     pt: { href: '/pt/calculadora-1rm', name: 'Calculadora 1RM', desc: 'Estime sua rep máxima. Epley, Brzycki' },
     de: { href: '/de/1rm-rechner', name: '1RM Rechner', desc: 'Schätzen Sie Ihr maximales Gewicht. Epley, Brzycki' },
+  },
+  // Business & E-Commerce
+  '/discount-calculator': {
+    en: { href: '/discount-calculator', name: 'Discount Calculator', desc: 'Sale price, stack discounts, buy X get Y. Black Friday ready.' },
+    fr: { href: '/fr/calculatrice-remise', name: 'Calculatrice de Remise', desc: 'Prix soldé, remises cumulées, offres X pour Y. Prêt pour les soldes.' },
+    es: { href: '/es/calculadora-descuento', name: 'Calculadora de Descuento', desc: 'Precio de oferta, descuentos acumulados, compra X lleva Y.' },
+    pt: { href: '/pt/calculadora-desconto', name: 'Calculadora de Desconto', desc: 'Preço de oferta, descontos acumulados, compre X leve Y.' },
+    de: { href: '/de/rabattrechner', name: 'Rabattrechner', desc: 'Verkaufspreis, Rabatte stapeln, Kaufe X bekomme Y. Black Friday.' },
+  },
+  '/profit-margin-calculator': {
+    en: { href: '/profit-margin-calculator', name: 'Profit Margin Calculator', desc: 'Margin vs markup. Calculate selling price and profit.' },
+    fr: { href: '/fr/calculatrice-marge', name: 'Calculatrice de Marge', desc: 'Marge vs majoration. Calculez prix de vente et bénéfice.' },
+    es: { href: '/es/calculadora-margen-beneficio', name: 'Calculadora Margen de Beneficio', desc: 'Margen vs markup. Calcula precio de venta y beneficio.' },
+    pt: { href: '/pt/calculadora-margem-lucro', name: 'Calculadora Margem de Lucro', desc: 'Margem vs markup. Calcule preço de venda e lucro.' },
+    de: { href: '/de/gewinnmargenrechner', name: 'Gewinnmargenrechner', desc: 'Marge vs Aufschlag. Verkaufspreis und Gewinn berechnen.' },
+  },
+  '/roi-calculator': {
+    en: { href: '/roi-calculator', name: 'ROI Calculator', desc: 'Return on investment. Net profit. Annualized ROI.' },
+    fr: { href: '/fr/calculateur-roi', name: 'Calculateur ROI', desc: 'Retour sur investissement. Bénéfice net. ROI annualisé.' },
+    es: { href: '/es/calculadora-roi', name: 'Calculadora ROI', desc: 'Retorno de inversión. Beneficio neto. ROI anualizado.' },
+    pt: { href: '/pt/calculadora-roi', name: 'Calculadora ROI', desc: 'Retorno sobre investimento. Lucro líquido. ROI anualizado.' },
+    de: { href: '/de/roi-rechner', name: 'ROI Rechner', desc: 'Kapitalrendite. Nettogewinn. Annualisierte Rendite.' },
+  },
+  '/business-name-generator': {
+    en: { href: '/business-name-generator', name: 'Business Name Generator', desc: 'Generate company names by keyword. Domain availability.' },
+    fr: { href: '/fr/generateur-nom-entreprise', name: 'Générateur Nom d\'Entreprise', desc: 'Générez des noms d\'entreprise par mot-clé. Disponibilité domaine.' },
+    es: { href: '/es/generador-nombre-empresa', name: 'Generador Nombre de Empresa', desc: 'Genera nombres de empresa por palabra clave. Disponibilidad de dominio.' },
+    pt: { href: '/pt/gerador-nome-empresa', name: 'Gerador Nome de Empresa', desc: 'Gere nomes de empresa por palavra-chave. Disponibilidade de domínio.' },
+    de: { href: '/de/firmenname-generator', name: 'Firmenname Generator', desc: 'Firmennamen nach Stichwort generieren. Domain-Verfügbarkeit.' },
+  },
+  '/markup-calculator': {
+    en: { href: '/markup-calculator', name: 'Markup Calculator', desc: 'Cost to selling price. Markup vs margin table.' },
+    fr: { href: '/fr/calculatrice-majoration', name: 'Calculatrice de Majoration', desc: 'Du coût au prix de vente. Tableau majoration vs marge.' },
+    es: { href: '/es/calculadora-margen-ganancia', name: 'Calculadora de Margen de Ganancia', desc: 'Del costo al precio de venta. Tabla markup vs margen.' },
+    pt: { href: '/pt/calculadora-markup', name: 'Calculadora de Markup', desc: 'Do custo ao preço de venda. Tabela markup vs margem.' },
+    de: { href: '/de/aufschlagrechner', name: 'Aufschlagrechner', desc: 'Vom Einkaufspreis zum Verkaufspreis. Aufschlag vs Marge.' },
+  },
+  '/shipping-calculator': {
+    en: { href: '/shipping-calculator', name: 'Shipping Calculator', desc: 'Estimate costs by weight and size. Compare carriers.' },
+    fr: { href: '/fr/calculateur-frais-livraison', name: 'Calculateur Frais de Livraison', desc: 'Estimez les coûts par poids et taille. Comparez les transporteurs.' },
+    es: { href: '/es/calculadora-envio', name: 'Calculadora de Envío', desc: 'Estima costos por peso y tamaño. Compara transportistas.' },
+    pt: { href: '/pt/calculadora-frete', name: 'Calculadora de Frete', desc: 'Estime custos por peso e tamanho. Compare transportadoras.' },
+    de: { href: '/de/versandkostenrechner', name: 'Versandkostenrechner', desc: 'Kosten nach Gewicht und Größe schätzen. Versandanbieter vergleichen.' },
+  },
+  '/break-even-calculator': {
+    en: { href: '/break-even-calculator', name: 'Break Even Calculator', desc: 'Break even units, revenue. Contribution margin.' },
+    fr: { href: '/fr/seuil-rentabilite', name: 'Seuil de Rentabilité', desc: 'Seuil de rentabilité en unités et chiffre d\'affaires. Marge contributive.' },
+    es: { href: '/es/calculadora-punto-equilibrio', name: 'Calculadora Punto de Equilibrio', desc: 'Punto de equilibrio en unidades e ingresos. Margen de contribución.' },
+    pt: { href: '/pt/calculadora-ponto-equilibrio', name: 'Calculadora Ponto de Equilíbrio', desc: 'Ponto de equilíbrio em unidades e receita. Margem de contribuição.' },
+    de: { href: '/de/break-even-rechner', name: 'Break Even Rechner', desc: 'Gewinnschwelle in Stück und Umsatz. Deckungsbeitrag.' },
+  },
+  '/sales-tax-calculator': {
+    en: { href: '/sales-tax-calculator', name: 'Sales Tax Calculator', desc: 'US state sales tax. Add or remove tax from price.' },
+    fr: { href: '/fr/calculatrice-taxe-vente', name: 'Calculatrice Taxe de Vente', desc: 'Taxe de vente par état US. Ajoutez ou retirez la taxe.' },
+    es: { href: '/es/calculadora-impuesto-venta', name: 'Calculadora Impuesto de Venta', desc: 'Impuesto de venta por estado US. Añade o quita impuesto.' },
+    pt: { href: '/pt/calculadora-imposto-venda', name: 'Calculadora Imposto sobre Venda', desc: 'Imposto de venda por estado US. Adicione ou remova imposto.' },
+    de: { href: '/de/umsatzsteuer-rechner', name: 'Umsatzsteuer Rechner', desc: 'US-Bundesstaaten Umsatzsteuer. Steuer hinzufügen oder entfernen.' },
+  },
+  '/hourly-rate-calculator': {
+    en: { href: '/hourly-rate-calculator', name: 'Hourly Rate Calculator', desc: 'Freelance rate from target income. Taxes, expenses.' },
+    fr: { href: '/fr/calcul-taux-horaire', name: 'Calcul Taux Horaire', desc: 'Taux freelance selon revenu cible. Impôts, dépenses.' },
+    es: { href: '/es/calculadora-tarifa-hora', name: 'Calculadora Tarifa por Hora', desc: 'Tarifa freelance según ingreso objetivo. Impuestos, gastos.' },
+    pt: { href: '/pt/calculadora-valor-hora', name: 'Calculadora Valor Hora', desc: 'Valor hora freelancer segundo renda alvo. Impostos, despesas.' },
+    de: { href: '/de/stundensatz-rechner', name: 'Stundensatz Rechner', desc: 'Freelancer-Stundensatz nach Zieleinkommen. Steuern, Ausgaben.' },
+  },
+  '/invoice-number-generator': {
+    en: { href: '/invoice-number-generator', name: 'Invoice Number Generator', desc: 'Sequential, date-based, random. Custom prefix.' },
+    fr: { href: '/fr/generateur-numero-facture', name: 'Générateur Numéro de Facture', desc: 'Séquentiel, par date, aléatoire. Préfixe personnalisé.' },
+    es: { href: '/es/generador-numero-factura', name: 'Generador Número de Factura', desc: 'Secuencial, por fecha, aleatorio. Prefijo personalizado.' },
+    pt: { href: '/pt/gerador-numero-nota', name: 'Gerador Número de Nota', desc: 'Sequencial, por data, aleatório. Prefixo personalizado.' },
+    de: { href: '/de/rechnungsnummer-generator', name: 'Rechnungsnummer Generator', desc: 'Fortlaufend, datumsbasiert, zufällig. Eigenes Präfix.' },
   },
 }
 

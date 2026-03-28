@@ -44,6 +44,17 @@ const TOOLS_NAV = [
   { href: '/heart-rate-calculator', name: 'Heart Rate' },
   { href: '/pace-calculator', name: 'Running Pace' },
   { href: '/one-rep-max', name: '1RM Calculator' },
+  // Business & E-Commerce
+  { href: '/discount-calculator', name: 'Discounts' },
+  { href: '/profit-margin-calculator', name: 'Profit Margin' },
+  { href: '/roi-calculator', name: 'ROI' },
+  { href: '/business-name-generator', name: 'Name Generator' },
+  { href: '/markup-calculator', name: 'Markup' },
+  { href: '/shipping-calculator', name: 'Shipping' },
+  { href: '/break-even-calculator', name: 'Break Even' },
+  { href: '/sales-tax-calculator', name: 'Sales Tax' },
+  { href: '/hourly-rate-calculator', name: 'Hourly Rate' },
+  { href: '/invoice-number-generator', name: 'Invoice Numbers' },
 ]
 
 const LANG_FLAGS = [

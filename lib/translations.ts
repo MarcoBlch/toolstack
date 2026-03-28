@@ -38,6 +38,17 @@ export const TRANSLATIONS: Record<string, Partial<Record<'fr' | 'es' | 'pt' | 'd
   '/water-intake': { fr: '/fr/calcul-hydratation', es: '/es/calculadora-agua-diaria', pt: '/pt/calculadora-agua-diaria', de: '/de/wasserbedarf-rechner' },
   '/one-rep-max': { fr: '/fr/calculateur-1rm', es: '/es/calculadora-1rm', pt: '/pt/calculadora-1rm', de: '/de/1rm-rechner' },
   '/pace-calculator': { fr: '/fr/calculateur-allure-course', es: '/es/calculadora-ritmo-carrera', pt: '/pt/calculadora-ritmo-corrida', de: '/de/laufpace-rechner' },
+  // Business & E-Commerce
+  '/discount-calculator': { fr: '/fr/calculatrice-remise', es: '/es/calculadora-descuento', pt: '/pt/calculadora-desconto', de: '/de/rabattrechner' },
+  '/profit-margin-calculator': { fr: '/fr/calculatrice-marge', es: '/es/calculadora-margen-beneficio', pt: '/pt/calculadora-margem-lucro', de: '/de/gewinnmargenrechner' },
+  '/markup-calculator': { fr: '/fr/calculatrice-majoration', es: '/es/calculadora-margen-ganancia', pt: '/pt/calculadora-markup', de: '/de/aufschlagrechner' },
+  '/roi-calculator': { fr: '/fr/calculateur-roi', es: '/es/calculadora-roi', pt: '/pt/calculadora-roi', de: '/de/roi-rechner' },
+  '/break-even-calculator': { fr: '/fr/seuil-rentabilite', es: '/es/calculadora-punto-equilibrio', pt: '/pt/calculadora-ponto-equilibrio', de: '/de/break-even-rechner' },
+  '/shipping-calculator': { fr: '/fr/calculateur-frais-livraison', es: '/es/calculadora-envio', pt: '/pt/calculadora-frete', de: '/de/versandkostenrechner' },
+  '/business-name-generator': { fr: '/fr/generateur-nom-entreprise', es: '/es/generador-nombre-empresa', pt: '/pt/gerador-nome-empresa', de: '/de/firmenname-generator' },
+  '/hourly-rate-calculator': { fr: '/fr/calcul-taux-horaire', es: '/es/calculadora-tarifa-hora', pt: '/pt/calculadora-valor-hora', de: '/de/stundensatz-rechner' },
+  '/sales-tax-calculator': { fr: '/fr/calculatrice-taxe-vente', es: '/es/calculadora-impuesto-venta', pt: '/pt/calculadora-imposto-venda', de: '/de/umsatzsteuer-rechner' },
+  '/invoice-number-generator': { fr: '/fr/generateur-numero-facture', es: '/es/generador-numero-factura', pt: '/pt/gerador-numero-nota', de: '/de/rechnungsnummer-generator' },
 }
 
 // Build reverse map: translated path -> english path
