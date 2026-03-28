@@ -22,7 +22,7 @@ export default function FrInvoicePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <InvoiceClient />
+      <InvoiceClient locale="fr" />
     </>
   )
 }

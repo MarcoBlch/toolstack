@@ -22,7 +22,7 @@ export default function CalculTVAPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <VATClient />
+      <VATClient locale="fr" />
     </>
   )
 }

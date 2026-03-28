@@ -22,7 +22,7 @@ export default function SimulateurInvestissementPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <InvestmentClient />
+      <InvestmentClient locale="fr" />
     </>
   )
 }

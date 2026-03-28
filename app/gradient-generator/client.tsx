@@ -1,6 +1,7 @@
 'use client'
 import { useState, useCallback } from 'react'
 import ToolShell from '@/components/ToolShell'
+import { t, type Locale } from '@/lib/i18n'
 
 const fb = "'Outfit', -apple-system, sans-serif"
 const fm = "'JetBrains Mono', monospace"
@@ -20,12 +21,91 @@ const PRESETS = [
   { name: 'Warm', c1: '#F59E0B', c2: '#EF4444', angle: 135 },
 ]
 
-export default function GradientClient() {
+const LABELS: Record<string, Record<Locale, string>> = {
+  // Title
+  titleGradient: { en: 'CSS gradient', fr: 'Générateur de', es: 'Generador de', pt: 'Gerador de', de: 'CSS-Gradient-' },
+  titleGenerator: { en: 'generator', fr: 'dégradés CSS', es: 'gradientes CSS', pt: 'gradientes CSS', de: 'Generator' },
+  subtitle: {
+    en: 'Pick colors. Copy CSS. Done.',
+    fr: 'Choisissez les couleurs. Copiez le CSS. Terminé.',
+    es: 'Elige colores. Copia el CSS. Listo.',
+    pt: 'Escolha cores. Copie o CSS. Pronto.',
+    de: 'Farben wählen. CSS kopieren. Fertig.',
+  },
+
+  // Controls
+  type: { en: 'Type', fr: 'Type', es: 'Tipo', pt: 'Tipo', de: 'Typ' },
+  linear: { en: 'linear', fr: 'linéaire', es: 'lineal', pt: 'linear', de: 'linear' },
+  radial: { en: 'radial', fr: 'radial', es: 'radial', pt: 'radial', de: 'radial' },
+  colors: { en: 'Colors', fr: 'Couleurs', es: 'Colores', pt: 'Cores', de: 'Farben' },
+  color1: { en: 'Color 1', fr: 'Couleur 1', es: 'Color 1', pt: 'Cor 1', de: 'Farbe 1' },
+  color2: { en: 'Color 2', fr: 'Couleur 2', es: 'Color 2', pt: 'Cor 2', de: 'Farbe 2' },
+  swapColors: { en: 'Swap colors', fr: 'Inverser les couleurs', es: 'Intercambiar colores', pt: 'Trocar cores', de: 'Farben tauschen' },
+  angle: { en: 'Angle', fr: 'Angle', es: 'Ángulo', pt: 'Ângulo', de: 'Winkel' },
+  presets: { en: 'Presets', fr: 'Préréglages', es: 'Preajustes', pt: 'Predefinições', de: 'Vorlagen' },
+  randomize: { en: 'Randomize', fr: 'Aléatoire', es: 'Aleatorio', pt: 'Aleatório', de: 'Zufällig' },
+  copyCSS: { en: 'Copy CSS', fr: 'Copier le CSS', es: 'Copiar CSS', pt: 'Copiar CSS', de: 'CSS kopieren' },
+
+  // SEO
+  seoH2: {
+    en: 'Free CSS gradient generator',
+    fr: 'Générateur de dégradés CSS gratuit',
+    es: 'Generador de gradientes CSS gratis',
+    pt: 'Gerador de gradientes CSS grátis',
+    de: 'Kostenloser CSS-Gradient-Generator',
+  },
+  seoP1: {
+    en: 'GradientLab helps you create beautiful CSS gradients without writing code by hand. Choose two colors, set the direction, and instantly preview the result. The tool supports both linear and radial gradient types, letting you switch between them with a single click. Once you are happy with the look, copy the production-ready CSS and paste it straight into your stylesheet or Tailwind config. Everything runs locally in your browser, so your work stays private.',
+    fr: 'GradientLab vous aide à créer de beaux dégradés CSS sans écrire de code à la main. Choisissez deux couleurs, définissez la direction et prévisualisez instantanément le résultat. L\'outil prend en charge les types de dégradés linéaires et radiaux, vous permettant de passer de l\'un à l\'autre en un seul clic. Une fois satisfait du rendu, copiez le CSS prêt pour la production et collez-le directement dans votre feuille de style ou votre config Tailwind. Tout fonctionne localement dans votre navigateur, votre travail reste donc privé.',
+    es: 'GradientLab te ayuda a crear hermosos gradientes CSS sin escribir código a mano. Elige dos colores, establece la dirección y previsualiza instantáneamente el resultado. La herramienta soporta tanto gradientes lineales como radiales, permitiéndote cambiar entre ellos con un solo clic. Una vez que estés satisfecho con el aspecto, copia el CSS listo para producción y pégalo directamente en tu hoja de estilos o configuración de Tailwind. Todo funciona localmente en tu navegador, así que tu trabajo permanece privado.',
+    pt: 'O GradientLab ajuda você a criar belos gradientes CSS sem escrever código manualmente. Escolha duas cores, defina a direção e visualize instantaneamente o resultado. A ferramenta suporta tanto gradientes lineares quanto radiais, permitindo alternar entre eles com um único clique. Quando estiver satisfeito com o visual, copie o CSS pronto para produção e cole diretamente na sua folha de estilos ou configuração do Tailwind. Tudo funciona localmente no seu navegador, então seu trabalho permanece privado.',
+    de: 'GradientLab hilft dir, schöne CSS-Verläufe zu erstellen, ohne Code von Hand zu schreiben. Wähle zwei Farben, lege die Richtung fest und sieh dir sofort das Ergebnis an. Das Tool unterstützt sowohl lineare als auch radiale Verlaufstypen und lässt dich mit einem Klick zwischen ihnen wechseln. Wenn du mit dem Aussehen zufrieden bist, kopiere das produktionsreife CSS und füge es direkt in dein Stylesheet oder deine Tailwind-Konfiguration ein. Alles läuft lokal in deinem Browser, sodass deine Arbeit privat bleibt.',
+  },
+  seoH3a: {
+    en: 'Linear and radial gradients explained',
+    fr: 'Dégradés linéaires et radiaux expliqués',
+    es: 'Gradientes lineales y radiales explicados',
+    pt: 'Gradientes lineares e radiais explicados',
+    de: 'Lineare und radiale Verläufe erklärt',
+  },
+  seoP2: {
+    en: 'A linear gradient transitions between colors along a straight line at a specific angle, making it ideal for backgrounds, hero sections, and banners. A radial gradient radiates outward from a center point, which works well for spotlight effects and circular UI elements. GradientLab lets you control the angle for linear gradients and preview the radial option in real time, so you can compare both styles before committing to one.',
+    fr: 'Un dégradé linéaire effectue la transition entre les couleurs le long d\'une ligne droite à un angle spécifique, idéal pour les arrière-plans, les sections principales et les bannières. Un dégradé radial rayonne vers l\'extérieur depuis un point central, parfait pour les effets de projecteur et les éléments d\'interface circulaires. GradientLab vous permet de contrôler l\'angle des dégradés linéaires et de prévisualiser l\'option radiale en temps réel, afin de comparer les deux styles avant de vous décider.',
+    es: 'Un gradiente lineal hace la transición entre colores a lo largo de una línea recta en un ángulo específico, ideal para fondos, secciones hero y banners. Un gradiente radial irradia hacia afuera desde un punto central, lo que funciona bien para efectos de foco y elementos de interfaz circulares. GradientLab te permite controlar el ángulo de los gradientes lineales y previsualizar la opción radial en tiempo real, para que puedas comparar ambos estilos antes de decidirte por uno.',
+    pt: 'Um gradiente linear faz a transição entre cores ao longo de uma linha reta em um ângulo específico, ideal para fundos, seções hero e banners. Um gradiente radial irradia para fora a partir de um ponto central, funcionando bem para efeitos de destaque e elementos de interface circulares. O GradientLab permite controlar o ângulo dos gradientes lineares e visualizar a opção radial em tempo real, para que você possa comparar ambos os estilos antes de se decidir.',
+    de: 'Ein linearer Verlauf wechselt zwischen Farben entlang einer geraden Linie in einem bestimmten Winkel, ideal für Hintergründe, Hero-Bereiche und Banner. Ein radialer Verlauf strahlt von einem Mittelpunkt nach außen, was gut für Spotlight-Effekte und kreisförmige UI-Elemente funktioniert. GradientLab lässt dich den Winkel für lineare Verläufe steuern und die radiale Option in Echtzeit vorschauen, damit du beide Stile vergleichen kannst, bevor du dich entscheidest.',
+  },
+  seoH3b: {
+    en: 'Presets, randomization, and copying CSS',
+    fr: 'Préréglages, aléatoire et copie du CSS',
+    es: 'Preajustes, aleatorización y copiado de CSS',
+    pt: 'Predefinições, aleatorização e cópia de CSS',
+    de: 'Vorlagen, Zufallsgenerierung und CSS kopieren',
+  },
+  seoP3: {
+    en: 'Not sure where to start? Browse 12 handpicked gradient presets curated for modern web design, or hit the Randomize button to discover unexpected color combinations. Each preset is fully editable, so you can use it as a starting point and fine-tune the colors and angle. When you are ready, the one-click copy button places the complete CSS rule on your clipboard, including the fallback background-color for older browsers.',
+    fr: 'Vous ne savez pas par où commencer ? Parcourez 12 préréglages de dégradés sélectionnés pour le design web moderne, ou appuyez sur le bouton Aléatoire pour découvrir des combinaisons de couleurs inattendues. Chaque préréglage est entièrement modifiable, vous pouvez l\'utiliser comme point de départ et affiner les couleurs et l\'angle. Quand vous êtes prêt, le bouton de copie en un clic place la règle CSS complète dans votre presse-papiers, y compris la couleur d\'arrière-plan de secours pour les anciens navigateurs.',
+    es: '¿No sabes por dónde empezar? Explora 12 preajustes de gradientes seleccionados para el diseño web moderno, o presiona el botón Aleatorio para descubrir combinaciones de colores inesperadas. Cada preajuste es completamente editable, así que puedes usarlo como punto de partida y ajustar los colores y el ángulo. Cuando estés listo, el botón de copia con un clic coloca la regla CSS completa en tu portapapeles, incluyendo el color de fondo de respaldo para navegadores antiguos.',
+    pt: 'Não sabe por onde começar? Navegue por 12 predefinições de gradientes selecionadas para design web moderno, ou pressione o botão Aleatório para descobrir combinações de cores inesperadas. Cada predefinição é totalmente editável, então você pode usá-la como ponto de partida e ajustar as cores e o ângulo. Quando estiver pronto, o botão de cópia com um clique coloca a regra CSS completa na sua área de transferência, incluindo a cor de fundo de fallback para navegadores mais antigos.',
+    de: 'Nicht sicher, wo du anfangen sollst? Durchstöbere 12 handverlesene Gradient-Vorlagen für modernes Webdesign oder drücke den Zufällig-Button, um unerwartete Farbkombinationen zu entdecken. Jede Vorlage ist vollständig bearbeitbar, sodass du sie als Ausgangspunkt nutzen und die Farben und den Winkel feinabstimmen kannst. Wenn du bereit bist, kopiert der Ein-Klick-Button die vollständige CSS-Regel in deine Zwischenablage, einschließlich der Fallback-Hintergrundfarbe für ältere Browser.',
+  },
+  seoP4: {
+    en: 'Need to pick exact colors first? Try the <a>Color Picker</a> to find the perfect HEX or RGB values. Once your design is final, wrap your screenshots with the <b>Screenshot Mockup</b> tool to present your gradient in a polished browser frame for portfolios and social media.',
+    fr: 'Besoin de choisir des couleurs exactes d\'abord ? Essayez le <a>Sélecteur de couleurs</a> pour trouver les valeurs HEX ou RGB parfaites. Une fois votre design finalisé, encadrez vos captures d\'écran avec l\'outil <b>Screenshot Mockup</b> pour présenter votre dégradé dans un cadre de navigateur élégant pour les portfolios et les réseaux sociaux.',
+    es: '¿Necesitas elegir colores exactos primero? Prueba el <a>Selector de colores</a> para encontrar los valores HEX o RGB perfectos. Una vez que tu diseño esté finalizado, enmarca tus capturas de pantalla con la herramienta <b>Screenshot Mockup</b> para presentar tu gradiente en un marco de navegador pulido para portfolios y redes sociales.',
+    pt: 'Precisa escolher cores exatas primeiro? Experimente o <a>Seletor de cores</a> para encontrar os valores HEX ou RGB perfeitos. Quando seu design estiver finalizado, emoldure suas capturas de tela com a ferramenta <b>Screenshot Mockup</b> para apresentar seu gradiente em uma moldura de navegador polida para portfólios e redes sociais.',
+    de: 'Musst du zuerst genaue Farben auswählen? Probiere den <a>Farbwähler</a>, um die perfekten HEX- oder RGB-Werte zu finden. Wenn dein Design fertig ist, rahme deine Screenshots mit dem <b>Screenshot Mockup</b>-Tool ein, um deinen Verlauf in einem eleganten Browser-Rahmen für Portfolios und Social Media zu präsentieren.',
+  },
+}
+
+export default function GradientClient({ locale = 'en' as Locale }: { locale?: Locale } = {}) {
   const [c1, setC1] = useState('#6366F1')
   const [c2, setC2] = useState('#EC4899')
   const [angle, setAngle] = useState(135)
   const [type, setType] = useState<'linear' | 'radial'>('linear')
   const [copied, setCopied] = useState(false)
+
+  const lt = (key: string) => LABELS[key]?.[locale] ?? LABELS[key]?.en ?? key
 
   const gradient = type === 'linear'
     ? `linear-gradient(${angle}deg, ${c1}, ${c2})`
@@ -49,21 +129,21 @@ export default function GradientClient() {
   }
 
   return (
-    <ToolShell name="Gradient Generator" icon="◆" currentPath="/gradient-generator">
+    <ToolShell name="Gradient Generator" icon="◆" currentPath="/gradient-generator" locale={locale}>
       <div style={{ background: '#FAFAF8', minHeight: '100vh', color: '#1C1B18', fontFamily: fb }}>
         <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 28px', maxWidth: 860, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 26, height: 26, borderRadius: 7, background: 'linear-gradient(135deg, #6366F1, #EC4899)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 13, fontWeight: 800 }}>G</div>
             <span style={{ fontSize: 17, fontWeight: 700 }}>GradientLab</span>
           </div>
-          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>← All tools</a>
+          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>{t('backAllTools', locale)}</a>
         </nav>
 
         <section style={{ maxWidth: 860, margin: '0 auto', padding: '32px 28px 16px', textAlign: 'center' }}>
           <h1 style={{ fontSize: 'clamp(26px, 4vw, 38px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 8 }}>
-            CSS gradient <span style={{ background: 'linear-gradient(135deg, #6366F1, #EC4899)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>generator</span>
+            {lt('titleGradient')} <span style={{ background: 'linear-gradient(135deg, #6366F1, #EC4899)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{lt('titleGenerator')}</span>
           </h1>
-          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>Pick colors. Copy CSS. Done.</p>
+          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>{lt('subtitle')}</p>
         </section>
 
         <section style={{ maxWidth: 860, margin: '0 auto', padding: '0 28px 20px', display: 'grid', gridTemplateColumns: '1fr 300px', gap: 20, alignItems: 'start' }}>
@@ -88,12 +168,12 @@ export default function GradientClient() {
                 fontFamily: fb, fontSize: 12, fontWeight: 700, padding: '8px 18px', borderRadius: 8,
                 border: 'none', cursor: 'pointer', flexShrink: 0,
                 background: copied ? '#22A065' : '#6366F1', color: '#fff',
-              }}>{copied ? 'Copied!' : 'Copy CSS'}</button>
+              }}>{copied ? t('copied', locale) : lt('copyCSS')}</button>
             </div>
 
             {/* Presets */}
             <div style={{ marginBottom: 14 }}>
-              <div style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 10 }}>Presets</div>
+              <div style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 10 }}>{lt('presets')}</div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 8 }}>
                 {PRESETS.map((p) => (
                   <button key={p.name} onClick={() => applyPreset(p)} title={p.name} style={{
@@ -113,23 +193,23 @@ export default function GradientClient() {
           <div style={{ background: '#fff', borderRadius: 18, border: '1.5px solid #E8E4DB', padding: 24, position: 'sticky', top: 20 }}>
             {/* Type */}
             <div style={{ marginBottom: 20 }}>
-              <div style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 8 }}>Type</div>
+              <div style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 8 }}>{lt('type')}</div>
               <div style={{ display: 'flex', gap: 6 }}>
-                {(['linear', 'radial'] as const).map(t => (
-                  <button key={t} onClick={() => setType(t)} style={{
+                {(['linear', 'radial'] as const).map(tp => (
+                  <button key={tp} onClick={() => setType(tp)} style={{
                     flex: 1, fontFamily: fb, fontSize: 13, fontWeight: 600, padding: '8px', borderRadius: 8, cursor: 'pointer',
-                    border: type === t ? '1.5px solid #6366F1' : '1.5px solid #E8E4DB',
-                    background: type === t ? '#6366F108' : 'transparent',
-                    color: type === t ? '#6366F1' : '#6B6560',
-                  }}>{t}</button>
+                    border: type === tp ? '1.5px solid #6366F1' : '1.5px solid #E8E4DB',
+                    background: type === tp ? '#6366F108' : 'transparent',
+                    color: type === tp ? '#6366F1' : '#6B6560',
+                  }}>{lt(tp)}</button>
                 ))}
               </div>
             </div>
 
             {/* Colors */}
             <div style={{ marginBottom: 20 }}>
-              <div style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 8 }}>Colors</div>
-              {[{ label: 'Color 1', val: c1, set: setC1 }, { label: 'Color 2', val: c2, set: setC2 }].map((c) => (
+              <div style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 8 }}>{lt('colors')}</div>
+              {[{ label: lt('color1'), val: c1, set: setC1 }, { label: lt('color2'), val: c2, set: setC2 }].map((c) => (
                 <div key={c.label} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
                   <input type="color" value={c.val} onChange={e => c.set(e.target.value)}
                     style={{ width: 44, height: 44, border: 'none', borderRadius: 10, cursor: 'pointer', padding: 0 }} />
@@ -144,18 +224,18 @@ export default function GradientClient() {
                   </div>
                 </div>
               ))}
-              <button onClick={() => { const t = c1; setC1(c2); setC2(t) }} style={{
+              <button onClick={() => { const tmp = c1; setC1(c2); setC2(tmp) }} style={{
                 fontFamily: fb, fontSize: 12, fontWeight: 600, padding: '6px 14px', borderRadius: 7,
                 border: '1.5px solid #E8E4DB', background: 'transparent', color: '#6B6560',
                 cursor: 'pointer', width: '100%', marginTop: 4,
-              }}>⇅ Swap colors</button>
+              }}>⇅ {lt('swapColors')}</button>
             </div>
 
             {/* Angle */}
             {type === 'linear' && (
               <div style={{ marginBottom: 20 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px' }}>Angle</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px' }}>{lt('angle')}</span>
                   <span style={{ fontFamily: fm, fontSize: 14, fontWeight: 700, color: '#6366F1' }}>{angle}°</span>
                 </div>
                 <input type="range" min="0" max="360" value={angle} onChange={e => setAngle(+e.target.value)}
@@ -177,26 +257,31 @@ export default function GradientClient() {
             <button onClick={randomize} style={{
               fontFamily: fb, fontSize: 14, fontWeight: 700, padding: '12px', borderRadius: 10,
               border: 'none', background: '#1C1B18', color: '#fff', cursor: 'pointer', width: '100%',
-            }}>Randomize</button>
+            }}>{lt('randomize')}</button>
           </div>
         </section>
 
         {/* SEO */}
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
-          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free CSS gradient generator</h2>
+          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>{lt('seoH2')}</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            GradientLab helps you create beautiful CSS gradients without writing code by hand. Choose two colors, set the direction, and instantly preview the result. The tool supports both linear and radial gradient types, letting you switch between them with a single click. Once you are happy with the look, copy the production-ready CSS and paste it straight into your stylesheet or Tailwind config. Everything runs locally in your browser, so your work stays private.
+            {lt('seoP1')}
           </p>
-          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Linear and radial gradients explained</h3>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>{lt('seoH3a')}</h3>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            A linear gradient transitions between colors along a straight line at a specific angle, making it ideal for backgrounds, hero sections, and banners. A radial gradient radiates outward from a center point, which works well for spotlight effects and circular UI elements. GradientLab lets you control the angle for linear gradients and preview the radial option in real time, so you can compare both styles before committing to one.
+            {lt('seoP2')}
           </p>
-          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Presets, randomization, and copying CSS</h3>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>{lt('seoH3b')}</h3>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Not sure where to start? Browse 12 handpicked gradient presets curated for modern web design, or hit the Randomize button to discover unexpected color combinations. Each preset is fully editable, so you can use it as a starting point and fine-tune the colors and angle. When you are ready, the one-click copy button places the complete CSS rule on your clipboard, including the fallback background-color for older browsers.
+            {lt('seoP3')}
           </p>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
-            Need to pick exact colors first? Try the <a href="/color-picker" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Color Picker</a> to find the perfect HEX or RGB values. Once your design is final, wrap your screenshots with the <a href="/screenshot-mockup" style={{ color: '#FF6B35', textDecoration: 'underline' }}>Screenshot Mockup</a> tool to present your gradient in a polished browser frame for portfolios and social media.
+            {(() => {
+              const parts = lt('seoP4').split(/<\/?[ab]>/)
+              return <>
+                {parts[0]}<a href="/color-picker" style={{ color: '#FF6B35', textDecoration: 'underline' }}>{parts[1]}</a>{parts[2]}<a href="/screenshot-mockup" style={{ color: '#FF6B35', textDecoration: 'underline' }}>{parts[3]}</a>{parts[4]}
+              </>
+            })()}
           </p>
         </section>
       </div>

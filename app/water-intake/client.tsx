@@ -1,6 +1,7 @@
 'use client'
 import { useState, useMemo } from 'react'
 import ToolShell from '@/components/ToolShell'
+import { t, type Locale } from '@/lib/i18n'
 
 const fb = "'Outfit', -apple-system, sans-serif"
 const fm = "'JetBrains Mono', monospace"
@@ -26,13 +27,6 @@ type WeightUnit = 'kg' | 'lbs'
 type ActivityLevel = 'sedentary' | 'moderate' | 'active' | 'very_active'
 type Climate = 'temperate' | 'hot' | 'cold'
 
-const activityLabels: Record<ActivityLevel, string> = {
-  sedentary: 'Sedentary',
-  moderate: 'Moderate',
-  active: 'Active',
-  very_active: 'Very Active',
-}
-
 const activityBonus: Record<ActivityLevel, number> = {
   sedentary: 0,
   moderate: 500,
@@ -40,16 +34,157 @@ const activityBonus: Record<ActivityLevel, number> = {
   very_active: 1000,
 }
 
-const climateLabels: Record<Climate, string> = {
-  temperate: 'Temperate',
-  hot: 'Hot',
-  cold: 'Cold',
-}
-
 const climateBonus: Record<Climate, number> = {
   temperate: 0,
   hot: 500,
   cold: 0,
+}
+
+const LABELS: Record<string, Record<Locale, string>> = {
+  // Title & subtitle
+  navTitle: {
+    en: 'Water Intake Calculator', fr: 'Calculateur d\'hydratation', es: 'Calculadora de hidratación',
+    pt: 'Calculadora de hidratação', de: 'Wasserbedarfsrechner',
+  },
+  titleWaterIntake: {
+    en: 'Water intake', fr: 'Apport en eau', es: 'Consumo de agua', pt: 'Consumo de água', de: 'Wasserbedarf',
+  },
+  titleCalculator: {
+    en: 'calculator', fr: 'calculateur', es: 'calculadora', pt: 'calculadora', de: 'Rechner',
+  },
+  subtitle: {
+    en: 'How much water should you drink daily? Based on weight, activity level, and climate.',
+    fr: 'Combien d\'eau devriez-vous boire par jour ? Selon votre poids, niveau d\'activité et climat.',
+    es: '¿Cuánta agua deberías beber al día? Según tu peso, nivel de actividad y clima.',
+    pt: 'Quanta água você deve beber por dia? Com base no peso, nível de atividade e clima.',
+    de: 'Wie viel Wasser sollten Sie täglich trinken? Basierend auf Gewicht, Aktivitätslevel und Klima.',
+  },
+
+  // Activity levels
+  sedentary: { en: 'Sedentary', fr: 'Sédentaire', es: 'Sedentario', pt: 'Sedentário', de: 'Sitzend' },
+  moderate: { en: 'Moderate', fr: 'Modéré', es: 'Moderado', pt: 'Moderado', de: 'Moderat' },
+  active: { en: 'Active', fr: 'Actif', es: 'Activo', pt: 'Ativo', de: 'Aktiv' },
+  veryActive: { en: 'Very Active', fr: 'Très actif', es: 'Muy activo', pt: 'Muito ativo', de: 'Sehr aktiv' },
+
+  // Climate
+  climate: { en: 'Climate', fr: 'Climat', es: 'Clima', pt: 'Clima', de: 'Klima' },
+  temperate: { en: 'Temperate', fr: 'Tempéré', es: 'Templado', pt: 'Temperado', de: 'Gemäßigt' },
+  hot: { en: 'Hot', fr: 'Chaud', es: 'Caluroso', pt: 'Quente', de: 'Heiß' },
+  cold: { en: 'Cold', fr: 'Froid', es: 'Frío', pt: 'Frio', de: 'Kalt' },
+
+  // Input labels
+  activityLevel: {
+    en: 'Activity Level', fr: 'Niveau d\'activité', es: 'Nivel de actividad',
+    pt: 'Nível de atividade', de: 'Aktivitätslevel',
+  },
+  pregnantLabel: {
+    en: 'Pregnant / Breastfeeding', fr: 'Enceinte / Allaitement', es: 'Embarazada / Lactancia',
+    pt: 'Grávida / Amamentando', de: 'Schwanger / Stillend',
+  },
+  pregnantYes: {
+    en: 'Yes (+400 ml)', fr: 'Oui (+400 ml)', es: 'Sí (+400 ml)',
+    pt: 'Sim (+400 ml)', de: 'Ja (+400 ml)',
+  },
+  pregnantNo: { en: 'No', fr: 'Non', es: 'No', pt: 'Não', de: 'Nein' },
+
+  // Results
+  yourDailyWaterIntake: {
+    en: 'Your Daily Water Intake', fr: 'Votre apport quotidien en eau', es: 'Tu consumo diario de agua',
+    pt: 'Seu consumo diário de água', de: 'Ihr täglicher Wasserbedarf',
+  },
+  glassesLabel: {
+    en: '{n} glasses (250 ml each)', fr: '{n} verres (250 ml chacun)', es: '{n} vasos (250 ml cada uno)',
+    pt: '{n} copos (250 ml cada)', de: '{n} Gläser (je 250 ml)',
+  },
+  glassVisualization: {
+    en: 'Glass Visualization', fr: 'Visualisation des verres', es: 'Visualización de vasos',
+    pt: 'Visualização dos copos', de: 'Gläservisualisierung',
+  },
+  eachGlass: {
+    en: 'Each glass = 250 ml', fr: 'Chaque verre = 250 ml', es: 'Cada vaso = 250 ml',
+    pt: 'Cada copo = 250 ml', de: 'Jedes Glas = 250 ml',
+  },
+  filledOf: {
+    en: 'Filled: {a} of {b}', fr: 'Remplis : {a} sur {b}', es: 'Llenos: {a} de {b}',
+    pt: 'Cheios: {a} de {b}', de: 'Gefüllt: {a} von {b}',
+  },
+  breakdown: { en: 'Breakdown', fr: 'Détail', es: 'Desglose', pt: 'Detalhamento', de: 'Aufschlüsselung' },
+  baseNeed: {
+    en: 'Base need (weight × 33)', fr: 'Besoin de base (poids × 33)', es: 'Necesidad base (peso × 33)',
+    pt: 'Necessidade base (peso × 33)', de: 'Grundbedarf (Gewicht × 33)',
+  },
+  activityBonus: {
+    en: 'Activity bonus', fr: 'Bonus activité', es: 'Bonus actividad',
+    pt: 'Bônus atividade', de: 'Aktivitätsbonus',
+  },
+  climateBonus: {
+    en: 'Climate bonus', fr: 'Bonus climat', es: 'Bonus clima',
+    pt: 'Bônus clima', de: 'Klimabonus',
+  },
+  pregnancyBreastfeeding: {
+    en: 'Pregnancy / breastfeeding', fr: 'Grossesse / allaitement', es: 'Embarazo / lactancia',
+    pt: 'Gravidez / amamentação', de: 'Schwangerschaft / Stillen',
+  },
+
+  // Disclaimer
+  disclaimer: {
+    en: 'This is an estimate. Individual hydration needs vary. Consult a healthcare professional for personalized advice.',
+    fr: 'Ceci est une estimation. Les besoins en hydratation varient d\'une personne à l\'autre. Consultez un professionnel de santé pour des conseils personnalisés.',
+    es: 'Esto es una estimación. Las necesidades de hidratación varían según la persona. Consulta a un profesional de salud para obtener asesoramiento personalizado.',
+    pt: 'Esta é uma estimativa. As necessidades de hidratação variam de pessoa para pessoa. Consulte um profissional de saúde para orientações personalizadas.',
+    de: 'Dies ist eine Schätzung. Der individuelle Flüssigkeitsbedarf variiert. Konsultieren Sie einen Arzt für eine individuelle Beratung.',
+  },
+
+  // SEO
+  seoH2: {
+    en: 'Free water intake calculator',
+    fr: 'Calculateur d\'hydratation gratuit',
+    es: 'Calculadora de hidratación gratuita',
+    pt: 'Calculadora de hidratação gratuita',
+    de: 'Kostenloser Wasserbedarfsrechner',
+  },
+  seoP1: {
+    en: 'Free water intake calculator. Find out how much water you should drink daily based on your body weight, activity level, and climate. Staying properly hydrated supports digestion, energy levels, skin health, and overall well-being. Use this tool to estimate your optimal daily water consumption in liters and glasses.',
+    fr: 'Calculateur d\'hydratation gratuit. Découvrez combien d\'eau vous devriez boire chaque jour en fonction de votre poids corporel, niveau d\'activité et climat. Rester bien hydraté favorise la digestion, l\'énergie, la santé de la peau et le bien-être général. Utilisez cet outil pour estimer votre consommation d\'eau quotidienne optimale en litres et en verres.',
+    es: 'Calculadora de hidratación gratuita. Descubre cuánta agua deberías beber diariamente según tu peso corporal, nivel de actividad y clima. Mantenerse bien hidratado favorece la digestión, los niveles de energía, la salud de la piel y el bienestar general. Usa esta herramienta para estimar tu consumo diario óptimo de agua en litros y vasos.',
+    pt: 'Calculadora de hidratação gratuita. Descubra quanta água você deve beber diariamente com base no seu peso corporal, nível de atividade e clima. Manter-se bem hidratado favorece a digestão, os níveis de energia, a saúde da pele e o bem-estar geral. Use esta ferramenta para estimar seu consumo diário ideal de água em litros e copos.',
+    de: 'Kostenloser Wasserbedarfsrechner. Finden Sie heraus, wie viel Wasser Sie täglich trinken sollten, basierend auf Ihrem Körpergewicht, Aktivitätslevel und Klima. Ausreichende Flüssigkeitszufuhr unterstützt die Verdauung, das Energieniveau, die Hautgesundheit und das allgemeine Wohlbefinden. Nutzen Sie dieses Tool, um Ihren optimalen täglichen Wasserverbrauch in Litern und Gläsern zu schätzen.',
+  },
+  seoH3a: {
+    en: 'How is water intake calculated?',
+    fr: 'Comment l\'apport en eau est-il calculé ?',
+    es: '¿Cómo se calcula el consumo de agua?',
+    pt: 'Como o consumo de água é calculado?',
+    de: 'Wie wird der Wasserbedarf berechnet?',
+  },
+  seoP2: {
+    en: 'The base recommendation is 33 ml of water per kilogram of body weight. This is adjusted for physical activity, hot climates, and pregnancy or breastfeeding. Active individuals and those in warm environments need more fluids to compensate for water lost through sweat.',
+    fr: 'La recommandation de base est de 33 ml d\'eau par kilogramme de poids corporel. Elle est ajustée en fonction de l\'activité physique, des climats chauds et de la grossesse ou de l\'allaitement. Les personnes actives et celles vivant dans des environnements chauds ont besoin de plus de liquides pour compenser l\'eau perdue par la transpiration.',
+    es: 'La recomendación base es de 33 ml de agua por kilogramo de peso corporal. Se ajusta según la actividad física, los climas calurosos y el embarazo o la lactancia. Las personas activas y quienes viven en ambientes cálidos necesitan más líquidos para compensar el agua perdida por el sudor.',
+    pt: 'A recomendação base é de 33 ml de água por quilograma de peso corporal. É ajustada conforme a atividade física, climas quentes e gravidez ou amamentação. Pessoas ativas e aquelas em ambientes quentes precisam de mais líquidos para compensar a água perdida pelo suor.',
+    de: 'Die Grundempfehlung liegt bei 33 ml Wasser pro Kilogramm Körpergewicht. Diese wird an körperliche Aktivität, heißes Klima und Schwangerschaft oder Stillzeit angepasst. Aktive Personen und solche in warmen Umgebungen benötigen mehr Flüssigkeit, um den durch Schwitzen verlorenen Wasserverlust auszugleichen.',
+  },
+  seoH3b: {
+    en: 'Tips for staying hydrated',
+    fr: 'Conseils pour rester hydraté',
+    es: 'Consejos para mantenerse hidratado',
+    pt: 'Dicas para se manter hidratado',
+    de: 'Tipps für eine gute Flüssigkeitszufuhr',
+  },
+  seoP3: {
+    en: 'Carry a reusable water bottle, drink a glass of water before each meal, and eat water-rich foods like fruits and vegetables. If you exercise, drink extra water before, during, and after your workout. Signs of dehydration include dark urine, fatigue, headache, and dry mouth.',
+    fr: 'Emportez une bouteille d\'eau réutilisable, buvez un verre d\'eau avant chaque repas et consommez des aliments riches en eau comme les fruits et les légumes. Si vous faites de l\'exercice, buvez de l\'eau supplémentaire avant, pendant et après votre entraînement. Les signes de déshydratation comprennent une urine foncée, la fatigue, les maux de tête et la bouche sèche.',
+    es: 'Lleva una botella de agua reutilizable, bebe un vaso de agua antes de cada comida y consume alimentos ricos en agua como frutas y verduras. Si haces ejercicio, bebe agua adicional antes, durante y después del entrenamiento. Los signos de deshidratación incluyen orina oscura, fatiga, dolor de cabeza y boca seca.',
+    pt: 'Leve uma garrafa de água reutilizável, beba um copo de água antes de cada refeição e consuma alimentos ricos em água como frutas e vegetais. Se você se exercita, beba água extra antes, durante e após o treino. Os sinais de desidratação incluem urina escura, fadiga, dor de cabeça e boca seca.',
+    de: 'Tragen Sie eine wiederverwendbare Wasserflasche bei sich, trinken Sie vor jeder Mahlzeit ein Glas Wasser und essen Sie wasserreiche Lebensmittel wie Obst und Gemüse. Wenn Sie Sport treiben, trinken Sie vor, während und nach dem Training zusätzlich Wasser. Anzeichen von Dehydrierung sind dunkler Urin, Müdigkeit, Kopfschmerzen und trockener Mund.',
+  },
+  seoP4: {
+    en: 'Proper hydration works hand in hand with good nutrition. Use our <a href="/calorie-calculator" style="color:#FF6B35;text-decoration:underline">calorie calculator</a> to determine your daily energy needs based on your activity level. If you are a runner or cyclist, the <a href="/pace-calculator" style="color:#FF6B35;text-decoration:underline">pace calculator</a> can help you plan training sessions where staying hydrated becomes even more important.',
+    fr: 'Une bonne hydratation va de pair avec une bonne nutrition. Utilisez notre <a href="/calorie-calculator" style="color:#FF6B35;text-decoration:underline">calculateur de calories</a> pour déterminer vos besoins énergétiques quotidiens en fonction de votre niveau d\'activité. Si vous êtes coureur ou cycliste, le <a href="/pace-calculator" style="color:#FF6B35;text-decoration:underline">calculateur d\'allure</a> peut vous aider à planifier des séances d\'entraînement où rester hydraté devient encore plus important.',
+    es: 'Una buena hidratación va de la mano con una buena nutrición. Usa nuestra <a href="/calorie-calculator" style="color:#FF6B35;text-decoration:underline">calculadora de calorías</a> para determinar tus necesidades energéticas diarias según tu nivel de actividad. Si eres corredor o ciclista, la <a href="/pace-calculator" style="color:#FF6B35;text-decoration:underline">calculadora de ritmo</a> puede ayudarte a planificar sesiones de entrenamiento donde mantenerse hidratado es aún más importante.',
+    pt: 'A hidratação adequada anda de mãos dadas com uma boa nutrição. Use nossa <a href="/calorie-calculator" style="color:#FF6B35;text-decoration:underline">calculadora de calorias</a> para determinar suas necessidades energéticas diárias com base no seu nível de atividade. Se você é corredor ou ciclista, a <a href="/pace-calculator" style="color:#FF6B35;text-decoration:underline">calculadora de ritmo</a> pode ajudá-lo a planejar sessões de treino onde manter-se hidratado é ainda mais importante.',
+    de: 'Richtige Flüssigkeitszufuhr geht Hand in Hand mit guter Ernährung. Verwenden Sie unseren <a href="/calorie-calculator" style="color:#FF6B35;text-decoration:underline">Kalorienrechner</a>, um Ihren täglichen Energiebedarf basierend auf Ihrem Aktivitätslevel zu ermitteln. Wenn Sie Läufer oder Radfahrer sind, kann der <a href="/pace-calculator" style="color:#FF6B35;text-decoration:underline">Pace-Rechner</a> Ihnen helfen, Trainingseinheiten zu planen, bei denen die Flüssigkeitszufuhr noch wichtiger wird.',
+  },
 }
 
 function GlassIcon({ filled, index }: { filled: boolean; index: number }) {
@@ -102,10 +237,27 @@ function GlassIcon({ filled, index }: { filled: boolean; index: number }) {
 export default function WaterIntakeClient({
   defaultWeight,
   defaultActivity,
+  locale = 'en' as Locale,
 }: {
   defaultWeight?: number
   defaultActivity?: string
+  locale?: Locale
 } = {}) {
+  const lt = (key: string) => LABELS[key]?.[locale] ?? LABELS[key]?.en ?? key
+
+  const activityLabels: Record<ActivityLevel, string> = {
+    sedentary: lt('sedentary'),
+    moderate: lt('moderate'),
+    active: lt('active'),
+    very_active: lt('veryActive'),
+  }
+
+  const climateLabels: Record<Climate, string> = {
+    temperate: lt('temperate'),
+    hot: lt('hot'),
+    cold: lt('cold'),
+  }
+
   const [weightKg, setWeightKg] = useState(defaultWeight ?? 70)
   const [weightLbs, setWeightLbs] = useState(defaultWeight ?? 154)
   const [weightUnit, setWeightUnit] = useState<WeightUnit>('kg')
@@ -140,23 +292,23 @@ export default function WaterIntakeClient({
   const displayGlasses = results ? Math.min(results.glasses, maxGlasses) : 0
 
   return (
-    <ToolShell name="Water Intake Calculator" icon="💧" currentPath="/water-intake">
+    <ToolShell name={lt('navTitle')} icon="💧" currentPath="/water-intake" locale={locale}>
       <div style={{ background: '#FAFAF8', minHeight: '100vh', color: '#1C1B18', fontFamily: fb }}>
         {/* Nav */}
         <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 28px', maxWidth: 700, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 26, height: 26, borderRadius: 7, background: accent, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 13, fontWeight: 800 }}>💧</div>
-            <span style={{ fontSize: 17, fontWeight: 700 }}>Water Intake Calculator</span>
+            <span style={{ fontSize: 17, fontWeight: 700 }}>{lt('navTitle')}</span>
           </div>
-          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>← All tools</a>
+          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>{t('backAllTools', locale)}</a>
         </nav>
 
         {/* Header */}
         <section style={{ maxWidth: 700, margin: '0 auto', padding: '32px 28px 16px', textAlign: 'center' }}>
           <h1 style={{ fontSize: 'clamp(26px, 4vw, 38px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 8 }}>
-            Water intake <span style={{ color: accent }}>calculator</span>
+            {lt('titleWaterIntake')} <span style={{ color: accent }}>{lt('titleCalculator')}</span>
           </h1>
-          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>How much water should you drink daily? Based on weight, activity level, and climate.</p>
+          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>{lt('subtitle')}</p>
         </section>
 
         {/* Inputs */}
@@ -165,7 +317,7 @@ export default function WaterIntakeClient({
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               {/* Weight */}
               <div>
-                <label style={labelStyle}>Weight</label>
+                <label style={labelStyle}>{t('weight', locale)}</label>
                 <div style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
                   <div style={{ flex: 1 }}>
                     <input
@@ -190,7 +342,7 @@ export default function WaterIntakeClient({
 
               {/* Activity Level */}
               <div>
-                <label style={labelStyle}>Activity Level</label>
+                <label style={labelStyle}>{lt('activityLevel')}</label>
                 <div style={{ position: 'relative' }}>
                   <select
                     value={activity}
@@ -206,7 +358,7 @@ export default function WaterIntakeClient({
 
               {/* Climate */}
               <div>
-                <label style={labelStyle}>Climate</label>
+                <label style={labelStyle}>{lt('climate')}</label>
                 <div style={{ position: 'relative' }}>
                   <select
                     value={climate}
@@ -222,7 +374,7 @@ export default function WaterIntakeClient({
 
               {/* Pregnant / Breastfeeding Toggle */}
               <div>
-                <label style={labelStyle}>Pregnant / Breastfeeding</label>
+                <label style={labelStyle}>{lt('pregnantLabel')}</label>
                 <button
                   onClick={() => setPregnant(!pregnant)}
                   style={{
@@ -252,7 +404,7 @@ export default function WaterIntakeClient({
                   }}>
                     {pregnant ? '✓' : ''}
                   </span>
-                  {pregnant ? 'Yes (+400 ml)' : 'No'}
+                  {pregnant ? lt('pregnantYes') : lt('pregnantNo')}
                 </button>
               </div>
             </div>
@@ -268,7 +420,7 @@ export default function WaterIntakeClient({
               border: `1.5px solid ${accent}25`,
               borderRadius: 16, padding: 28, textAlign: 'center', marginBottom: 16,
             }}>
-              <div style={labelStyle}>Your Daily Water Intake</div>
+              <div style={labelStyle}>{lt('yourDailyWaterIntake')}</div>
               <div style={{ fontSize: 56, fontFamily: fm, fontWeight: 700, color: accent, lineHeight: 1.1 }}>
                 {results.liters.toFixed(1)} L
               </div>
@@ -277,7 +429,7 @@ export default function WaterIntakeClient({
                 background: accent + '18', color: accent,
                 fontSize: 14, fontWeight: 700,
               }}>
-                {results.glasses} glasses (250 ml each)
+                {lt('glassesLabel').replace('{n}', String(results.glasses))}
               </div>
             </div>
 
@@ -286,7 +438,7 @@ export default function WaterIntakeClient({
               background: '#fff', border: '1.5px solid #E8E4DB', borderRadius: 16,
               padding: 22, marginBottom: 16,
             }}>
-              <div style={labelStyle}>Glass Visualization</div>
+              <div style={labelStyle}>{lt('glassVisualization')}</div>
               <div style={{
                 display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 12,
                 justifyContent: 'center',
@@ -296,7 +448,7 @@ export default function WaterIntakeClient({
                 ))}
               </div>
               <div style={{ textAlign: 'center', marginTop: 10, fontSize: 12, color: '#9A958A' }}>
-                Each glass = 250 ml &middot; Filled: {displayGlasses} of {maxGlasses}
+                {lt('eachGlass')} &middot; {lt('filledOf').replace('{a}', String(displayGlasses)).replace('{b}', String(maxGlasses))}
               </div>
             </div>
 
@@ -305,23 +457,23 @@ export default function WaterIntakeClient({
               background: '#fff', border: '1.5px solid #E8E4DB', borderRadius: 16,
               padding: 22, marginBottom: 16,
             }}>
-              <div style={labelStyle}>Breakdown</div>
+              <div style={labelStyle}>{lt('breakdown')}</div>
               <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: '#FAFAF8', borderRadius: 8 }}>
-                  <span style={{ fontSize: 13, color: '#6B6560' }}>Base need (weight × 33)</span>
+                  <span style={{ fontSize: 13, color: '#6B6560' }}>{lt('baseNeed')}</span>
                   <span style={{ fontSize: 14, fontFamily: fm, fontWeight: 600, color: '#1C1B18' }}>{results.baseMl} ml</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: '#FAFAF8', borderRadius: 8 }}>
-                  <span style={{ fontSize: 13, color: '#6B6560' }}>Activity bonus</span>
+                  <span style={{ fontSize: 13, color: '#6B6560' }}>{lt('activityBonus')}</span>
                   <span style={{ fontSize: 14, fontFamily: fm, fontWeight: 600, color: results.actMl > 0 ? accent : '#9A958A' }}>+{results.actMl} ml</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: '#FAFAF8', borderRadius: 8 }}>
-                  <span style={{ fontSize: 13, color: '#6B6560' }}>Climate bonus</span>
+                  <span style={{ fontSize: 13, color: '#6B6560' }}>{lt('climateBonus')}</span>
                   <span style={{ fontSize: 14, fontFamily: fm, fontWeight: 600, color: results.cliMl > 0 ? accent : '#9A958A' }}>+{results.cliMl} ml</span>
                 </div>
                 {pregnant && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: '#FAFAF8', borderRadius: 8 }}>
-                    <span style={{ fontSize: 13, color: '#6B6560' }}>Pregnancy / breastfeeding</span>
+                    <span style={{ fontSize: 13, color: '#6B6560' }}>{lt('pregnancyBreastfeeding')}</span>
                     <span style={{ fontSize: 14, fontFamily: fm, fontWeight: 600, color: accent }}>+{results.pregMl} ml</span>
                   </div>
                 )}
@@ -330,7 +482,7 @@ export default function WaterIntakeClient({
                   padding: '10px 12px', background: accent + '0A', borderRadius: 8,
                   border: `1.5px solid ${accent}25`, marginTop: 4,
                 }}>
-                  <span style={{ fontSize: 14, fontWeight: 700, color: '#1C1B18' }}>Total</span>
+                  <span style={{ fontSize: 14, fontWeight: 700, color: '#1C1B18' }}>{t('total', locale)}</span>
                   <span style={{ fontSize: 16, fontFamily: fm, fontWeight: 700, color: accent }}>{results.totalMl} ml</span>
                 </div>
               </div>
@@ -341,28 +493,26 @@ export default function WaterIntakeClient({
               marginTop: 0, padding: '12px 16px', borderRadius: 10,
               background: '#FEF3C7', border: '1px solid #FDE68A', fontSize: 12, color: '#92400E', lineHeight: 1.6,
             }}>
-              This is an estimate. Individual hydration needs vary. Consult a healthcare professional for personalized advice.
+              {lt('disclaimer')}
             </div>
           </section>
         )}
 
         {/* SEO */}
         <section style={{ maxWidth: 540, margin: '0 auto', padding: '32px 28px', borderTop: '1px solid #E8E4DB' }}>
-          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free water intake calculator</h2>
+          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>{lt('seoH2')}</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Free water intake calculator. Find out how much water you should drink daily based on your body weight, activity level, and climate. Staying properly hydrated supports digestion, energy levels, skin health, and overall well-being. Use this tool to estimate your optimal daily water consumption in liters and glasses.
+            {lt('seoP1')}
           </p>
-          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>How is water intake calculated?</h3>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>{lt('seoH3a')}</h3>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            The base recommendation is 33 ml of water per kilogram of body weight. This is adjusted for physical activity, hot climates, and pregnancy or breastfeeding. Active individuals and those in warm environments need more fluids to compensate for water lost through sweat.
+            {lt('seoP2')}
           </p>
-          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Tips for staying hydrated</h3>
+          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>{lt('seoH3b')}</h3>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Carry a reusable water bottle, drink a glass of water before each meal, and eat water-rich foods like fruits and vegetables. If you exercise, drink extra water before, during, and after your workout. Signs of dehydration include dark urine, fatigue, headache, and dry mouth.
+            {lt('seoP3')}
           </p>
-          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>
-            Proper hydration works hand in hand with good nutrition. Use our <a href="/calorie-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>calorie calculator</a> to determine your daily energy needs based on your activity level. If you are a runner or cyclist, the <a href="/pace-calculator" style={{ color: '#FF6B35', textDecoration: 'underline' }}>pace calculator</a> can help you plan training sessions where staying hydrated becomes even more important.
-          </p>
+          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }} dangerouslySetInnerHTML={{ __html: lt('seoP4') }} />
         </section>
       </div>
     </ToolShell>
