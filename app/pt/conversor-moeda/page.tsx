@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Client from '../../currency-converter/client'
 import { generateToolJsonLd } from '@/lib/jsonld'
 import { getAlternates } from '@/lib/translations'
+import { getRates } from '@/lib/getRates'
 
 export const metadata: Metadata = {
   alternates: getAlternates('/currency-converter'),
@@ -18,11 +19,12 @@ const jsonLd = generateToolJsonLd({
   category: 'FinanceApplication',
 })
 
-export default function Page() {
+export default async function Page() {
+  const { rates, date } = await getRates()
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Client locale="pt" />
+      <Client locale="pt" rates={rates} rateDate={date} />
     </>
   )
 }
