@@ -1,9 +1,25 @@
 'use client'
 import { useState, useMemo, useCallback } from 'react'
 import ToolShell from '@/components/ToolShell'
+import { t, type Locale } from '@/lib/i18n'
 
 const fb = "'Outfit', -apple-system, sans-serif"
 const fm = "'JetBrains Mono', monospace"
+
+const LABELS: Record<string, Record<Locale, string>> = {
+  navTitle:      { en: 'Lorem Ipsum Generator',   fr: 'Générateur Lorem Ipsum',          es: 'Generador Lorem Ipsum',         pt: 'Gerador Lorem Ipsum',           de: 'Lorem-Ipsum-Generator' },
+  titleA:        { en: 'Lorem ipsum',             fr: 'Lorem ipsum',                     es: 'Lorem ipsum',                   pt: 'Lorem ipsum',                   de: 'Lorem ipsum' },
+  titleB:        { en: 'generator',               fr: 'générateur',                      es: 'generador',                     pt: 'gerador',                       de: 'Generator' },
+  subtitle:      { en: 'Placeholder text, generated instantly.', fr: 'Texte de remplacement, généré instantanément.', es: 'Texto de marcador, generado al instante.', pt: 'Texto de espaço reservado, gerado instantaneamente.', de: 'Platzhaltertext, sofort generiert.' },
+  paragraphs:    { en: 'paragraphs',              fr: 'paragraphes',                     es: 'párrafos',                      pt: 'parágrafos',                    de: 'Absätze' },
+  sentences:     { en: 'sentences',               fr: 'phrases',                         es: 'oraciones',                     pt: 'frases',                        de: 'Sätze' },
+  words:         { en: 'words',                   fr: 'mots',                            es: 'palabras',                      pt: 'palavras',                      de: 'Wörter' },
+  startWithLorem:{ en: 'Start with "Lorem ipsum..."', fr: 'Commencer par "Lorem ipsum..."', es: 'Comenzar con "Lorem ipsum..."', pt: 'Começar com "Lorem ipsum..."', de: 'Mit "Lorem ipsum..." beginnen' },
+  regenerate:    { en: 'Regenerate',              fr: 'Régénérer',                       es: 'Regenerar',                     pt: 'Regenerar',                     de: 'Neu generieren' },
+  copyText:      { en: 'Copy text',               fr: 'Copier le texte',                 es: 'Copiar texto',                  pt: 'Copiar texto',                  de: 'Text kopieren' },
+  copied:        { en: 'Copied!',                 fr: 'Copié !',                         es: '¡Copiado!',                     pt: 'Copiado!',                      de: 'Kopiert!' },
+  chars:         { en: 'chars',                   fr: 'caractères',                      es: 'caracteres',                    pt: 'caracteres',                    de: 'Zeichen' },
+}
 
 const WORDS = 'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem'.split(' ')
 
@@ -53,7 +69,9 @@ function generate(mode: string, count: number, startClassic: boolean): string {
   return randomWords(count)
 }
 
-export default function LoremClient() {
+export default function LoremClient({ locale = 'en' as Locale }: { locale?: Locale } = {}) {
+  const lt = (key: string) => LABELS[key]?.[locale] ?? LABELS[key]?.en ?? key
+
   const [mode, setMode] = useState('paragraphs')
   const [count, setCount] = useState(3)
   const [startClassic, setStartClassic] = useState(true)
@@ -72,22 +90,28 @@ export default function LoremClient() {
 
   const maxCount = mode === 'paragraphs' ? 20 : mode === 'sentences' ? 50 : 500
 
+  const modeLabel = (m: string) => {
+    if (m === 'paragraphs') return lt('paragraphs')
+    if (m === 'sentences') return lt('sentences')
+    return lt('words')
+  }
+
   return (
-    <ToolShell name="Lorem Generator" icon="¶" currentPath="/lorem-generator">
+    <ToolShell name={lt('navTitle')} icon="¶" currentPath="/lorem-generator" locale={locale}>
       <div style={{ background: '#FAFAF8', minHeight: '100vh', color: '#1C1B18', fontFamily: fb }}>
         <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 28px', maxWidth: 860, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 26, height: 26, borderRadius: 7, background: '#8B5CF6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 14, fontWeight: 800 }}>L</div>
             <span style={{ fontSize: 17, fontWeight: 700 }}>LoremFast</span>
           </div>
-          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>← All tools</a>
+          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>{t('backAllTools', locale)}</a>
         </nav>
 
         <section style={{ maxWidth: 860, margin: '0 auto', padding: '32px 28px 16px', textAlign: 'center' }}>
           <h1 style={{ fontSize: 'clamp(26px, 4vw, 38px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 8 }}>
-            Lorem ipsum <span style={{ color: '#8B5CF6' }}>generator</span>
+            {lt('titleA')} <span style={{ color: '#8B5CF6' }}>{lt('titleB')}</span>
           </h1>
-          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>Placeholder text, generated instantly.</p>
+          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>{lt('subtitle')}</p>
         </section>
 
         <section style={{ maxWidth: 860, margin: '0 auto', padding: '0 28px 20px' }}>
@@ -106,7 +130,7 @@ export default function LoremClient() {
                     background: mode === m ? '#fff' : 'transparent',
                     color: mode === m ? '#1C1B18' : '#9A958A',
                     boxShadow: mode === m ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
-                  }}>{m}</button>
+                  }}>{modeLabel(m)}</button>
               ))}
             </div>
 
@@ -129,14 +153,14 @@ export default function LoremClient() {
             <label style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, color: '#6B6560', cursor: 'pointer' }}>
               <input type="checkbox" checked={startClassic} onChange={e => setStartClassic(e.target.checked)}
                 style={{ accentColor: '#8B5CF6' }} />
-              Start with "Lorem ipsum..."
+              {lt('startWithLorem')}
             </label>
 
             {/* Regenerate */}
             <button onClick={() => setSeed(s => s + 1)} style={{
               fontFamily: fb, fontSize: 13, fontWeight: 600, padding: '7px 16px', borderRadius: 8,
               border: '1.5px solid #E8E4DB', background: '#fff', color: '#6B6560', cursor: 'pointer',
-            }}>Regenerate</button>
+            }}>{lt('regenerate')}</button>
           </div>
         </section>
 
@@ -157,16 +181,16 @@ export default function LoremClient() {
               padding: '12px 20px', borderTop: '1px solid #E8E4DB', background: '#FAFAF8',
             }}>
               <div style={{ display: 'flex', gap: 16, fontSize: 12, fontFamily: fm, color: '#9A958A' }}>
-                <span>{wordCount} words</span>
-                <span>{charCount} chars</span>
-                <span>{mode === 'paragraphs' ? count + ' paragraphs' : mode === 'sentences' ? count + ' sentences' : count + ' words'}</span>
+                <span>{wordCount} {lt('words')}</span>
+                <span>{charCount} {lt('chars')}</span>
+                <span>{count} {modeLabel(mode)}</span>
               </div>
               <button onClick={copy} style={{
                 fontFamily: fb, fontSize: 13, fontWeight: 700, padding: '8px 20px', borderRadius: 8,
                 border: 'none', cursor: 'pointer',
                 background: copied ? '#22A06515' : '#8B5CF6',
                 color: copied ? '#22A065' : '#fff',
-              }}>{copied ? 'Copied!' : 'Copy text'}</button>
+              }}>{copied ? lt('copied') : lt('copyText')}</button>
             </div>
           </div>
         </section>
@@ -180,11 +204,6 @@ export default function LoremClient() {
           <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>The history behind lorem ipsum</h3>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
             Lorem ipsum text originates from a work by the Roman philosopher Cicero written in 45 BC. Typesetters in the 1500s scrambled a passage from "de Finibus Bonorum et Malorum" to create filler text that mimics the visual rhythm of natural language without being distracting. Because the words resemble Latin but are intentionally meaningless, they let reviewers focus on design elements rather than reading the content.
-          </p>
-
-          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Using placeholder text in design mockups</h3>
-          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Placeholder text is essential during the early stages of web and print design. It fills content areas so you can evaluate typography, spacing, and overall layout before final copy is ready. Requesting a specific number of words or paragraphs ensures your mockups reflect realistic content lengths, which helps stakeholders give more accurate feedback on the design without being distracted by draft copy.
           </p>
 
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 16 }}>

@@ -1,6 +1,7 @@
 'use client'
 import { useState, useMemo } from 'react'
 import ToolShell from '@/components/ToolShell'
+import { t, LOCALE_CODES, type Locale } from '@/lib/i18n'
 
 const fb = "'Outfit', -apple-system, sans-serif"
 const fm = "'JetBrains Mono', monospace"
@@ -18,19 +19,48 @@ const inputStyle: React.CSSProperties = {
   background: '#F5F3EE', outline: 'none',
 }
 
-function fmt(n: number): string {
-  return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+const LABELS: Record<string, Record<Locale, string>> = {
+  navTitle:       { en: 'Hourly Rate Calculator',        fr: 'Calculateur de taux horaire',       es: 'Calculadora de tarifa por hora',     pt: 'Calculadora de taxa horária',        de: 'Stundensatz-Rechner' },
+  titleA:         { en: 'Hourly Rate',                   fr: 'Taux horaire',                       es: 'Tarifa por hora',                    pt: 'Taxa horária',                       de: 'Stundensatz-' },
+  titleB:         { en: 'Calculator',                    fr: 'idéal',                              es: 'ideal',                              pt: 'ideal',                              de: 'Rechner' },
+  subtitle:       { en: 'Calculate the perfect freelance rate to hit your income goals.', fr: 'Calculez le taux horaire parfait pour atteindre vos objectifs de revenus.', es: 'Calcule la tarifa freelance perfecta para alcanzar sus objetivos de ingresos.', pt: 'Calcule a taxa freelance perfeita para atingir suas metas de renda.', de: 'Den perfekten Freelance-Stundensatz für Ihre Einkommensziele berechnen.' },
+  desiredIncome:  { en: 'Desired Annual Income ($)',     fr: 'Revenu annuel souhaité ($)',          es: 'Ingreso anual deseado ($)',           pt: 'Renda anual desejada ($)',            de: 'Gewünschtes Jahreseinkommen ($)' },
+  hoursPerWeek:   { en: 'Work Hours per Week',           fr: 'Heures de travail par semaine',      es: 'Horas de trabajo por semana',        pt: 'Horas de trabalho por semana',       de: 'Arbeitsstunden pro Woche' },
+  vacationWeeks:  { en: 'Vacation Weeks per Year',       fr: 'Semaines de vacances par an',        es: 'Semanas de vacaciones por año',      pt: 'Semanas de férias por ano',          de: 'Urlaubswochen pro Jahr' },
+  billablePct:    { en: 'Billable Percentage (%)',        fr: 'Pourcentage facturable (%)',          es: 'Porcentaje facturable (%)',           pt: 'Percentual faturável (%)',            de: 'Abrechenbarer Anteil (%)' },
+  monthlyExpenses:{ en: 'Monthly Expenses ($)',           fr: 'Dépenses mensuelles ($)',             es: 'Gastos mensuales ($)',                pt: 'Despesas mensais ($)',                de: 'Monatliche Ausgaben ($)' },
+  taxRate:        { en: 'Tax Rate (%)',                   fr: 'Taux d\'imposition (%)',              es: 'Tasa de impuesto (%)',                pt: 'Taxa de imposto (%)',                 de: 'Steuersatz (%)' },
+  yourHourlyRate: { en: 'Your Hourly Rate',               fr: 'Votre taux horaire',                  es: 'Su tarifa por hora',                 pt: 'Sua taxa horária',                   de: 'Ihr Stundensatz' },
+  dailyRate:      { en: 'Daily Rate (8h)',                fr: 'Taux journalier (8h)',                es: 'Tarifa diaria (8h)',                  pt: 'Taxa diária (8h)',                    de: 'Tagessatz (8h)' },
+  monthlyRate:    { en: 'Monthly Rate',                  fr: 'Taux mensuel',                        es: 'Tarifa mensual',                     pt: 'Taxa mensal',                        de: 'Monatssatz' },
+  grossRevenue:   { en: 'Gross Revenue',                 fr: 'Chiffre d\'affaires brut',            es: 'Ingresos brutos',                    pt: 'Receita bruta',                      de: 'Bruttoeinnahmen' },
+  workingWeeks:   { en: 'Working Weeks',                 fr: 'Semaines travaillées',                es: 'Semanas laborales',                  pt: 'Semanas trabalhadas',                de: 'Arbeitswochen' },
+  totalWorkHours: { en: 'Total Work Hours',              fr: 'Heures totales',                      es: 'Horas totales',                      pt: 'Horas totais',                       de: 'Gesamtarbeitsstunden' },
+  billableHours:  { en: 'Billable Hours',                fr: 'Heures facturables',                  es: 'Horas facturables',                  pt: 'Horas faturáveis',                   de: 'Abrechnungsstunden' },
+  revBreakdown:   { en: 'Revenue Breakdown',             fr: 'Répartition des revenus',             es: 'Desglose de ingresos',               pt: 'Decomposição da receita',            de: 'Einnahmenaufschlüsselung' },
+  takeHome:       { en: 'Take-Home Income',              fr: 'Revenu net',                          es: 'Ingreso neto',                       pt: 'Renda líquida',                      de: 'Nettoeinkommen' },
+  annualExpenses: { en: 'Annual Expenses',               fr: 'Dépenses annuelles',                  es: 'Gastos anuales',                     pt: 'Despesas anuais',                    de: 'Jahresausgaben' },
+  taxes:          { en: 'Taxes',                         fr: 'Impôts',                              es: 'Impuestos',                          pt: 'Impostos',                           de: 'Steuern' },
+  formula:        { en: 'Formula',                       fr: 'Formule',                             es: 'Fórmula',                            pt: 'Fórmula',                            de: 'Formel' },
+}
+
+function fmt(n: number, locale: Locale): string {
+  return n.toLocaleString(LOCALE_CODES[locale], { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 }
 
 export default function Client({
   defaultIncome,
   defaultHours,
   defaultVacation,
+  locale = 'en' as Locale,
 }: {
   defaultIncome?: number
   defaultHours?: number
   defaultVacation?: number
+  locale?: Locale
 } = {}) {
+  const lt = (key: string) => LABELS[key]?.[locale] ?? LABELS[key]?.en ?? key
+
   const [income, setIncome] = useState(defaultIncome ?? 60000)
   const [hoursPerWeek, setHoursPerWeek] = useState(defaultHours ?? 40)
   const [vacationWeeks, setVacationWeeks] = useState(defaultVacation ?? 4)
@@ -63,23 +93,23 @@ export default function Client({
   }, [income, hoursPerWeek, vacationWeeks, billablePct, monthlyExpenses, taxRate])
 
   return (
-    <ToolShell name="Hourly Rate Calculator" icon="⏰" currentPath="/hourly-rate-calculator">
+    <ToolShell name={lt('navTitle')} icon="⏰" currentPath="/hourly-rate-calculator" locale={locale}>
       <div style={{ background: '#FAFAF8', minHeight: '100vh', color: '#1C1B18', fontFamily: fb }}>
         {/* Nav */}
         <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 28px', maxWidth: 700, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 26, height: 26, borderRadius: 7, background: accent, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 13, fontWeight: 800 }}>⏰</div>
-            <span style={{ fontSize: 17, fontWeight: 700 }}>Hourly Rate Calculator</span>
+            <span style={{ fontSize: 17, fontWeight: 700 }}>{lt('navTitle')}</span>
           </div>
-          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>← All tools</a>
+          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>{t('backAllTools', locale)}</a>
         </nav>
 
         {/* Header */}
         <section style={{ maxWidth: 700, margin: '0 auto', padding: '32px 28px 16px', textAlign: 'center' }}>
           <h1 style={{ fontSize: 'clamp(26px, 4vw, 38px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 8 }}>
-            Hourly Rate <span style={{ color: accent }}>Calculator</span>
+            {lt('titleA')} <span style={{ color: accent }}>{lt('titleB')}</span>
           </h1>
-          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>Calculate the perfect freelance rate to hit your income goals.</p>
+          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>{lt('subtitle')}</p>
         </section>
 
         {/* Inputs */}
@@ -87,7 +117,7 @@ export default function Client({
           <div style={{ background: '#fff', borderRadius: 18, border: '1.5px solid #E8E4DB', padding: 28 }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               <div>
-                <label style={labelStyle}>Desired Annual Income ($)</label>
+                <label style={labelStyle}>{lt('desiredIncome')}</label>
                 <input
                   type="number"
                   value={income}
@@ -99,7 +129,7 @@ export default function Client({
               </div>
 
               <div>
-                <label style={labelStyle}>Work Hours per Week</label>
+                <label style={labelStyle}>{lt('hoursPerWeek')}</label>
                 <input
                   type="number"
                   value={hoursPerWeek}
@@ -111,7 +141,7 @@ export default function Client({
               </div>
 
               <div>
-                <label style={labelStyle}>Vacation Weeks per Year</label>
+                <label style={labelStyle}>{lt('vacationWeeks')}</label>
                 <input
                   type="number"
                   value={vacationWeeks}
@@ -123,7 +153,7 @@ export default function Client({
               </div>
 
               <div>
-                <label style={labelStyle}>Billable Percentage (%)</label>
+                <label style={labelStyle}>{lt('billablePct')}</label>
                 <input
                   type="number"
                   value={billablePct}
@@ -135,7 +165,7 @@ export default function Client({
               </div>
 
               <div>
-                <label style={labelStyle}>Monthly Expenses ($)</label>
+                <label style={labelStyle}>{lt('monthlyExpenses')}</label>
                 <input
                   type="number"
                   value={monthlyExpenses}
@@ -147,7 +177,7 @@ export default function Client({
               </div>
 
               <div>
-                <label style={labelStyle}>Tax Rate (%)</label>
+                <label style={labelStyle}>{lt('taxRate')}</label>
                 <input
                   type="number"
                   value={taxRate}
@@ -172,30 +202,30 @@ export default function Client({
               textAlign: 'center',
               gridColumn: '1 / -1',
             }}>
-              <div style={labelStyle}>Your Hourly Rate</div>
+              <div style={labelStyle}>{lt('yourHourlyRate')}</div>
               <div style={{ fontSize: 42, fontFamily: fm, fontWeight: 700, color: accent }}>
-                ${fmt(results.hourlyRate)}
+                ${fmt(results.hourlyRate, locale)}
               </div>
             </div>
 
             <div style={{ background: '#fff', border: '1.5px solid #E8E4DB', borderRadius: 14, padding: 20, textAlign: 'center' }}>
-              <div style={labelStyle}>Daily Rate (8h)</div>
+              <div style={labelStyle}>{lt('dailyRate')}</div>
               <div style={{ fontSize: 22, fontFamily: fm, fontWeight: 700, color: '#1C1B18' }}>
-                ${fmt(results.dailyRate)}
+                ${fmt(results.dailyRate, locale)}
               </div>
             </div>
 
             <div style={{ background: '#fff', border: '1.5px solid #E8E4DB', borderRadius: 14, padding: 20, textAlign: 'center' }}>
-              <div style={labelStyle}>Monthly Rate</div>
+              <div style={labelStyle}>{lt('monthlyRate')}</div>
               <div style={{ fontSize: 22, fontFamily: fm, fontWeight: 700, color: '#1C1B18' }}>
-                ${fmt(results.monthlyRate)}
+                ${fmt(results.monthlyRate, locale)}
               </div>
             </div>
 
             <div style={{ background: '#fff', border: '1.5px solid #E8E4DB', borderRadius: 14, padding: 20, textAlign: 'center' }}>
-              <div style={labelStyle}>Gross Revenue</div>
+              <div style={labelStyle}>{lt('grossRevenue')}</div>
               <div style={{ fontSize: 22, fontFamily: fm, fontWeight: 700, color: accent }}>
-                ${fmt(results.requiredGrossRevenue)}
+                ${fmt(results.requiredGrossRevenue, locale)}
               </div>
             </div>
           </div>
@@ -205,23 +235,23 @@ export default function Client({
         <section style={{ maxWidth: 700, margin: '0 auto', padding: '0 28px 24px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
             <div style={{ background: '#fff', border: '1.5px solid #E8E4DB', borderRadius: 14, padding: 20, textAlign: 'center' }}>
-              <div style={labelStyle}>Working Weeks</div>
+              <div style={labelStyle}>{lt('workingWeeks')}</div>
               <div style={{ fontSize: 22, fontFamily: fm, fontWeight: 700, color: '#1C1B18' }}>
                 {results.workingWeeks}
               </div>
             </div>
 
             <div style={{ background: '#fff', border: '1.5px solid #E8E4DB', borderRadius: 14, padding: 20, textAlign: 'center' }}>
-              <div style={labelStyle}>Total Work Hours</div>
+              <div style={labelStyle}>{lt('totalWorkHours')}</div>
               <div style={{ fontSize: 22, fontFamily: fm, fontWeight: 700, color: '#1C1B18' }}>
-                {results.totalWorkHours.toLocaleString()}
+                {results.totalWorkHours.toLocaleString(LOCALE_CODES[locale])}
               </div>
             </div>
 
             <div style={{ background: '#fff', border: '1.5px solid #E8E4DB', borderRadius: 14, padding: 20, textAlign: 'center' }}>
-              <div style={labelStyle}>Billable Hours</div>
+              <div style={labelStyle}>{lt('billableHours')}</div>
               <div style={{ fontSize: 22, fontFamily: fm, fontWeight: 700, color: accent }}>
-                {results.billableHours.toLocaleString()}
+                {results.billableHours.toLocaleString(LOCALE_CODES[locale])}
               </div>
             </div>
           </div>
@@ -230,9 +260,9 @@ export default function Client({
         {/* Visual breakdown card */}
         <section style={{ maxWidth: 700, margin: '0 auto', padding: '0 28px 40px' }}>
           <div style={{ background: '#fff', borderRadius: 18, border: '1.5px solid #E8E4DB', padding: 28 }}>
-            <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>Revenue Breakdown</h2>
+            <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>{lt('revBreakdown')}</h2>
             <p style={{ fontSize: 12, color: '#9A958A', marginBottom: 20 }}>
-              How your required gross revenue of ${fmt(results.requiredGrossRevenue)} breaks down
+              ${fmt(results.requiredGrossRevenue, locale)}
             </p>
 
             {/* Stacked bar */}
@@ -256,30 +286,30 @@ export default function Client({
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <div style={{ width: 12, height: 12, borderRadius: 3, background: accent, flexShrink: 0 }} />
                 <div>
-                  <div style={{ fontSize: 11, color: '#9A958A', fontWeight: 600 }}>Take-Home Income</div>
-                  <div style={{ fontSize: 15, fontFamily: fm, fontWeight: 700 }}>${fmt(income)}</div>
+                  <div style={{ fontSize: 11, color: '#9A958A', fontWeight: 600 }}>{lt('takeHome')}</div>
+                  <div style={{ fontSize: 15, fontFamily: fm, fontWeight: 700 }}>${fmt(income, locale)}</div>
                 </div>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <div style={{ width: 12, height: 12, borderRadius: 3, background: '#F59E0B', flexShrink: 0 }} />
                 <div>
-                  <div style={{ fontSize: 11, color: '#9A958A', fontWeight: 600 }}>Annual Expenses</div>
-                  <div style={{ fontSize: 15, fontFamily: fm, fontWeight: 700 }}>${fmt(results.annualExpenses)}</div>
+                  <div style={{ fontSize: 11, color: '#9A958A', fontWeight: 600 }}>{lt('annualExpenses')}</div>
+                  <div style={{ fontSize: 15, fontFamily: fm, fontWeight: 700 }}>${fmt(results.annualExpenses, locale)}</div>
                 </div>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <div style={{ width: 12, height: 12, borderRadius: 3, background: '#EF4444', flexShrink: 0 }} />
                 <div>
-                  <div style={{ fontSize: 11, color: '#9A958A', fontWeight: 600 }}>Taxes</div>
-                  <div style={{ fontSize: 15, fontFamily: fm, fontWeight: 700 }}>${fmt(results.taxAmount)}</div>
+                  <div style={{ fontSize: 11, color: '#9A958A', fontWeight: 600 }}>{lt('taxes')}</div>
+                  <div style={{ fontSize: 15, fontFamily: fm, fontWeight: 700 }}>${fmt(results.taxAmount, locale)}</div>
                 </div>
               </div>
             </div>
 
             <div style={{ marginTop: 16, padding: '12px 16px', background: '#F5F3EE', borderRadius: 10, fontSize: 13, color: '#6B6560' }}>
-              <strong>Formula:</strong> ($<span style={{ fontFamily: fm }}>{fmt(income)}</span> income + $<span style={{ fontFamily: fm }}>{fmt(results.annualExpenses)}</span> expenses) / (1 - <span style={{ fontFamily: fm }}>{taxRate}%</span> tax) = $<span style={{ fontFamily: fm }}>{fmt(results.requiredGrossRevenue)}</span> gross revenue / <span style={{ fontFamily: fm }}>{results.billableHours.toLocaleString()}</span> billable hours = <strong style={{ color: accent }}>${fmt(results.hourlyRate)}/hr</strong>
+              <strong>{lt('formula')}:</strong> ($<span style={{ fontFamily: fm }}>{fmt(income, locale)}</span> + $<span style={{ fontFamily: fm }}>{fmt(results.annualExpenses, locale)}</span>) / (1 - <span style={{ fontFamily: fm }}>{taxRate}%</span>) = $<span style={{ fontFamily: fm }}>{fmt(results.requiredGrossRevenue, locale)}</span> / <span style={{ fontFamily: fm }}>{results.billableHours.toLocaleString(LOCALE_CODES[locale])}</span> h = <strong style={{ color: accent }}>${fmt(results.hourlyRate, locale)}/h</strong>
             </div>
           </div>
         </section>
@@ -289,14 +319,6 @@ export default function Client({
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free freelancer hourly rate calculator</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
             Setting the right freelance hourly rate is one of the most important decisions you will make as a self-employed professional. Charge too little and you will struggle to cover your expenses and taxes. Charge too much and you may lose clients. This calculator takes the guesswork out of pricing by working backward from your desired take-home income. Enter what you want to earn, your expected expenses, your tax rate, and how many hours you can realistically bill, and the tool instantly computes the minimum hourly rate you need to charge.
-          </p>
-          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Understanding billable hours</h3>
-          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Not every hour you work is billable. Administrative tasks, marketing, invoicing, networking, and professional development all eat into your week. Most freelancers find that only 60 to 80 percent of their working hours are actually billable. The billable percentage slider lets you model this accurately so your rate reflects reality, not wishful thinking. Vacation weeks are also subtracted from the year to give you a true picture of available working time.
-          </p>
-          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>How to price your services</h3>
-          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Your hourly rate is a starting point. Many freelancers convert it into project-based pricing, day rates, or monthly retainers. The daily and monthly rate outputs make this easy. Remember to revisit your rate annually as expenses, tax brackets, and your skill level change. Use the revenue breakdown chart to see exactly where your money goes and identify opportunities to keep more of what you earn.
           </p>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
             Need to create professional invoices? Try our <a href="/invoice-generator" style={{ color: accent, textDecoration: 'underline' }}>invoice generator</a>. Want to understand your salary breakdown? Use the <a href="/salary-calculator" style={{ color: accent, textDecoration: 'underline' }}>salary calculator</a>.

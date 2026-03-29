@@ -1,9 +1,23 @@
 'use client'
 import { useState, useEffect, useMemo } from 'react'
 import ToolShell from '@/components/ToolShell'
+import { t, type Locale } from '@/lib/i18n'
 
 const fb = "'Outfit', -apple-system, sans-serif"
 const fm = "'JetBrains Mono', monospace"
+
+const LABELS: Record<string, Record<Locale, string>> = {
+  navTitle:      { en: 'Timezone Converter',      fr: 'Convertisseur de fuseau horaire', es: 'Conversor de zona horaria',    pt: 'Conversor de fuso horário',   de: 'Zeitzonen-Konverter' },
+  titleA:        { en: 'Timezone',                fr: 'Fuseau',                           es: 'Zona',                         pt: 'Fuso',                        de: 'Zeitzonen-' },
+  titleB:        { en: 'converter',               fr: 'horaire',                          es: 'horaria',                      pt: 'horário',                     de: 'Konverter' },
+  subtitle:      { en: 'See the time anywhere, instantly.', fr: 'Voyez l\'heure n\'importe où, instantanément.', es: 'Vea la hora en cualquier lugar, al instante.', pt: 'Veja a hora em qualquer lugar, instantaneamente.', de: 'Die Zeit überall sofort sehen.' },
+  from:          { en: 'From',                    fr: 'De',                               es: 'De',                           pt: 'De',                          de: 'Von' },
+  to:            { en: 'To',                      fr: 'À',                                es: 'A',                            pt: 'Para',                        de: 'Nach' },
+  fromTimezone:  { en: 'From timezone',           fr: 'Fuseau d\'origine',                es: 'Zona horaria de origen',       pt: 'Fuso horário de origem',      de: 'Ausgangs-Zeitzone' },
+  timeToConvert: { en: 'Time to convert',         fr: 'Heure à convertir',               es: 'Hora a convertir',             pt: 'Hora a converter',            de: 'Umzurechnende Uhrzeit' },
+  toTimezone:    { en: 'To timezone',             fr: 'Fuseau de destination',            es: 'Zona horaria de destino',      pt: 'Fuso horário de destino',     de: 'Ziel-Zeitzone' },
+  convertedTime: { en: 'Converted time',          fr: 'Heure convertie',                  es: 'Hora convertida',              pt: 'Hora convertida',             de: 'Umgerechnete Uhrzeit' },
+}
 
 const ZONES = [
   { id: 'America/New_York', label: 'New York (EST/EDT)', short: 'EST' },
@@ -50,10 +64,14 @@ function getOffset(tz: string): string {
 export default function TimezoneClient({
   defaultFrom,
   defaultTo,
+  locale = 'en' as Locale,
 }: {
   defaultFrom?: string
   defaultTo?: string
+  locale?: Locale
 } = {}) {
+  const lt = (key: string) => LABELS[key]?.[locale] ?? LABELS[key]?.en ?? key
+
   const [fromZone, setFromZone] = useState(defaultFrom || 'Europe/Paris')
   const [toZone, setToZone] = useState(defaultTo || 'America/New_York')
   const [inputTime, setInputTime] = useState('')
@@ -66,9 +84,7 @@ export default function TimezoneClient({
 
   const converted = useMemo(() => {
     if (!inputTime) return null
-    const [h, m] = inputTime.split(':').map(Number)
     const today = new Date()
-    const fromStr = today.toLocaleDateString('en-CA', { timeZone: fromZone }) + 'T' + inputTime + ':00'
     const fromParts = new Intl.DateTimeFormat('en-US', { timeZone: fromZone, year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(today)
     const y = fromParts.find(p => p.type === 'year')!.value
     const mo = fromParts.find(p => p.type === 'month')!.value
@@ -90,28 +106,28 @@ export default function TimezoneClient({
   }
 
   return (
-    <ToolShell name="Timezone Converter" icon="🕐" currentPath="/timezone-converter">
+    <ToolShell name={lt('navTitle')} icon="🕐" currentPath="/timezone-converter" locale={locale}>
       <div style={{ background: '#FAFAF8', minHeight: '100vh', color: '#1C1B18', fontFamily: fb }}>
         <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 28px', maxWidth: 700, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 26, height: 26, borderRadius: 7, background: '#0EA5E9', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 13, fontWeight: 800 }}>T</div>
             <span style={{ fontSize: 17, fontWeight: 700 }}>TimeBridge</span>
           </div>
-          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>← All tools</a>
+          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>{t('backAllTools', locale)}</a>
         </nav>
 
         <section style={{ maxWidth: 700, margin: '0 auto', padding: '32px 28px 16px', textAlign: 'center' }}>
           <h1 style={{ fontSize: 'clamp(26px, 4vw, 38px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 8 }}>
-            Timezone <span style={{ color: '#0EA5E9' }}>converter</span>
+            {lt('titleA')} <span style={{ color: '#0EA5E9' }}>{lt('titleB')}</span>
           </h1>
-          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>See the time anywhere, instantly.</p>
+          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>{lt('subtitle')}</p>
         </section>
 
         {/* Live clocks */}
         <section style={{ maxWidth: 500, margin: '0 auto', padding: '0 28px 20px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-          {[{ zone: fromZone, label: 'From' }, { zone: toZone, label: 'To' }].map(({ zone, label }) => (
-            <div key={label} style={{ background: '#fff', borderRadius: 14, border: '1.5px solid #E8E4DB', padding: '18px 20px', textAlign: 'center' }}>
-              <div style={{ fontSize: 10, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 6 }}>{label}</div>
+          {[{ zone: fromZone, labelKey: 'from' }, { zone: toZone, labelKey: 'to' }].map(({ zone, labelKey }) => (
+            <div key={labelKey} style={{ background: '#fff', borderRadius: 14, border: '1.5px solid #E8E4DB', padding: '18px 20px', textAlign: 'center' }}>
+              <div style={{ fontSize: 10, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 6 }}>{lt(labelKey)}</div>
               <div style={{ fontFamily: fm, fontSize: 32, fontWeight: 700, color: '#1C1B18', letterSpacing: '-1px' }}>
                 {formatTime(now, zone)}
               </div>
@@ -129,14 +145,14 @@ export default function TimezoneClient({
         <section style={{ maxWidth: 500, margin: '0 auto', padding: '0 28px 32px' }}>
           <div style={{ background: '#fff', borderRadius: 18, border: '1.5px solid #E8E4DB', padding: 24 }}>
             <div style={{ marginBottom: 14 }}>
-              <label style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', display: 'block', marginBottom: 6 }}>From timezone</label>
+              <label style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', display: 'block', marginBottom: 6 }}>{lt('fromTimezone')}</label>
               <select value={fromZone} onChange={e => setFromZone(e.target.value)} style={selectStyle}>
                 {ZONES.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
               </select>
             </div>
 
             <div style={{ marginBottom: 14 }}>
-              <label style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', display: 'block', marginBottom: 6 }}>Time to convert</label>
+              <label style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', display: 'block', marginBottom: 6 }}>{lt('timeToConvert')}</label>
               <input type="time" value={inputTime} onChange={e => setInputTime(e.target.value)}
                 style={{ ...selectStyle, fontFamily: fm, fontSize: 22, fontWeight: 700, textAlign: 'center', padding: '14px' }} />
             </div>
@@ -150,7 +166,7 @@ export default function TimezoneClient({
             </div>
 
             <div style={{ marginBottom: 14 }}>
-              <label style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', display: 'block', marginBottom: 6 }}>To timezone</label>
+              <label style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', display: 'block', marginBottom: 6 }}>{lt('toTimezone')}</label>
               <select value={toZone} onChange={e => setToZone(e.target.value)} style={selectStyle}>
                 {ZONES.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
               </select>
@@ -161,7 +177,7 @@ export default function TimezoneClient({
                 background: '#0EA5E908', border: '1.5px solid #0EA5E920', borderRadius: 14,
                 padding: '20px', textAlign: 'center', marginTop: 8,
               }}>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 6 }}>Converted time</div>
+                <div style={{ fontSize: 11, fontWeight: 600, color: '#9A958A', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 6 }}>{lt('convertedTime')}</div>
                 <div style={{ fontFamily: fm, fontSize: 36, fontWeight: 700, color: '#0EA5E9' }}>{converted}</div>
                 <div style={{ fontSize: 13, color: '#6B6560', marginTop: 4 }}>
                   {ZONES.find(z => z.id === toZone)?.label}
@@ -176,10 +192,6 @@ export default function TimezoneClient({
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>Free timezone converter</h2>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
             TimeBridge converts time between 24 major timezones worldwide with a live clock display and instant results. Whether you are scheduling a call with a colleague in Tokyo or planning a webinar for attendees across Europe and the Americas, this tool shows you the exact converted time in seconds. It supports EST, GMT, CET, IST, JST, AEST, and many more. All calculations use your browser's built-in Intl API for accuracy.
-          </p>
-          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>World clock and instant conversion</h3>
-          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            The live clock at the top of the tool always shows your current local time, giving you an immediate reference point. Select a source timezone and a target timezone, enter any time, and see the converted result update instantly. This is especially useful for remote teams that span multiple continents and need to coordinate standups, deadlines, or product launches without confusion about who is ahead or behind.
           </p>
           <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 20, marginBottom: 8 }}>Planning meetings across time zones</h3>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>

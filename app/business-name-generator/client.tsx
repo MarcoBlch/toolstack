@@ -1,6 +1,7 @@
 'use client'
 import { useState, useMemo } from 'react'
 import ToolShell from '@/components/ToolShell'
+import { t, type Locale } from '@/lib/i18n'
 
 const fb = "'Outfit', -apple-system, sans-serif"
 const fm = "'JetBrains Mono', monospace"
@@ -15,6 +16,22 @@ const inputStyle: React.CSSProperties = {
   width: '100%', border: '1.5px solid #E8E4DB', borderRadius: 8,
   padding: '10px 12px', fontSize: 14, fontFamily: fb, color: '#1C1B18',
   background: '#F5F3EE', outline: 'none',
+}
+
+const LABELS: Record<string, Record<Locale, string>> = {
+  navTitle:      { en: 'Business Name Generator',        fr: 'Générateur de noms d\'entreprise', es: 'Generador de nombres de empresa',    pt: 'Gerador de nomes de empresa',        de: 'Unternehmensname-Generator' },
+  titleA:        { en: 'Business',                       fr: 'Noms d\'',                          es: 'Nombres de',                         pt: 'Nomes de',                           de: 'Unternehmens-' },
+  titleB:        { en: 'Name Generator',                 fr: 'entreprise',                        es: 'empresa',                            pt: 'empresa',                            de: 'Namen Generator' },
+  subtitle:      { en: 'Generate creative company names. Check domain availability instantly.', fr: 'Générez des noms d\'entreprise créatifs. Vérifiez la disponibilité du domaine.', es: 'Genere nombres creativos para su empresa. Verifique la disponibilidad del dominio.', pt: 'Gere nomes criativos para sua empresa. Verifique a disponibilidade do domínio.', de: 'Kreative Firmennamen generieren. Domain-Verfügbarkeit sofort prüfen.' },
+  keywords:      { en: 'Keywords (1-3 words)',           fr: 'Mots-clés (1-3 mots)',              es: 'Palabras clave (1-3 palabras)',       pt: 'Palavras-chave (1-3 palavras)',       de: 'Schlüsselwörter (1-3 Wörter)' },
+  keywordsPlaceholder: { en: 'e.g. cloud sync',         fr: 'ex. cloud sync',                    es: 'ej. cloud sync',                     pt: 'ex. cloud sync',                     de: 'z.B. cloud sync' },
+  industry:      { en: 'Industry',                       fr: 'Secteur',                           es: 'Industria',                          pt: 'Setor',                              de: 'Branche' },
+  style:         { en: 'Style',                          fr: 'Style',                             es: 'Estilo',                             pt: 'Estilo',                             de: 'Stil' },
+  generateMore:  { en: 'Generate More Names',            fr: 'Générer plus de noms',              es: 'Generar más nombres',                pt: 'Gerar mais nomes',                   de: 'Mehr Namen generieren' },
+  generatedNames:{ en: 'Generated Names',                fr: 'Noms générés',                      es: 'Nombres generados',                  pt: 'Nomes gerados',                      de: 'Generierte Namen' },
+  copy:          { en: 'Copy',                           fr: 'Copier',                            es: 'Copiar',                             pt: 'Copiar',                             de: 'Kopieren' },
+  copied:        { en: 'Copied!',                        fr: 'Copié !',                           es: '¡Copiado!',                          pt: 'Copiado!',                           de: 'Kopiert!' },
+  checkDomain:   { en: 'Check domain',                   fr: 'Vérifier le domaine',               es: 'Verificar dominio',                  pt: 'Verificar domínio',                  de: 'Domain prüfen' },
 }
 
 const PREFIXES = ['Go', 'My', 'The', 'Quick', 'Smart', 'Pro', 'Easy', 'Open', 'True', 'Nova', 'Neo', 'Zen', 'Bright', 'Swift', 'Peak', 'Core', 'Apex', 'Flux']
@@ -154,10 +171,14 @@ function generateNames(keywords: string, industry: string, style: string, seed: 
 export default function BusinessNameClient({
   defaultKeywords,
   defaultIndustry,
+  locale = 'en' as Locale,
 }: {
   defaultKeywords?: string
   defaultIndustry?: string
+  locale?: Locale
 } = {}) {
+  const lt = (key: string) => LABELS[key]?.[locale] ?? LABELS[key]?.en ?? key
+
   const [keywords, setKeywords] = useState(defaultKeywords || '')
   const [industry, setIndustry] = useState(defaultIndustry || 'Tech')
   const [style, setStyle] = useState('Modern')
@@ -178,21 +199,21 @@ export default function BusinessNameClient({
     `https://www.namecheap.com/domains/registration/results/?domain=${encodeURIComponent(name.toLowerCase().replace(/\s/g, ''))}.com`
 
   return (
-    <ToolShell name="Business Name Generator" icon="💡" currentPath="/business-name-generator">
+    <ToolShell name={lt('navTitle')} icon="💡" currentPath="/business-name-generator" locale={locale}>
       <div style={{ background: '#FAFAF8', minHeight: '100vh', color: '#1C1B18', fontFamily: fb }}>
         <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 28px', maxWidth: 700, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 26, height: 26, borderRadius: 7, background: accent, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 13, fontWeight: 800 }}>💡</div>
-            <span style={{ fontSize: 17, fontWeight: 700 }}>Business Name Generator</span>
+            <span style={{ fontSize: 17, fontWeight: 700 }}>{lt('navTitle')}</span>
           </div>
-          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>← All tools</a>
+          <a href="/" style={{ fontSize: 12, color: '#9A958A', textDecoration: 'none' }}>{t('backAllTools', locale)}</a>
         </nav>
 
         <section style={{ maxWidth: 700, margin: '0 auto', padding: '32px 28px 16px', textAlign: 'center' }}>
           <h1 style={{ fontSize: 'clamp(26px, 4vw, 38px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 8 }}>
-            Business <span style={{ color: accent }}>Name</span> Generator
+            {lt('titleA')} <span style={{ color: accent }}>{lt('titleB')}</span>
           </h1>
-          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>Generate creative company names. Check domain availability instantly.</p>
+          <p style={{ fontSize: 14, color: '#6B6560', marginBottom: 24 }}>{lt('subtitle')}</p>
         </section>
 
         {/* Input card */}
@@ -200,12 +221,12 @@ export default function BusinessNameClient({
           <div style={{ background: '#fff', borderRadius: 18, border: '1.5px solid #E8E4DB', padding: 28 }}>
             {/* Keywords */}
             <div style={{ marginBottom: 16 }}>
-              <label style={labelStyle}>Keywords (1-3 words)</label>
+              <label style={labelStyle}>{lt('keywords')}</label>
               <input
                 type="text"
                 value={keywords}
                 onChange={e => setKeywords(e.target.value)}
-                placeholder="e.g. cloud sync"
+                placeholder={lt('keywordsPlaceholder')}
                 style={inputStyle}
               />
             </div>
@@ -213,7 +234,7 @@ export default function BusinessNameClient({
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
               {/* Industry */}
               <div>
-                <label style={labelStyle}>Industry</label>
+                <label style={labelStyle}>{lt('industry')}</label>
                 <select value={industry} onChange={e => setIndustry(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
                   {Object.keys(INDUSTRY_TERMS).map(ind => (
                     <option key={ind} value={ind}>{ind}</option>
@@ -223,7 +244,7 @@ export default function BusinessNameClient({
 
               {/* Style */}
               <div>
-                <label style={labelStyle}>Style</label>
+                <label style={labelStyle}>{lt('style')}</label>
                 <select value={style} onChange={e => setStyle(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
                   <option value="Modern">Modern</option>
                   <option value="Classic">Classic</option>
@@ -244,7 +265,7 @@ export default function BusinessNameClient({
                 transition: 'all .15s', width: '100%',
               }}
             >
-              Generate More Names
+              {lt('generateMore')}
             </button>
           </div>
         </section>
@@ -252,7 +273,7 @@ export default function BusinessNameClient({
         {/* Generated names grid */}
         <section style={{ maxWidth: 700, margin: '0 auto', padding: '0 28px 24px' }}>
           <div style={{ background: '#fff', borderRadius: 18, border: '1.5px solid #E8E4DB', padding: 28 }}>
-            <div style={{ ...labelStyle, marginBottom: 14 }}>Generated Names ({names.length})</div>
+            <div style={{ ...labelStyle, marginBottom: 14 }}>{lt('generatedNames')} ({names.length})</div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               {names.map((item, i) => (
                 <div key={`${item.name}-${i}`} style={{
@@ -279,7 +300,7 @@ export default function BusinessNameClient({
                         transition: 'all .15s',
                       }}
                     >
-                      {copied === item.name ? 'Copied!' : 'Copy'}
+                      {copied === item.name ? lt('copied') : lt('copy')}
                     </button>
                     <a
                       href={domainLink(item.name)}
@@ -292,7 +313,7 @@ export default function BusinessNameClient({
                         transition: 'all .15s',
                       }}
                     >
-                      Check domain
+                      {lt('checkDomain')}
                     </a>
                   </div>
                 </div>
@@ -307,17 +328,9 @@ export default function BusinessNameClient({
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
             This business name generator creates unique, brandable company name ideas based on your keywords, industry, and preferred style. Whether you are launching a tech startup, opening a restaurant, or starting a creative agency, this tool generates 20 name ideas at a time using proven naming patterns from successful brands. Each name comes with a one-click domain availability check through Namecheap.
           </p>
-          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>How the Name Generator Works</h3>
-          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            The generator uses a combination of techniques: adding modern prefixes and suffixes to your keywords, combining your words with industry-specific terms, applying creative modifications like dropping vowels (Flickr style) or adding common brand endings, and mixing keywords to create compound names. The algorithm adapts based on your chosen industry and style preferences to produce relevant, on-brand suggestions.
-          </p>
           <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Tips for Choosing a Business Name</h3>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            The best business names are short, memorable, and easy to spell. Avoid names that are too similar to existing brands or hard to pronounce. Check that the matching .com domain is available before committing to a name. Consider how the name will look as a logo, on social media profiles, and in email addresses. A great name should hint at what your business does while still being distinctive enough to stand out in your industry.
-          </p>
-          <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 18, marginBottom: 6 }}>Startup Name Ideas by Industry</h3>
-          <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8 }}>
-            Tech startups often use compound words, dropped vowels, or made-up terms that sound futuristic. Food businesses benefit from names that evoke freshness, flavor, or experience. Fashion brands lean toward elegant or minimal names. Finance companies need names that convey trust and stability. Use the industry filter to generate names specifically tailored to your sector, then hit Generate More for fresh batches of ideas.
+            The best business names are short, memorable, and easy to spell. Avoid names that are too similar to existing brands or hard to pronounce. Check that the matching .com domain is available before committing to a name. Consider how the name will look as a logo, on social media profiles, and in email addresses.
           </p>
           <p style={{ fontSize: 13, color: '#6B6560', lineHeight: 1.8, marginTop: 14 }}>
             Ready to create your brand identity? Build a professional invoice with our <a href="/invoice-generator" style={{ color: accent, textDecoration: 'underline' }}>free invoice generator</a>. Planning your finances? Try the <a href="/roi-calculator" style={{ color: accent, textDecoration: 'underline' }}>ROI calculator</a>.
