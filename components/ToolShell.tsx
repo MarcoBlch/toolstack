@@ -56,6 +56,17 @@ const TOOLS_NAV = [
   { href: '/sales-tax-calculator', name: 'Sales Tax' },
   { href: '/hourly-rate-calculator', name: 'Hourly Rate' },
   { href: '/invoice-number-generator', name: 'Invoice Numbers' },
+  // Date & Time
+  { href: '/age-calculator',       name: 'Age Calculator' },
+  { href: '/date-difference',      name: 'Date Difference' },
+  { href: '/countdown',            name: 'Countdown' },
+  { href: '/stopwatch',            name: 'Stopwatch' },
+  { href: '/days-until',           name: 'Days Until' },
+  { href: '/weeks-calculator',     name: 'Weeks Calculator' },
+  { href: '/unix-timestamp',       name: 'Unix Timestamp' },
+  { href: '/world-clock',          name: 'World Clock' },
+  { href: '/work-days-calculator', name: 'Work Days' },
+  { href: '/timer',                name: 'Timer' },
 ]
 
 const LANG_FLAGS = [

@@ -25,6 +25,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/roi-calculator', '/break-even-calculator', '/shipping-calculator',
     '/business-name-generator', '/hourly-rate-calculator',
     '/sales-tax-calculator', '/invoice-number-generator',
+    // Date & Time
+    '/age-calculator', '/date-difference', '/countdown', '/stopwatch',
+    '/days-until', '/weeks-calculator', '/unix-timestamp',
+    '/world-clock', '/work-days-calculator', '/timer',
   ]
 
   const nichePages = [
@@ -133,6 +137,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/de/roi-rechner', '/de/break-even-rechner', '/de/versandkostenrechner',
     '/de/firmenname-generator', '/de/stundensatz-rechner', '/de/umsatzsteuer-rechner',
     '/de/rechnungsnummer-generator',
+    // Date & Time FR
+    '/fr/calculateur-age', '/fr/difference-dates', '/fr/compte-a-rebours',
+    '/fr/chronometre', '/fr/combien-de-jours', '/fr/calculateur-semaines',
+    '/fr/convertisseur-timestamp', '/fr/horloge-mondiale', '/fr/jours-ouvres', '/fr/minuteur',
+    // Date & Time ES
+    '/es/calculadora-edad', '/es/diferencia-fechas', '/es/cuenta-regresiva',
+    '/es/cronometro', '/es/cuantos-dias-faltan', '/es/calculadora-semanas',
+    '/es/convertidor-timestamp', '/es/reloj-mundial', '/es/dias-laborales', '/es/temporizador',
+    // Date & Time PT
+    '/pt/calculadora-idade', '/pt/diferenca-datas', '/pt/contagem-regressiva',
+    '/pt/cronometro', '/pt/quantos-dias-faltam', '/pt/calculadora-semanas',
+    '/pt/conversor-timestamp', '/pt/relogio-mundial', '/pt/dias-uteis', '/pt/temporizador',
+    // Date & Time DE
+    '/de/alter-berechnen', '/de/tage-zwischen-daten', '/de/countdown-timer',
+    '/de/stoppuhr', '/de/wie-viele-tage-bis', '/de/wochen-rechner',
+    '/de/unix-timestamp-rechner', '/de/weltzeituhr', '/de/arbeitstage-rechner', '/de/timer-online',
   ]
 
   // Programmatic convert/ pages
@@ -321,6 +341,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     income => `/rate/hourly-rate-${(income/1000).toFixed(0)}k-salary`
   )
 
+  // Date & Time programmatic pages
+  const ageSlugs = [1960,1965,1970,1975,1980,1985,1990,1995,2000,2005,2010].map(y => `/age/born-in-${y}`)
+  const countdownToSlugs = [
+    '/countdown-to/christmas-2026', '/countdown-to/new-year-2027', '/countdown-to/halloween-2026',
+    '/countdown-to/valentines-day-2027', '/countdown-to/black-friday-2026', '/countdown-to/easter-2027',
+    '/countdown-to/summer-2026', '/countdown-to/spring-2027', '/countdown-to/thanksgiving-2026',
+    '/countdown-to/mothers-day-2027', '/countdown-to/fathers-day-2026', '/countdown-to/new-year-2028',
+  ]
+  const daysToSlugs = [
+    '/days-to/days-until-christmas', '/days-to/days-until-new-year', '/days-to/days-until-halloween',
+    '/days-to/days-until-summer', '/days-to/days-until-black-friday', '/days-to/days-until-valentines-day',
+    '/days-to/days-until-easter', '/days-to/days-until-thanksgiving', '/days-to/days-until-spring',
+    '/days-to/days-until-winter',
+  ]
+
   const allPaths = [
     ...staticTools,
     ...nichePages,
@@ -344,6 +379,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...markupSlugs,
     ...roiSlugs,
     ...rateSlugs,
+    ...ageSlugs,
+    ...countdownToSlugs,
+    ...daysToSlugs,
   ]
 
   return allPaths.map(path => ({

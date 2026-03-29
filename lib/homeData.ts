@@ -83,6 +83,17 @@ const BASE = [
   { key: '/sales-tax-calculator', icon: '🧾', color: '#4338CA', searches: '1.2M+', tag: 'BIZ' },
   { key: '/hourly-rate-calculator', icon: '⏰', color: '#0891B2', searches: '600K+', tag: 'BIZ' },
   { key: '/invoice-number-generator', icon: '#️⃣', color: '#059669', searches: '300K+', tag: 'BIZ' },
+  // Date & Time
+  { key: '/age-calculator',       icon: '🎂', color: '#7C3AED', searches: '5M+',   tag: 'DATE' },
+  { key: '/date-difference',      icon: '📅', color: '#2563EB', searches: '3M+',   tag: 'DATE' },
+  { key: '/countdown',            icon: '⏳', color: '#EF4444', searches: '2.5M+', tag: 'DATE' },
+  { key: '/stopwatch',            icon: '⏱️', color: '#059669', searches: '3M+',   tag: 'DATE' },
+  { key: '/days-until',           icon: '📆', color: '#D97706', searches: '2M+',   tag: 'DATE' },
+  { key: '/weeks-calculator',     icon: '🗓️', color: '#0891B2', searches: '1.5M+', tag: 'DATE' },
+  { key: '/unix-timestamp',       icon: '🔢', color: '#4338CA', searches: '800K+', tag: 'DATE' },
+  { key: '/world-clock',          icon: '🌍', color: '#DC2626', searches: '2M+',   tag: 'DATE' },
+  { key: '/work-days-calculator', icon: '💼', color: '#EA580C', searches: '1M+',   tag: 'DATE' },
+  { key: '/timer',                icon: '⏲️', color: '#8B5CF6', searches: '2M+',   tag: 'DATE' },
 ] as const
 
 // Translated names + descriptions per tool per language
@@ -448,6 +459,77 @@ const TEXTS: Record<string, Record<Lang, ToolText>> = {
     pt: { href: '/pt/gerador-numero-nota', name: 'Gerador Número de Nota', desc: 'Sequencial, por data, aleatório. Prefixo personalizado.' },
     de: { href: '/de/rechnungsnummer-generator', name: 'Rechnungsnummer Generator', desc: 'Fortlaufend, datumsbasiert, zufällig. Eigenes Präfix.' },
   },
+  // Date & Time
+  '/age-calculator': {
+    en: { href: '/age-calculator',          name: 'Age Calculator',               desc: 'Exact age in years, months, days. Zodiac sign. Birthday countdown.' },
+    fr: { href: '/fr/calculateur-age',      name: 'Calculateur d\'Âge',           desc: 'Âge exact en années, mois, jours. Prochain anniversaire. Zodiaque.' },
+    es: { href: '/es/calculadora-edad',     name: 'Calculadora de Edad',          desc: 'Edad exacta en años, meses, días. Próximo cumpleaños. Zodiaco.' },
+    pt: { href: '/pt/calculadora-idade',    name: 'Calculadora de Idade',         desc: 'Idade exata em anos, meses, dias. Próximo aniversário. Zodíaco.' },
+    de: { href: '/de/alter-berechnen',      name: 'Alter Berechnen',              desc: 'Genaues Alter in Jahren, Monaten, Tagen. Nächster Geburtstag. Tierkreis.' },
+  },
+  '/date-difference': {
+    en: { href: '/date-difference',            name: 'Date Difference Calculator', desc: 'Days, weeks, months between two dates. Business days included.' },
+    fr: { href: '/fr/difference-dates',        name: 'Différence de Dates',        desc: 'Jours, semaines, mois exacts entre deux dates. Jours ouvrés inclus.' },
+    es: { href: '/es/diferencia-fechas',       name: 'Diferencia de Fechas',       desc: 'Días, semanas, meses exactos entre dos fechas. Días laborales incluidos.' },
+    pt: { href: '/pt/diferenca-datas',         name: 'Diferença de Datas',         desc: 'Dias, semanas, meses exatos entre duas datas. Dias úteis incluídos.' },
+    de: { href: '/de/tage-zwischen-daten',     name: 'Tage Zwischen Daten',        desc: 'Genaue Tage, Wochen, Monate zwischen zwei Daten. Arbeitstage inklusive.' },
+  },
+  '/countdown': {
+    en: { href: '/countdown',               name: 'Countdown Timer',              desc: 'Live countdown to any date. Days, hours, minutes, seconds ticking.' },
+    fr: { href: '/fr/compte-a-rebours',     name: 'Compte à Rebours',             desc: 'Compte à rebours jusqu\'à n\'importe quelle date. Jours, heures, minutes.' },
+    es: { href: '/es/cuenta-regresiva',     name: 'Cuenta Regresiva',             desc: 'Cuenta regresiva hasta cualquier fecha. Días, horas, minutos, segundos.' },
+    pt: { href: '/pt/contagem-regressiva',  name: 'Contagem Regressiva',          desc: 'Contagem regressiva até qualquer data. Dias, horas, minutos, segundos.' },
+    de: { href: '/de/countdown-timer',      name: 'Countdown Timer',              desc: 'Live-Countdown bis zu einem beliebigen Datum. Tage, Stunden, Minuten.' },
+  },
+  '/stopwatch': {
+    en: { href: '/stopwatch',       name: 'Stopwatch',      desc: 'Millisecond precision stopwatch with lap times. No app needed.' },
+    fr: { href: '/fr/chronometre',  name: 'Chronomètre',    desc: 'Chronomètre avec tours et splits. Précision milliseconde.' },
+    es: { href: '/es/cronometro',   name: 'Cronómetro',     desc: 'Cronómetro con vueltas. Precisión de milisegundos. Sin app.' },
+    pt: { href: '/pt/cronometro',   name: 'Cronômetro',     desc: 'Cronômetro com voltas. Precisão de milissegundos. Sem app.' },
+    de: { href: '/de/stoppuhr',     name: 'Stoppuhr',       desc: 'Stoppuhr mit Millisekunden und Rundenzeiten. Keine App nötig.' },
+  },
+  '/days-until': {
+    en: { href: '/days-until',               name: 'Days Until',               desc: 'Days until Christmas, New Year, Halloween & any custom date.' },
+    fr: { href: '/fr/combien-de-jours',      name: 'Combien de Jours',         desc: 'Jours jusqu\'à Noël, Nouvel An, Halloween et dates personnalisées.' },
+    es: { href: '/es/cuantos-dias-faltan',   name: 'Cuántos Días Faltan',      desc: 'Días hasta Navidad, Año Nuevo, Halloween y fechas personalizadas.' },
+    pt: { href: '/pt/quantos-dias-faltam',   name: 'Quantos Dias Faltam',      desc: 'Dias até o Natal, Ano Novo, Halloween e datas personalizadas.' },
+    de: { href: '/de/wie-viele-tage-bis',    name: 'Wie Viele Tage Bis',       desc: 'Tage bis Weihnachten, Neujahr, Halloween und eigene Daten.' },
+  },
+  '/weeks-calculator': {
+    en: { href: '/weeks-calculator',         name: 'Weeks Calculator',         desc: 'Weeks between two dates, or add weeks to a date. Instant.' },
+    fr: { href: '/fr/calculateur-semaines',  name: 'Calculateur de Semaines',  desc: 'Semaines entre deux dates ou ajoutez des semaines à une date.' },
+    es: { href: '/es/calculadora-semanas',   name: 'Calculadora de Semanas',   desc: 'Semanas entre dos fechas o suma semanas a una fecha.' },
+    pt: { href: '/pt/calculadora-semanas',   name: 'Calculadora de Semanas',   desc: 'Semanas entre duas datas ou adicione semanas a uma data.' },
+    de: { href: '/de/wochen-rechner',        name: 'Wochen Rechner',           desc: 'Wochen zwischen zwei Daten oder Wochen zu einem Datum addieren.' },
+  },
+  '/unix-timestamp': {
+    en: { href: '/unix-timestamp',                name: 'Unix Timestamp Converter', desc: 'Live Unix timestamp. Convert epoch to date and date to epoch.' },
+    fr: { href: '/fr/convertisseur-timestamp',    name: 'Convertisseur Timestamp',  desc: 'Timestamp Unix en direct. Convertissez timestamp en date.' },
+    es: { href: '/es/convertidor-timestamp',      name: 'Convertidor Timestamp',    desc: 'Timestamp Unix en vivo. Convierte timestamp a fecha y viceversa.' },
+    pt: { href: '/pt/conversor-timestamp',        name: 'Conversor Timestamp',      desc: 'Timestamp Unix ao vivo. Converta timestamp em data e vice-versa.' },
+    de: { href: '/de/unix-timestamp-rechner',     name: 'Unix Timestamp Rechner',   desc: 'Live Unix Timestamp. Timestamp in Datum und Datum in Timestamp.' },
+  },
+  '/world-clock': {
+    en: { href: '/world-clock',          name: 'World Clock',         desc: 'Live time in 12+ world cities. Add cities. Day/night indicator.' },
+    fr: { href: '/fr/horloge-mondiale',  name: 'Horloge Mondiale',    desc: 'Heure en direct dans plus de 12 villes. Indicateur jour/nuit.' },
+    es: { href: '/es/reloj-mundial',     name: 'Reloj Mundial',       desc: 'Hora en vivo en 12+ ciudades. Indicador día/noche.' },
+    pt: { href: '/pt/relogio-mundial',   name: 'Relógio Mundial',     desc: 'Hora ao vivo em 12+ cidades. Indicador dia/noite.' },
+    de: { href: '/de/weltzeituhr',       name: 'Weltzeituhr',         desc: 'Live-Zeit in 12+ Weltstädten. Tag/Nacht-Anzeige.' },
+  },
+  '/work-days-calculator': {
+    en: { href: '/work-days-calculator',    name: 'Work Days Calculator', desc: 'Business days between dates. Add work days. Country holidays.' },
+    fr: { href: '/fr/jours-ouvres',         name: 'Jours Ouvrés',         desc: 'Jours ouvrés entre deux dates. Jours fériés par pays.' },
+    es: { href: '/es/dias-laborales',       name: 'Días Laborales',       desc: 'Días laborales entre fechas. Festivos por país.' },
+    pt: { href: '/pt/dias-uteis',           name: 'Dias Úteis',           desc: 'Dias úteis entre datas. Feriados por país.' },
+    de: { href: '/de/arbeitstage-rechner',  name: 'Arbeitstage Rechner',  desc: 'Arbeitstage zwischen Daten. Feiertage nach Land.' },
+  },
+  '/timer': {
+    en: { href: '/timer',           name: 'Online Timer',   desc: 'Set a countdown timer up to 99 hours. Quick presets. Audio alert.' },
+    fr: { href: '/fr/minuteur',     name: 'Minuteur',       desc: 'Réglez un minuteur jusqu\'à 99 heures. Préréglages rapides. Alarme sonore.' },
+    es: { href: '/es/temporizador', name: 'Temporizador',   desc: 'Configura un temporizador hasta 99 horas. Preajustes. Alarma sonora.' },
+    pt: { href: '/pt/temporizador', name: 'Temporizador',   desc: 'Configure um temporizador até 99 horas. Atalhos rápidos. Alarme sonoro.' },
+    de: { href: '/de/timer-online', name: 'Timer Online',   desc: 'Timer bis zu 99 Stunden einstellen. Schnellvorwahl. Ton-Alarm.' },
+  },
 }
 
 function buildTools(lang: Lang): Tool[] {
@@ -468,35 +550,30 @@ function buildTools(lang: Lang): Tool[] {
 
 const COMING_DATA: Record<Lang, ComingItem[]> = {
   en: [
-    { name: 'Date & Time Tools', searches: '15M+' },
     { name: 'Math & Education', searches: '12M+' },
     { name: 'Electrical & DIY', searches: '8M+' },
     { name: 'Cooking Converter', searches: '3M+' },
     { name: 'Photo & Design Tools', searches: '5M+' },
   ],
   fr: [
-    { name: 'Outils Date & Heure', searches: '15M+' },
     { name: 'Maths & Éducation', searches: '12M+' },
     { name: 'Électricité & Bricolage', searches: '8M+' },
     { name: 'Convertisseur Cuisine', searches: '3M+' },
     { name: 'Outils Photo & Design', searches: '5M+' },
   ],
   es: [
-    { name: 'Herramientas Fecha y Hora', searches: '15M+' },
     { name: 'Matemáticas y Educación', searches: '12M+' },
     { name: 'Electricidad y Bricolaje', searches: '8M+' },
     { name: 'Conversor de Cocina', searches: '3M+' },
     { name: 'Herramientas Foto y Diseño', searches: '5M+' },
   ],
   pt: [
-    { name: 'Ferramentas Data e Hora', searches: '15M+' },
     { name: 'Matemática e Educação', searches: '12M+' },
     { name: 'Eletricidade e DIY', searches: '8M+' },
     { name: 'Conversor de Cozinha', searches: '3M+' },
     { name: 'Ferramentas Foto e Design', searches: '5M+' },
   ],
   de: [
-    { name: 'Datum & Zeit Tools', searches: '15M+' },
     { name: 'Mathe & Bildung', searches: '12M+' },
     { name: 'Elektrik & Heimwerken', searches: '8M+' },
     { name: 'Kochrechner', searches: '3M+' },

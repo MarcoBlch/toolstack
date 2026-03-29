@@ -49,6 +49,17 @@ export const TRANSLATIONS: Record<string, Partial<Record<'fr' | 'es' | 'pt' | 'd
   '/hourly-rate-calculator': { fr: '/fr/calcul-taux-horaire', es: '/es/calculadora-tarifa-hora', pt: '/pt/calculadora-valor-hora', de: '/de/stundensatz-rechner' },
   '/sales-tax-calculator': { fr: '/fr/calculatrice-taxe-vente', es: '/es/calculadora-impuesto-venta', pt: '/pt/calculadora-imposto-venda', de: '/de/umsatzsteuer-rechner' },
   '/invoice-number-generator': { fr: '/fr/generateur-numero-facture', es: '/es/generador-numero-factura', pt: '/pt/gerador-numero-nota', de: '/de/rechnungsnummer-generator' },
+  // Date & Time
+  '/age-calculator':         { fr: '/fr/calculateur-age',          es: '/es/calculadora-edad',           pt: '/pt/calculadora-idade',          de: '/de/alter-berechnen' },
+  '/date-difference':        { fr: '/fr/difference-dates',          es: '/es/diferencia-fechas',          pt: '/pt/diferenca-datas',            de: '/de/tage-zwischen-daten' },
+  '/countdown':              { fr: '/fr/compte-a-rebours',          es: '/es/cuenta-regresiva',           pt: '/pt/contagem-regressiva',        de: '/de/countdown-timer' },
+  '/stopwatch':              { fr: '/fr/chronometre',               es: '/es/cronometro',                 pt: '/pt/cronometro',                 de: '/de/stoppuhr' },
+  '/days-until':             { fr: '/fr/combien-de-jours',          es: '/es/cuantos-dias-faltan',        pt: '/pt/quantos-dias-faltam',        de: '/de/wie-viele-tage-bis' },
+  '/weeks-calculator':       { fr: '/fr/calculateur-semaines',     es: '/es/calculadora-semanas',        pt: '/pt/calculadora-semanas',        de: '/de/wochen-rechner' },
+  '/unix-timestamp':         { fr: '/fr/convertisseur-timestamp',   es: '/es/convertidor-timestamp',     pt: '/pt/conversor-timestamp',        de: '/de/unix-timestamp-rechner' },
+  '/world-clock':            { fr: '/fr/horloge-mondiale',          es: '/es/reloj-mundial',              pt: '/pt/relogio-mundial',            de: '/de/weltzeituhr' },
+  '/work-days-calculator':   { fr: '/fr/jours-ouvres',             es: '/es/dias-laborales',             pt: '/pt/dias-uteis',                 de: '/de/arbeitstage-rechner' },
+  '/timer':                  { fr: '/fr/minuteur',                  es: '/es/temporizador',               pt: '/pt/temporizador',               de: '/de/timer-online' },
 }
 
 // Build reverse map: translated path -> english path
