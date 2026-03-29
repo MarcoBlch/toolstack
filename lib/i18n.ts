@@ -15,6 +15,12 @@ const COMMON: Record<string, Record<Locale, string>> = {
   privacy: { en: 'Privacy', fr: 'Confidentialité', es: 'Privacidad', pt: 'Privacidade', de: 'Datenschutz' },
   terms: { en: 'Terms', fr: 'Conditions', es: 'Términos', pt: 'Termos', de: 'Nutzungsbedingungen' },
 
+  // Trust badges
+  trustLocal:   { en: '100% Local',       fr: '100% Local',             es: '100% Local',         pt: '100% Local',           de: '100% Lokal' },
+  trustNoData:  { en: 'No data sent',     fr: 'Aucune donnée envoyée',  es: 'Sin envío de datos', pt: 'Nenhum dado enviado',  de: 'Keine Daten gesendet' },
+  trustInstant: { en: 'No signup needed', fr: 'Sans inscription',       es: 'Sin registro',       pt: 'Sem cadastro',         de: 'Ohne Anmeldung' },
+  trustPrivate: { en: 'Nothing stored',   fr: 'Rien stocké',            es: 'Nada almacenado',    pt: 'Nada armazenado',      de: 'Nichts gespeichert' },
+
   // Common form labels
   calculate: { en: 'Calculate', fr: 'Calculer', es: 'Calcular', pt: 'Calcular', de: 'Berechnen' },
   result: { en: 'Result', fr: 'Résultat', es: 'Resultado', pt: 'Resultado', de: 'Ergebnis' },

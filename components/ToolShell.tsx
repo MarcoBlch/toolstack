@@ -135,6 +135,17 @@ export default function ToolShell({
           })}
         </div>
       </div>
+      {/* Trust badges */}
+      <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 28px', borderBottom: '1px solid #E8E4DB' }}>
+        <div style={{
+          display: 'flex', flexWrap: 'wrap', justifyContent: 'center',
+          gap: 16, padding: '8px 0', fontSize: 11, color: '#9A958A',
+        }}>
+          <span>🔒 {t('trustLocal', lang)} — {t('trustNoData', lang)}</span>
+          <span>⚡ {t('trustInstant', lang)}</span>
+          <span>🛡️ {t('trustPrivate', lang)}</span>
+        </div>
+      </div>
       {children}
 
       {/* Cross-promotion footer */}
